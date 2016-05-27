@@ -28,7 +28,6 @@ class CreatePersonasTable extends Migration
              $table->string('empresa',30);        
              $table->boolean('estado');     
 
-
             //foreign key
             $table->integer('idTipoPersona')->unsigned();
             $table->foreign('idTipoPersona')->references('idTipoPersona')->on('tipo_personas');
