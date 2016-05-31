@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDetInfraestructuraPersonasTable extends Migration
+class CreateDetEventoPersonasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,21 +12,21 @@ class CreateDetInfraestructuraPersonasTable extends Migration
      */
     public function up()
     {
-        Schema::create('det_infraestructura_personas', function (Blueprint $table) {
-
-             //primary key
-            $table->increments('idDetInfraestructuraPersona');
+        Schema::create('det_evento_personas', function (Blueprint $table) {
+            
+            //primary key
+            $table->increments('idDetEventoPersona');
 
             //foreign key
-            $table->integer('idInfraestructura')->unsigned();
-            $table->foreign('idInfraestructura')->references('idInfraestructura')->on('infraestructuras');
+            $table->integer('idEvento')->unsigned();
+            $table->foreign('idEvento')->references('idEvento')->on('eventos');
 
             $table->integer('idPersona')->unsigned();
             $table->foreign('idPersona')->references('idPersona')->on('personas');
 
             //others
             $table->timestamps();
-
+            
         });
     }
 
@@ -37,6 +37,6 @@ class CreateDetInfraestructuraPersonasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('det_infraestructura_personas');
+        Schema::drop('det_evento_personas');
     }
 }
