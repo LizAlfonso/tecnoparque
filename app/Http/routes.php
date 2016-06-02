@@ -11,6 +11,35 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () {    
     return view('welcome');
 });
+
+
+//controladores RESTful
+//Route::resource('photo', 'PhotoController');
+
+Route::resource('tipoPersona', 'TipoPersonaController');
+Route::resource('tipoDocumento', 'TipoDocumentoController');
+Route::resource('persona', 'PersonaController');
+Route::resource('ingreso', 'IngresoController');
+Route::resource('ciudad', 'CiudadController');
+Route::resource('nivelAcademico', 'NivelAcademicoController');
+Route::resource('talento', 'TalentoController');
+Route::resource('recurso', 'RecursoController');
+Route::resource('infraestructura', 'InfraestructuraController');
+Route::resource('detInfraestructuraPersona', 'DetInfraestructuraPersonaController');
+Route::resource('tipoProyecto', 'TipoProyectoController');
+Route::resource('estadoProyecto', 'EstadoProyectoController');
+Route::resource('fechaEntrenamiento', 'FechaEntrenamientoController');
+Route::resource('tipoGestor', 'TipoGestorController');
+Route::resource('lineaTecnologica', 'LineaTecnologicaController');
+Route::resource('gestor', 'GestorController');
+Route::resource('servicio', 'ServicioController');
+Route::resource('evento', 'EventoController');
+Route::resource('detEventoPersona', 'DetEventoPersonaController');
+Route::resource('areaConocimiento', 'AreaConocimientoController');
+Route::resource('clasificacion', 'ClasificacionController');
+Route::resource('proyecto', 'ProyectoController');
+Route::resource('entrenamiento', 'EntrenamientoController');
+Route::resource('detPersonaProyecto', 'DetPersonaProyectoController');
