@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {    
-    return view('welcome');
+    return view('index');
 });
 
 
@@ -42,4 +42,4 @@ Route::resource('areaConocimiento', 'AreaConocimientoController');
 Route::resource('clasificacion', 'ClasificacionController');
 Route::resource('proyecto', 'ProyectoController');
 Route::resource('entrenamiento', 'EntrenamientoController');
-Route::resource('detPersonaProyecto', 'DetPersonaProyectoController');
+Route::resource('detPersonaProyecto', 'DetPersonaProyController');

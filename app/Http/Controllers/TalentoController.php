@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Tecnoparque\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use Tecnoparque\Http\Requests;
 
 class TalentoController extends Controller
 {

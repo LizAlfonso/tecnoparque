@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Tecnoparque;
 
 use Illuminate\Database\Eloquent\Model;
 
