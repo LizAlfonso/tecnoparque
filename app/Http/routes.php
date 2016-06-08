@@ -15,9 +15,16 @@ Route::get('/', function () {
     return view('index');
 });
 
+// Route::get('/', 'FrontController@index');
+// Route::get('contacto', 'FrontController@contacto');
+// Route::get('reviews', 'FrontController@reviews');
+
+
+// Route::get('header',function(){
+// 	return view('prueba');
+// });
 
 //controladores RESTful
-//Route::resource('photo', 'PhotoController');
 
 Route::resource('tipoPersona', 'TipoPersonaController');
 Route::resource('tipoDocumento', 'TipoDocumentoController');

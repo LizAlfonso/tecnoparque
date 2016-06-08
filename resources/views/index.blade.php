@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.headerFooter') 
+@section("content")
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+<!-- <link href="css/style.css" rel='stylesheet' type='text/css' />
+ -->
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+ <link rel="stylesheet" type="text/css" href="../public/css/style.css"> 
+<!-- <img src="images/edificio.jpg" class="img-responsive" alt="Imagen responsive">
+ -->
+<div class="bg">
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+<div class="" data-wow-delay="0.5s">
+				<div class="container">
+					<div class="banner-info text-center">
+						 <h1 id="titulo_index">Tecnoparque Nodo Medellín</h1><br />
+						<span> </span>
+						<p><a class="leran-more" href="http://tecnoparquem.wix.com/oficinavirtual">Oficina Virtual</a></p>
+					</div>
+				</div>
+			</div>
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+	<!-- <h1 id="titulo_index">Tecnoparque Nodo Medellín</h1> -->
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Lizä ^_^</div>
-            </div>
-        </div>
-    </body>
-</html>
+	<!-- <img src="images/edificio.jpg" class="img-responsive" alt="Imagen responsive"> -->
+
+</div>	
+@endsection
+
+
