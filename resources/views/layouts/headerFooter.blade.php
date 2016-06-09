@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<!-- <h1>Antes del content</h1> -->
+<!-- header -->
 
   <div class="top-header">
 
@@ -34,11 +34,14 @@
 
     </div>
 
-</div>     
+</div>   
 
-@yield("content")
+<!-- Contenido de cada vista --> 
 
-<!-- <h2>después del content</h2> -->
+@yield("content")    
+
+
+<!-- footer -->
 
 <div  class="contact text-center">
 
@@ -55,14 +58,11 @@
                 <p><span class="c-msg"> </span><a href="mailto:infotpcmed@misena.edu.co">infotpcmed@misena.edu.co</a></p>    
               </div>
 
-              <br>
+      <br> 
 
     </div>
 
 </div>
-
-<!-- <script type="text/javascript" src ="js/jquery-2.1.4.js"></script>
-<script type="text/javascript" src ="js/bootstrap.min.js"></script> -->
 
 </body>
 </html>
