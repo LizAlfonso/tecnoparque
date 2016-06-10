@@ -1,7 +1,5 @@
-<!-- @extends('layouts.headerFooter')  -->
-@section("content")
-
- <link rel="stylesheet" type="text/css" href="../public/css/style.css"> 
+@extends('layouts.headerFooter')  
+@section('content')
 
 <div class="bg">
 
@@ -129,7 +127,6 @@
 			</div>
 
 
-
-@endsection
+@stop
 
 

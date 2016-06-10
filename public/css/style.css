@@ -183,10 +183,15 @@ nav a#pull {
 		border-bottom: 1px solid #EEE;
 	}
 }
-/*---- benner ----*/
+/*---- banner ----*/
 .banner-info{
 	padding: 9em 0 12em;
 }
+
+.banner-data{
+	padding: 4.8em 0 16em;
+}
+
 .banner-info h1{
 	font-weight: 800;
 	font-size: 3.5em;
@@ -884,6 +889,7 @@ a.leran-more:hover{
 @media (max-width:1366px){
 	.container{
 		width:80%;
+
 	}
 }
 @media (max-width:1280px){

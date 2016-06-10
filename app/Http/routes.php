@@ -24,6 +24,7 @@ Route::get('/', function () {
 // 	return view('prueba');
 // });
 
+
 //controladores RESTful
 
 Route::resource('tipoPersona', 'TipoPersonaController');
@@ -50,3 +51,5 @@ Route::resource('clasificacion', 'ClasificacionController');
 Route::resource('proyecto', 'ProyectoController');
 Route::resource('entrenamiento', 'EntrenamientoController');
 Route::resource('detPersonaProyecto', 'DetPersonaProyController');
+
+Route::resource('usuario', 'UsuarioController');

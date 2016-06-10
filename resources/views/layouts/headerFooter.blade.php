@@ -3,9 +3,11 @@
 <head>
 	<title>Tecnoparque</title>
 
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
+  {!!Html::style('css/bootstrap.min.css')!!}
+  {!!Html::style('css/bootstrap.css')!!}
+  {!!Html::style('css/style.css')!!}
+  {!!Html::style('http://fonts.googleapis.com/css?family=Montserrat:400,700')!!}
+
 
 </head>
 <body>
@@ -17,7 +19,7 @@
     <div class="container">
 
        <div class="logo">
-           <a ><img src="images/logot.png"  /></a>
+           {!!Html::image('images/logot.png')!!}
        </div>      
 
           <nav class="top-nav">
@@ -43,26 +45,29 @@
 
 <!-- footer -->
 
-<div  class="contact text-center">
 
-    <div class="container">
-            
-              <div class="col-md-6">
-               <div class="contact-left-grid">
-                 <p><span class="c-mobi"> </span>57(4)576 00 00 IP: 42852 - 42253</p>
-               </div>
-              </div>
 
-            
-              <div class="contact-right-grid">
-                <p><span class="c-msg"> </span><a href="mailto:infotpcmed@misena.edu.co">infotpcmed@misena.edu.co</a></p>    
-              </div>
+  <div  class="contact text-center">
 
-      <br> 
+      <div class="container">
+              
+                <div class="col-md-6">
+                 <div class="contact-left-grid">
+                   <p><span class="c-mobi"> </span>57(4)576 00 00 IP: 42852 - 42253</p>
+                 </div>
+                </div>
 
-    </div>
+              
+                <div class="contact-right-grid">
+                  <p><span class="c-msg"> </span><a href="mailto:infotpcmed@misena.edu.co">infotpcmed@misena.edu.co</a></p>    
+                </div>
 
-</div>
+        <br> 
+
+      </div>
+
+  </div>
+
 
 </body>
 </html>
