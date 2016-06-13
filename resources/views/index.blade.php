@@ -7,15 +7,13 @@
 	  <div class="container">
 		  <div class="banner-info text-center">
 			 <h1 id="titulo_index">Tecnoparque nodo Medellín</h1><br />
-						<span> </span>
+
 			 <p><a class="leran-more" href="http://tecnoparquem.wix.com/oficinavirtual">Oficina Virtual</a></p>
 		   </div>
        </div>
   </div>
 
 </div>
-
-
 
 <div id="objetivos" class="services container">
 

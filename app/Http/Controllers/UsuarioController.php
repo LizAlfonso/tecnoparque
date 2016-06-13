@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Tecnoparque\Http\Requests;
 
+use Tecnoparque\Http\Requests\UserCreateRequest;
+
 class UsuarioController extends Controller
 {
     /**
@@ -15,7 +17,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        $users = \Tecnoparque\User::All();
+        return view('usuario.index',compact('users'));
     }
 
     /**
@@ -34,7 +37,7 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
         \Tecnoparque\User::create([
             'name' => $request['name'],
@@ -42,7 +45,7 @@ class UsuarioController extends Controller
             'password' => bcrypt($request['password']),
             ]);
 
-        return "Usuario registrado";
+        return redirect('/usuario')->with('message','store');
     }
 
     /**

@@ -25,7 +25,7 @@ body a{
 
 /*----start-container----*/
 .container{
-	width:70%;
+	width:60%;
 }
 /*-----start-header----*/
 .bg{
@@ -186,10 +186,13 @@ nav a#pull {
 /*---- banner ----*/
 .banner-info{
 	padding: 9em 0 12em;
+
 }
 
 .banner-data{
 	padding: 4.8em 0 16em;
+	width: 60%;
+	left: 20%;
 }
 
 .banner-info h1{
@@ -216,6 +219,12 @@ nav a#pull {
 	margin: 1em auto;
 	width: 50%;
 }
+
+.banner-list{
+	padding: 4.8em 0 15em;
+
+}
+
 /*---- services ----*/
 .services{
 	padding:3em 0;

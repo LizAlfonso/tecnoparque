@@ -8,7 +8,6 @@
   {!!Html::style('css/style.css')!!}
   {!!Html::style('http://fonts.googleapis.com/css?family=Montserrat:400,700')!!}
 
-
 </head>
 <body>
 
@@ -45,8 +44,6 @@
 
 <!-- footer -->
 
-
-
   <div  class="contact text-center">
 
       <div class="container">
@@ -66,8 +63,7 @@
 
       </div>
 
-  </div>
-
+  </div> 
 
 </body>
 </html>
