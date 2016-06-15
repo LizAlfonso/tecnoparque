@@ -3,10 +3,12 @@
 namespace Tecnoparque\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Tecnoparque\Http\Controllers\Controller;
+use Session;
+use Redirect;
 use Tecnoparque\Http\Requests;
-
 use Tecnoparque\Http\Requests\UserCreateRequest;
+use Tecnoparque\User; //nombre de modelo para evitar poner \Tecnoparque\ en cada método
 
 class UsuarioController extends Controller
 {
@@ -17,7 +19,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $users = \Tecnoparque\User::All();
+        $users = User::All();
         return view('usuario.index',compact('users'));
     }
 
@@ -39,13 +41,13 @@ class UsuarioController extends Controller
      */
     public function store(UserCreateRequest $request)
     {
-        \Tecnoparque\User::create([
+            User::create([
             'name' => $request['name'],
             'email' => $request ['email'],
-            'password' => bcrypt($request['password']),
+            'password' => $request['password'],
             ]);
 
-        return redirect('/usuario')->with('message','store');
+        return redirect('/usuario')->with('message','Usuario registrado correctamente');
     }
 
     /**
@@ -67,7 +69,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('usuario.edit',['user'=>$user]);
     }
 
     /**
@@ -79,7 +82,12 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->fill($request->all());
+        $user->save();
+
+        Session::flash('message','Usuario modificado correctamente');
+        return Redirect::to('/usuario');
     }
 
     /**
@@ -90,6 +98,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        Session::flash('message','Usuario eliminado correctamente');
+        return Redirect::to('/usuario');
     }
 }
