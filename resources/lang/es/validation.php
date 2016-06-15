@@ -73,7 +73,7 @@ return [
     ],
     'string'               => 'El campo :attribute debe contener solo caracteres.',
     'timezone'             => 'El campo :attribute debe contener una zona válida.',
-    'unique'               => 'El elemento :attribute ya está en uso.',
+    'unique'               => 'El campo :attribute ya está en uso.',
     'url'                  => 'El formato de :attribute no corresponde con el de una URL válida.',
 
     /*
@@ -104,6 +104,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+    'name'                   => '"Nombre de usuario"',
+    'email'                  => '"Correo electrónico"',
+    'password'               => '"Contraseña"',
+    'password_confirmation'  => '"Confirmación de la contraseña"',
+
+    ],
 
 ];

@@ -8,6 +8,7 @@ use Session;
 use Redirect;
 use Tecnoparque\Http\Requests;
 use Tecnoparque\Http\Requests\UserCreateRequest;
+use Tecnoparque\Http\Requests\UserUpdateRequest;
 use Tecnoparque\User; //nombre de modelo para evitar poner \Tecnoparque\ en cada método
 
 class UsuarioController extends Controller
@@ -80,7 +81,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $user = User::find($id);
         $user->fill($request->all());
