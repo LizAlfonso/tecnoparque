@@ -17,6 +17,11 @@
 
 		    @include('usuario.forms.user')
 
+		    <div class="form-group ">
+				{!!Form::label('Contraseña *')!!}
+				{!!Form::password('password',['class'=> 'form-control','placeholder'=>'Ingresa la contraseña'])!!}
+			</div>
+
 			<div class="form-group ">
 			{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 			</div> 
