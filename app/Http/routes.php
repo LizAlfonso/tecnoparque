@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {    
-    return view('index');
-});
+// Route::get('/', function () {    
+//     return view('index');
+// });
 
-// Route::get('/', 'FrontController@index');
-// Route::get('contacto', 'FrontController@contacto');
-// Route::get('reviews', 'FrontController@reviews');
+Route::get('/', 'FrontController@index');
+Route::get('home', 'FrontController@home');
+Route::get('log', 'FrontController@log');
 
 
 // Route::get('header',function(){
@@ -53,3 +53,5 @@ Route::resource('entrenamiento', 'EntrenamientoController');
 Route::resource('detPersonaProyecto', 'DetPersonaProyController');
 
 Route::resource('usuario', 'UsuarioController');
+
+Route::resource('login','LoginController');
