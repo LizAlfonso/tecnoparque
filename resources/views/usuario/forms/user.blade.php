@@ -5,6 +5,6 @@
 
 			<div class="form-group ">
 				{!!Form::label('Correo electrónico *')!!}
-				{!!Form::text('email',null,['class'=> 'form-control','placeholder'=>'Ingresa el correo'])!!}
+				{!!Form::text('email',null,['class'=> 'form-control','placeholder'=>'Ingresa el correo electrónico'])!!}
 			</div>
 
