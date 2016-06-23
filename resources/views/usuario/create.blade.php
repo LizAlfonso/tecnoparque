@@ -1,7 +1,7 @@
 @extends('layouts.headerFooter')  
 @section('content')
 
-	@include('alerts.request')
+@include('alerts.request')
 
 {!!Form::open(['route'=>'usuario.store', 'method'=>'POST'])!!}
 

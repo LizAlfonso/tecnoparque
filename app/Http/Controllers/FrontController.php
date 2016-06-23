@@ -21,9 +21,9 @@ class FrontController extends Controller
     }
 
 
-    public function home()
+    public function inicio()
     {
-    	return view('home');
+    	return view('inicio');
     }
 
 }
