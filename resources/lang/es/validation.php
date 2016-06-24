@@ -109,7 +109,7 @@ return [
     'name'                   => '"Nombre de usuario"',
     'email'                  => '"Correo electrónico"',
     'password'               => '"Contraseña"',
-    'password_confirmation'  => '"Confirmación de la contraseña"',
+    'password_confirmation'  => '"Confirmar contraseña"',
 
     ],
 
