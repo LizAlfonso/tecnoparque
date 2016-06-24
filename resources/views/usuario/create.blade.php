@@ -18,8 +18,13 @@
 		    @include('usuario.forms.user')
 
 		    <div class="form-group ">
-				{!!Form::label('Contraseña *')!!}
+				{!!Form::label('password','Contraseña *')!!}
 				{!!Form::password('password',['class'=> 'form-control','placeholder'=>'Ingresa la contraseña'])!!}
+			</div>
+
+			<div class="form-group ">
+				{!!Form::label('password_confirmation','Confirmar contraseña *')!!}
+				{!!Form::password('password_confirmation',['class'=> 'form-control','placeholder'=>'Ingresa la contraseña nuevamente'])!!}
 			</div>
 
 			<div class="form-group ">

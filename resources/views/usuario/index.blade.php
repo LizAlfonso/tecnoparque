@@ -24,7 +24,7 @@
 					 
 						<tr><td>{{$user->name}}</td>
 						<td>{{$user->email}}</td>
-						<td> <div class="twoColumns col-md-8">
+						<td> <div class="twoColumns col-md-10">
 						{!!link_to_route('usuario.edit', $title = 'Modificar', $parameters = $user->id, $attributes = ['class'=>'btn btn-success'])!!}
 
 						{!!Form::open(['route'=> ['usuario.destroy',$user->id],'method'=>'DELETE'])!!}
