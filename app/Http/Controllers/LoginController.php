@@ -48,6 +48,12 @@ class LoginController extends Controller
 
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::to('/');
+    }
+
     /**
      * Display the specified resource.
      *

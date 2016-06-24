@@ -20,6 +20,7 @@ Route::get('inicio', 'FrontController@inicio');
 Route::get('log', 'FrontController@log');
 
 
+
 // Route::get('header',function(){
 // 	return view('prueba');
 // });
@@ -55,3 +56,4 @@ Route::resource('detPersonaProyecto', 'DetPersonaProyController');
 Route::resource('usuario', 'UsuarioController');
 
 Route::resource('login','LoginController');
+Route::get('logout','LoginController@logout');

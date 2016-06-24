@@ -35,18 +35,19 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
 
-                       <li><a href="{{ url('/log') }}"><span class='glyphicon glyphicon-user'></span> Ingresar</a></li>
+                       <li><a href="{{ url('log') }}"><span class='glyphicon glyphicon-user'></span> Ingresar</a></li>
 
                     @else
-                        <li class="dropdown">
+                      <li><a href="{{ url('inicio') }}">Inicio</a></li>
+                      <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url('logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar sesión</a></li>
                             </ul>
-                        </li>
+                      </li>
                     @endif
                   </ul>
              </nav>
