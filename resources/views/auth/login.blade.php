@@ -1,7 +1,7 @@
 @extends('layouts.headerFooter')
 
 @section('content')
-@include('alerts.errors')
+<!-- @include('alerts.errors') -->
 
 <div class="container">
 
@@ -24,8 +24,6 @@
                             <p  class="profile-name-card"></p>
                             <form class="form-signin">
                                 <span id="reauth-email" class="reauth-email"></span>
-                                <!-- <input type="text" id="inputEmail" class="form-control" name="txtUsuario" placeholder="Ingresa el correo electrónico" required autofocus>
-                                <input type="password" id="inputPassword" class="form-control" name="txtPass" placeholder="Contraseña" required> -->
 
                                 <div class="form-group ">
                                     {!!Form::label('correo','Correo electrónico')!!}
@@ -51,8 +49,6 @@
 
                                 {!!Form::submit('Iniciar sesión',['class'=>'btn btn-primary btn-block btn-signin'])!!}
                                 {!!Form::close()!!}
-
-                                <!-- <input class="btn btn-lg btn-primary btn-block btn-signin" type="submit" name="btnLogin" id="btnLogin" value="Iniciar sesión"></input> -->
                             
                             </form>
                             </div>
@@ -64,46 +60,9 @@
       
             </div>
         </div>
+        <br>
                     <!-- <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Correo electrónico</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Recordarme
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -122,3 +81,23 @@
 </div>
 
 @endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+
+    var message = "{{Session::get('message')}}"
+
+        if ("{{Session::has('message')}}") 
+         {
+            swal({
+           
+           title: message,
+           text: '',
+           type: 'error'
+           })
+         }
+
+</script>
+
+@stop

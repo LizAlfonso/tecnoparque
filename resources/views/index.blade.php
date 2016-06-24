@@ -1,4 +1,10 @@
 @extends('layouts.headerFooter')  
+
+@section('home')
+ <li><a href="{{ url('#objetivos') }}">Objetivos</a></li>
+ <li><a href="{{ url('#about') }}">Qué es Tecnoparque?</a></li>
+@stop
+
 @section('content')
 
 <div class="bg">
