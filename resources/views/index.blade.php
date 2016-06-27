@@ -120,7 +120,7 @@
 							<span class="e-icon1"> </span>
 						</div>
 						<div class="e-left-inner-grid-right">
-							<details> <p>La articulación de las competencias básicas y avanzadas de calidad, de todas las personas que se benefician de programas integrales de formación por proyectos del SENA.</p> </details>
+						 <p>La articulación de las competencias básicas y avanzadas de calidad, de todas las personas que se benefician de programas integrales de formación por proyectos del SENA.</p> 
 						</div>
 					</div>
 								
