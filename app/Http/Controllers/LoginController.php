@@ -41,7 +41,7 @@ class LoginController extends Controller
     public function store(LoginRequest $request)
     {
         if(Auth::attempt(['email' => $request['email'],'password' => $request['password']])){
-            return Redirect::to('inicio');
+            return Redirect::to('principal');
         }
         Session::flash('message', 'Los datos son incorrectos');
          return Redirect::to('/log');

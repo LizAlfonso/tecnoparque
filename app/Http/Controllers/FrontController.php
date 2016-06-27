@@ -21,9 +21,9 @@ class FrontController extends Controller
     }
 
 
-    public function inicio()
+    public function principal()
     {
-    	return view('inicio');
+    	return view('principal');
     }
 
 }

@@ -16,7 +16,7 @@
 // });
 
 Route::get('/', 'FrontController@index');
-Route::get('inicio', 'FrontController@inicio');
+Route::get('principal', 'FrontController@principal');
 Route::get('log', 'FrontController@log');
 
 
