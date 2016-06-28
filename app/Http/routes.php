@@ -19,12 +19,9 @@ Route::get('/', 'FrontController@index');
 Route::get('principal', 'FrontController@principal');
 Route::get('log', 'FrontController@log');
 
-
-
 // Route::get('header',function(){
 // 	return view('prueba');
 // });
-
 
 //controladores RESTful
 
