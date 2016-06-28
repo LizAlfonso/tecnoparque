@@ -5,6 +5,7 @@ namespace Tecnoparque\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Tecnoparque\Http\Requests;
+use Tecnoparque\Evento; //modelo
 
 class EventoController extends Controller
 {
@@ -15,7 +16,8 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return "Este es el index";
+        $eventos = Evento::All();
+        return view('evento.index',compact('eventos'));
     }
 
     /**
@@ -25,7 +27,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        return "Aquí es el formulario para crear";
+        return view('evento.create');
     }
 
     /**

@@ -128,8 +128,7 @@
 							
 </div>
 
-<div class="col-md-4" ><img src="images/tecno.jpg " width="520"></div> 	
-
+<div class="col-md-4" ><img src="images/tecno.jpg " width="513"></div> 	
 
 <div class="clearfix"> </div>
 

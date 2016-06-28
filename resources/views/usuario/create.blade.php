@@ -1,4 +1,12 @@
-@extends('layouts.headerFooter')  
+@extends('layouts.headerFooter')
+
+@section('menu')
+
+ <li><a href="{{ url('/') }}"><span class="glyphicon glyphicon-home"></span>&thinsp; Inicio</a></li>
+ <li><a href="{{ url('usuario') }}">Administración de Usuarios</a></li>
+
+@stop
+
 @section('content')
 
 {!!Form::open(['route'=>'usuario.store', 'method'=>'POST'])!!}
@@ -42,8 +50,6 @@
 			<div class="form-group ">
 			{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 			</div> 
-
-			<div class="clearfix"> </div>
 
 		</div>
 

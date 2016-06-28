@@ -23,6 +23,7 @@ Route::get('log', 'FrontController@log');
 // 	return view('prueba');
 // });
 
+
 //controladores RESTful
 
 Route::resource('tipoPersona', 'TipoPersonaController');
@@ -42,7 +43,10 @@ Route::resource('tipoGestor', 'TipoGestorController');
 Route::resource('lineaTecnologica', 'LineaTecnologicaController');
 Route::resource('gestor', 'GestorController');
 Route::resource('servicio', 'ServicioController');
+
 Route::resource('evento', 'EventoController');
+Route::resource('registroEvento', 'EventoController@create');
+
 Route::resource('detEventoPersona', 'DetEventoPersonaController');
 Route::resource('areaConocimiento', 'AreaConocimientoController');
 Route::resource('clasificacion', 'ClasificacionController');
@@ -51,6 +55,9 @@ Route::resource('entrenamiento', 'EntrenamientoController');
 Route::resource('detPersonaProyecto', 'DetPersonaProyController');
 
 Route::resource('usuario', 'UsuarioController');
+Route::get('registroUsuario','UsuarioController@create');
 
 Route::resource('login','LoginController');
 Route::get('logout','LoginController@logout');
+
+  
