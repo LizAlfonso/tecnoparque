@@ -1,7 +1,6 @@
 @extends('layouts.headerFooter')
 
 @section('content')
-<!-- @include('alerts.errors') -->
 
 <div class="container">
 

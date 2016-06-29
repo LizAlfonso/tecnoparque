@@ -1,11 +1,11 @@
 @extends('layouts.headerFooter')
 
-@section('menu')
+<!-- @section('menu')
 
  <li><a href="{{ url('/') }}"><span class="glyphicon glyphicon-home"></span>&thinsp; Inicio</a></li>
  <li><a href="{{ url('usuario') }}">Administración de Usuarios</a></li>
 
-@stop
+@stop -->
 
 @section('content')
 
@@ -22,6 +22,11 @@
 		    <br>
 
 		    @include('usuario.forms.user')
+
+		    <!-- <div class="form-group">
+		        {!!Form::label('idRol','Rol *')!!}
+		        {!!Form::select('idRol','$nombreRol',null,['placeholder'=>'Seleccionar','class'=>'form-control'])!!}
+		    </div> -->
 
 		    <div class="form-group ">
 				{!!Form::label('password','Contraseña *')!!}

@@ -6,3 +6,5 @@
 	    </div>
 
 	@endif
+
+	<!-- quitar esto porque ya está sweetalert -->
