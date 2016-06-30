@@ -186,7 +186,7 @@ nav a#pull {
 }
 
 .banner-data{
-	padding: 4.9em 16em;
+	padding: 3em 12em;
 	width: 60%;
 	left: 20%;
 }
@@ -224,7 +224,6 @@ nav a#pull {
 
 .banner-list{
 	padding: 3em 10em;
-
 }
 
 /*---- services ----*/
@@ -1466,10 +1465,10 @@ a.leran-more:hover{
         height: 100%;
     }
     .wrapper {
-        min-height: 95%;
+        min-height: 93%;
         height: auto !important;
        height: 100%;
-       margin: 0 auto -4em;
+       margin: 0 auto -3em;
    }
 
    .push {

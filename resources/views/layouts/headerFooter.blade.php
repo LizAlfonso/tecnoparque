@@ -14,6 +14,8 @@
 
 <body>
 
+<div class="wrapper">
+
 <!-- header -->
 
   <div class="top-header">
@@ -29,18 +31,18 @@
              <ul>
 
                @yield("home") 
-       
+                
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
+                    @if(Auth::guest())
 
-                       <li><a href="{{ url('log') }}"><span class='glyphicon glyphicon-user'></span> Ingresar</a></li>
+                       <li><a href="{{ url('log') }}"><span class='glyphicon glyphicon-user'></span>Ingresar</a></li>
 
                     @else
 
                     @yield("home2")
 
-                    @yield("menu")
-                      
+                    @yield("menu")         
+  
                       <li class="dropdown">
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -56,11 +58,13 @@
                   </ul>
              </nav>
 
-    </div>
+             </div>  
 
   </div>   
 
 <!-- Contenido de cada vista --> 
+
+<div class="contenedor">
 
 @yield("content")   
 
@@ -71,6 +75,9 @@
 
 @yield('scripts')   
 
+</div>
+<div class="push"></div>
+</div>
 
 <!-- footer -->
 
@@ -88,8 +95,6 @@
                 <div class="contact-right-grid">
                   <p><span class="c-msg"> </span><a href="mailto:infotpcmed@misena.edu.co">infotpcmed@misena.edu.co</a></p>    
                 </div>
-
-        <br> 
 
       </div>
 
