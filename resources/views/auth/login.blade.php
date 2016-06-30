@@ -11,6 +11,7 @@
         <div class="container">
 
             <div class="col-md-5 col-md-offset-3" "> 
+                 <br>
                    
                 <div class=" card-container ">
 
@@ -59,7 +60,6 @@
       
             </div>
         </div>
-        <br>
                     <!-- <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 

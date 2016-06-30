@@ -18,6 +18,12 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+      public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $users = User::All();
@@ -31,7 +37,8 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuario.create');
+        $nombreRol = \DB::table('rols')->lists('nombre','idRol');
+        return view('usuario.create', compact('nombreRol'));
     }
 
     /**
@@ -42,11 +49,13 @@ class UsuarioController extends Controller
      */
     public function store(UserCreateRequest $request)
     {
-            User::create([
-            'name' => $request['name'],
-            'email' => $request ['email'],
-            'password' => $request['password'],
-            ]);
+            // User::create([
+            // 'name' => $request['name'],
+            // 'email' => $request ['email'],
+            // 'password' => $request['password'],
+            // ]);
+
+        User::create($request->all());
 
         return redirect('/usuario')->with('message','Usuario registrado correctamente');
     }

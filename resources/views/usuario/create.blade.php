@@ -23,10 +23,17 @@
 
 		    @include('usuario.forms.user')
 
-		    <!-- <div class="form-group">
-		        {!!Form::label('idRol','Rol *')!!}
-		        {!!Form::select('idRol','$nombreRol',null,['placeholder'=>'Seleccionar','class'=>'form-control'])!!}
-		    </div> -->
+		    <div class="form-group">
+            	{!!Form::label('rol','Rol *')!!}
+            	{!!Form::select('rol',$nombreRol,null,['placeholder'=>'Seleccionar','class'=>'form-control'])!!}
+
+            	@if ($errors->has('rol'))
+           	 	<span class="list-group-item list-group-item-danger">
+               	<strong>{{ $errors->first('rol') }}</strong>
+            	</span>
+        		@endif
+            </div>
+
 
 		    <div class="form-group ">
 				{!!Form::label('password','Contraseña *')!!}
@@ -55,6 +62,8 @@
 			<div class="form-group ">
 			{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 			</div> 
+
+			<br>
 
 		</div>
 

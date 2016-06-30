@@ -58,7 +58,7 @@ return [
     'not_in'               => 'El campo :attribute seleccionado es invalido.',
     'numeric'              => 'El campo :attribute debe ser un numero.',
     'regex'                => 'El formato del campo :attribute es inválido.',
-    'required'             => 'El campo :attribute es obligatorio',
+    'required'             => 'El campo ":attribute" es obligatorio',
     'required_if'          => 'El campo :attribute es obligatorio cuando el campo :other es :value.',
     'required_with'        => 'El campo :attribute es obligatorio cuando :values está presente.',
     'required_with_all'    => 'El campo :attribute es obligatorio cuando :values está presente.',
@@ -106,10 +106,10 @@ return [
 
     'attributes' => [
 
-    'name'                   => '"Nombre de usuario"',
-    'email'                  => '"Correo electrónico"',
-    'password'               => '"Contraseña"',
-    'password_confirmation'  => '"Confirmar contraseña"',
+    'name'                   => 'nombre de usuario',
+    'email'                  => 'correo electrónico',
+    'password'               => 'contraseña',
+    'password_confirmation'  => 'confirmar contraseña',
 
     ],
 

@@ -45,7 +45,6 @@ class LoginController extends Controller
         }
         Session::flash('message', 'Los datos son incorrectos');
          return Redirect::to('/log');
-
     }
 
     public function logout()
