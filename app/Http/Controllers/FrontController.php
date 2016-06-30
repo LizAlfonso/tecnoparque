@@ -8,6 +8,11 @@ use Tecnoparque\Http\Requests;
 
 class FrontController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth',['only' => 'principal']);
+    }
     
     public function index()
     {
