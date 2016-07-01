@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Tecnoparque\Http\Requests;
 use Auth;
 use Redirect;
+use Tecnoparque\Rol;
 
 class FrontController extends Controller
 {
@@ -29,8 +30,12 @@ class FrontController extends Controller
 
 
     public function principal()
-    { 	
-        if(Auth::user()->idRol == 1)
+    { 	         
+        $rolId = Auth::user()->idRol;
+        $rol = Rol::find($rolId);
+        $nombre = $rol->nombre;
+
+        if($nombre == 'Administrador')
             {
                 return Redirect::to('usuario');
             }

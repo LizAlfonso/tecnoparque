@@ -5,6 +5,8 @@ namespace Tecnoparque\Http\Middleware;
 use Illuminate\Contracts\Auth\Guard;
 use Closure;
 use Session;
+use Tecnoparque\Rol;
+use Tecnoparque\User;
 
 class Admin
 {
@@ -17,7 +19,7 @@ class Admin
      * @return mixed
      */
 
-    protected $auth;
+    public $auth;
 
     public function __construct(Guard $auth)
     {
@@ -26,9 +28,14 @@ class Admin
 
     public function handle($request, Closure $next)
     {
-        if($this->auth->user()->idRol !=1)
+        $rolId = $this->auth->User()->idRol;
+
+        $rol = Rol::find($rolId);
+        $nombre = $rol->nombre;
+  
+        if( $nombre != 'Administrador')
         {
-            return redirect() -> to('/');
+            return redirect()->to('/');
         }
         return $next($request);
     }
