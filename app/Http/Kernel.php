@@ -49,6 +49,8 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \Tecnoparque\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'admin' => 'Tecnoparque\Http\Middleware\Admin',
+        'admin' => 'Tecnoparque\Http\Middleware\Admin',   //Gestión de usuarios
+        'infoc' => 'Tecnoparque\Http\Middleware\Infocenter', //editar evento
+        'practicante' => 'Tecnoparque\Http\Middleware\Practicante', //ver lista eventos y crear evento
     ];
 }

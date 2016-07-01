@@ -2,14 +2,12 @@
 
 namespace Tecnoparque\Http\Middleware;
 
-use Illuminate\Contracts\Auth\Guard;
 use Closure;
+use Illuminate\Contracts\Auth\Guard;
 use Tecnoparque\Rol;
-use Tecnoparque\User;
 
-class Admin
+class Practicante
 {
-
     /**
      * Handle an incoming request.
      *
@@ -32,7 +30,7 @@ class Admin
         $rol = Rol::find($rolId);
         $nombre = $rol->nombre;
   
-        if( $nombre != 'Administrador')
+        if( $nombre != 'Practicante' and $nombre != 'Infocenter')
         {
             return redirect()->to('/');
         }

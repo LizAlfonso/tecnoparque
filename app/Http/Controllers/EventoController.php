@@ -18,6 +18,8 @@ class EventoController extends Controller
         public function __construct()
     {
         $this->middleware('auth');
+        // $this->middleware('infoc',['only' => 'edit']); //update y destroy no tiene dirección, deshabilitar botones únicamente
+        $this->middleware('practicante',['only' => ['index','create']]); 
     }
     
     public function index()
