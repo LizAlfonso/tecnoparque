@@ -9,6 +9,7 @@ class User extends Authenticatable
 {
 
     use SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -36,4 +37,11 @@ class User extends Authenticatable
             $this->attributes['password'] = \Hash::make($valor);
         }
     }
+
+    //Usuario pertenece a un rol
+    public function rols()
+    {
+        return $this->belongsTo('Tecnoparque\Rol','idRol');
+      }
+
 }

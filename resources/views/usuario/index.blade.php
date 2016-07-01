@@ -28,7 +28,7 @@
 
 				<thead>
 
-				<tr><th>Nombre de usuario</th><th>Correo electrónico</th><th>Operación</th></tr>
+				<tr><th>Nombre de usuario</th><th>Correo electrónico</th><th>Rol</th><th>Operación</th></tr>
 
 				</thead>
 
@@ -38,6 +38,7 @@
 					 
 						<tr><td>{{$user->name}}</td>
 						<td>{{$user->email}}</td>
+						<td>{{$user->rols->nombre}}</td>
 						<td> <div class="twoColumns col-md-10">
 						{!!link_to_route('usuario.edit', $title = 'Modificar', $parameters = $user->id, $attributes = ['class'=>'btn btn-success'])!!}
 
