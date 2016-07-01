@@ -19,12 +19,12 @@
 		    @include('usuario.forms.user')
 
 		    <div class="form-group">
-            	{!!Form::label('rol','Rol *')!!}
-            	{!!Form::select('rol',$nombreRol,null,['placeholder'=>'Seleccionar','class'=>'form-control'])!!}
+            	{!!Form::label('idRol','Rol *')!!}
+            	{!!Form::select('idRol',$nombreRol,null,['placeholder'=>'Seleccionar','class'=>'form-control'])!!}
 
-            	@if ($errors->has('rol'))
+            	@if ($errors->has('idRol'))
            	 	<span class="list-group-item list-group-item-danger">
-               	<strong>{{ $errors->first('rol') }}</strong>
+               	<strong>{{ $errors->first('idRol') }}</strong>
             	</span>
         		@endif
             </div>
