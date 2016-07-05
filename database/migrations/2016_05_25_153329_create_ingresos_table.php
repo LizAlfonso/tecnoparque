@@ -19,8 +19,8 @@ class CreateIngresosTable extends Migration
 
             //normal values
             $table->date('fecha');
-            $table->string('horaIngreso',8);
-            $table->string('horaSalida',8);
+            $table->string('horaIngreso',8)->nullable();
+            $table->string('horaSalida',8)->nullable();
  
             //foreign key
             $table->integer('idPersona')->unsigned();

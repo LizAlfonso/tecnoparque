@@ -20,7 +20,7 @@
 		  <div class="col-md-10">
 		  </div>
 		  <div>
-          <a class="btn btn-primary " href="{{ url('registroUsuario') }}">Nuevo registro</a> <!-- o usuario/create -->
+          {!!link_to_route('usuario.create', $title = 'Nuevo registro',null,$attributes = ['class'=>'btn btn-primary'])!!}
           </div>
           <br>
 

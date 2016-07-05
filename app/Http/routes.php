@@ -26,6 +26,11 @@ Route::get('log', 'FrontController@log');
 
 //controladores RESTful
 
+Route::resource('login','LoginController');
+Route::get('logout','LoginController@logout');
+Route::resource('usuario', 'UsuarioController');
+Route::resource('evento', 'EventoController');
+
 Route::resource('tipoPersona', 'TipoPersonaController');
 Route::resource('tipoDocumento', 'TipoDocumentoController');
 Route::resource('persona', 'PersonaController');
@@ -44,8 +49,7 @@ Route::resource('lineaTecnologica', 'LineaTecnologicaController');
 Route::resource('gestor', 'GestorController');
 Route::resource('servicio', 'ServicioController');
 
-Route::resource('evento', 'EventoController');
-Route::resource('registroEvento', 'EventoController@create');
+
 
 Route::resource('detEventoPersona', 'DetEventoPersonaController');
 Route::resource('areaConocimiento', 'AreaConocimientoController');
@@ -54,10 +58,8 @@ Route::resource('proyecto', 'ProyectoController');
 Route::resource('entrenamiento', 'EntrenamientoController');
 Route::resource('detPersonaProyecto', 'DetPersonaProyController');
 
-Route::resource('usuario', 'UsuarioController');
-Route::get('registroUsuario','UsuarioController@create');
 
-Route::resource('login','LoginController');
-Route::get('logout','LoginController@logout');
+
+
 
   

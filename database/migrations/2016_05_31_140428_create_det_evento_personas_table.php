@@ -17,6 +17,9 @@ class CreateDetEventoPersonasTable extends Migration
             //primary key
             $table->increments('idDetEventoPersona');
 
+            //normal values
+            $table->boolean('responsable')->nullable();
+
             //foreign key
             $table->integer('idEvento')->unsigned();
             $table->foreign('idEvento')->references('idEvento')->on('eventos');

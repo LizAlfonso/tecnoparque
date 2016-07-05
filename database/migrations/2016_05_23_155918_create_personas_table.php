@@ -21,12 +21,12 @@ class CreatePersonasTable extends Migration
              $table->string('numeroIdentificacion',15);
              $table->string('nombres',50);          
              $table->string('apellidos',50);        
-             $table->boolean('genero');      
-             $table->string('telefono',7);
-             $table->string('celular',10);
+             $table->boolean('genero')->nullable();      
+             $table->string('telefono',7)->nullable();
+             $table->string('celular',10)->nullable();
              $table->string('correo',254);
-             $table->string('empresa',30);        
-             $table->boolean('estado');     
+             $table->string('empresa',30)->nullable();        
+             $table->boolean('estado')->nullable();     
 
             //foreign key
             $table->integer('idTipoPersona')->unsigned();
