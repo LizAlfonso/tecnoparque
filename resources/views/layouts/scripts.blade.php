@@ -62,6 +62,13 @@ $('.btn-danger').click(function()
                  )
 		 }
 
+
+    $('#idDP').datepicker(
+    {
+    	format: "dd/mm/yyyy",
+    	language: "es"
+    })
+
 </script>
 
 @stop
