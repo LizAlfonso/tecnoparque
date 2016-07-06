@@ -3,8 +3,13 @@
 namespace Tecnoparque\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Tecnoparque\Http\Controllers\Controller;
+use Session;
+use Redirect;
 use Tecnoparque\Http\Requests;
+use Tecnoparque\Http\Requests\ServicioCreateRequest;
+use Tecnoparque\Http\Requests\ServicioUpdateRequest;
+use Tecnoparque\Servicio; //modelo
 
 class ServicioController extends Controller
 {
@@ -17,11 +22,13 @@ class ServicioController extends Controller
         public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin');
     }
     
     public function index()
     {
-        return "Este es el index";
+        $servicios = Servicio::All();
+        return view('servicio.index',compact('servicios'));
     }
 
     /**
@@ -31,7 +38,7 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        return "Aquí es el formulario para crear";
+        return view('servicio.create');
     }
 
     /**
@@ -40,9 +47,13 @@ class ServicioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServicioCreateRequest $request)
     {
-        //
+        Servicio::create([
+       'nombre' => $request['nombre'],
+            ]);
+
+        return redirect('servicio')->with('message','Servicio registrado correctamente');
     }
 
     /**
@@ -64,7 +75,8 @@ class ServicioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $servicio = Servicio::find($id);
+        return view('servicio.edit',['servicio'=>$servicio]);
     }
 
     /**
@@ -74,9 +86,14 @@ class ServicioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServicioUpdateRequest $request, $id)
     {
-        //
+        $servicio = Servicio::find($id);
+        $servicio->fill($request->all());
+        $servicio->save();
+
+        Session::flash('message','Servicio modificado correctamente');
+        return Redirect::to('servicio');
     }
 
     /**
@@ -87,6 +104,9 @@ class ServicioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $servicio = Servicio::find($id);
+        $servicio->delete();
+        Session::flash('message','Servicio eliminado correctamente');
+        return Redirect::to('servicio');
     }
 }

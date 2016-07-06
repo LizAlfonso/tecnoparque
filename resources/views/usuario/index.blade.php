@@ -1,15 +1,11 @@
 @extends('layouts.headerFooter')
 
-@section('menu')
-
- <li><a href="{{ url('/') }}"><span class="glyphicon glyphicon-home"></span>&thinsp; Inicio</a></li>
-<!--  <li><a href="{{ url('usuario') }}">Administración de Usuarios</a></li> -->
-
-@stop
+@include ('layouts.menuHeader')
 
 @section('content')
 
 @include ('layouts.scripts')
+@include ('layouts.scriptDataTable4')
 
 <div class="container">
 

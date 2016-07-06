@@ -29,6 +29,7 @@ Route::get('log', 'FrontController@log');
 Route::resource('login','LoginController');
 Route::get('logout','LoginController@logout');
 Route::resource('usuario', 'UsuarioController');
+Route::resource('servicio', 'ServicioController');
 Route::resource('evento', 'EventoController');
 
 Route::resource('tipoPersona', 'TipoPersonaController');
@@ -47,8 +48,6 @@ Route::resource('fechaEntrenamiento', 'FechaEntrenamientoController');
 Route::resource('tipoGestor', 'TipoGestorController');
 Route::resource('lineaTecnologica', 'LineaTecnologicaController');
 Route::resource('gestor', 'GestorController');
-Route::resource('servicio', 'ServicioController');
-
 
 
 Route::resource('detEventoPersona', 'DetEventoPersonaController');

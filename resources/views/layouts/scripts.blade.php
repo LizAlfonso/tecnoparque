@@ -2,27 +2,6 @@
 
 <script type="text/javascript">
 
-	$(document).ready(function() 
-	{
-        
-        $('#dataTable').dataTable(
-        {
-          "aoColumnDefs":
-          [
-            {
-              'bSortable': false, 'aTargets': [2]
-            }
-
-          ],
-          
-          "oLanguage":
-          {
-            "sUrl": "../resources/lang/Espanhol.json"
-          }
-
-        });   
-    });
-
 $('.btn-danger').click(function()
 	{
 		var form1= $(this).closest("form");

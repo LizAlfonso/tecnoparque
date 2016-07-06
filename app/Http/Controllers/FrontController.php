@@ -5,8 +5,6 @@ namespace Tecnoparque\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Tecnoparque\Http\Requests;
-use Auth;
-use Redirect;
 use Tecnoparque\Rol;
 
 class FrontController extends Controller
@@ -31,18 +29,7 @@ class FrontController extends Controller
 
     public function principal()
     { 	         
-        $rolId = Auth::user()->idRol;
-        $rol = Rol::find($rolId);
-        $nombre = $rol->nombre;
-
-        if($nombre == 'Administrador')
-            {
-                return Redirect::to('usuario');
-            }
-            else
-            {
-                return view('principal');
-            }       
+        return view('principal');     
     }
 
 }
