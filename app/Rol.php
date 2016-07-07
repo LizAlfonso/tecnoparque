@@ -14,9 +14,6 @@ class Rol extends Model
      public function usuarios()
     {
         return $this->hasMany('Tecnoparque\User','id','idRol');
-         // return $this->hasMany('User');
-    }
-    
-  
+    } 
 
 }

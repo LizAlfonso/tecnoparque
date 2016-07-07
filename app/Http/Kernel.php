@@ -51,6 +51,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin' => 'Tecnoparque\Http\Middleware\Admin',   //Gestión de usuarios y servicios(para Eventos)
         'infoc' => 'Tecnoparque\Http\Middleware\Infocenter', //editar evento
-        'practicante' => 'Tecnoparque\Http\Middleware\Practicante', //ver lista eventos y crear evento
+        'practicante' => 'Tecnoparque\Http\Middleware\Practicante', //crear evento
+        'dinamizador' => 'Tecnoparque\Http\Middleware\dinamizador', // ver lista eventos
     ];
 }

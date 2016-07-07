@@ -1,4 +1,4 @@
-@section('scriptDataTable2')
+@section('scriptDataTable')
 
 <script type="text/javascript">
 
@@ -7,10 +7,12 @@
         
         $('#dataTable').dataTable(
         {
+          responsive:true;   //para el +
+
           "aoColumnDefs":
           [
             {
-              'bSortable': false, 'aTargets': [1]
+              'bSortable': false, 'aTargets': [3]
             }
 
           ],

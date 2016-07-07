@@ -10,7 +10,7 @@
           "aoColumnDefs":
           [
             {
-              'bSortable': false, 'aTargets': [2]
+              'bSortable': false, 'aTargets': [3]
             }
 
           ],

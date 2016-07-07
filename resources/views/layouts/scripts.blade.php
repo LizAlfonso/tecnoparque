@@ -26,7 +26,7 @@ $('.btn-danger').click(function()
 				   );
 			 });
 
-		 });
+	 });
 
 
 
@@ -42,9 +42,9 @@ $('.btn-danger').click(function()
 		 }
 
 
-    $('#idDP').datepicker(
+    $("#idDP").datepicker(
     {
-    	format: "dd/mm/yyyy",
+    	format: "yyyy/mm/dd",
     	language: "es"
     })
 

@@ -76,7 +76,10 @@
 {!!Html::script('js/bootstrap-datepicker.min.js')!!}
 {!!Html::script('js/bootstrap-datepicker.es.min.js')!!}
 
-@yield('scripts')   
+@yield('scripts')  
+@yield('scriptDataTable2')
+@yield('scriptDataTable4') 
+@yield('scriptDataTable')
 
 </div>
 <div class="push"></div>

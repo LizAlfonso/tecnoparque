@@ -3,7 +3,7 @@
 
  <li><a href="{{ url('/') }}"><span class="glyphicon glyphicon-home"></span>&thinsp; Inicio</a></li>
  
- @if( Auth::user()->idRol == 1)  <!-- cambiar por el nombre del rol -->
+ @if( Auth::user()->rols->nombre == "Administrador")  
 
     <li><a href="{{ url('usuario') }}">Usuarios</a></li>
     <li><a href="{{ url('servicio') }}">Servicios</a></li>
