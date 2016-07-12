@@ -5,6 +5,11 @@ namespace Tecnoparque\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Tecnoparque\Http\Requests;
+use Tecnoparque\Http\Requests\TipoDocumentoCreateRequest;
+use Tecnoparque\Http\Requests\TipoDocumentoUpdateRequest;
+use Tecnoparque\TipoDocumento;
+use Session;
+use Redirect;
 
 class TipoDocumentoController extends Controller
 {
@@ -14,14 +19,16 @@ class TipoDocumentoController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-        public function __construct()
+      public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin');
     }
     
     public function index()
     {
-         return "Este es el index";
+        $tipo_documentos = TipoDocumento::All();
+        return view('tipoDocumento.index',compact('tipo_documentos'));
     }
 
     /**
@@ -31,7 +38,7 @@ class TipoDocumentoController extends Controller
      */
     public function create()
     {
-        return "Aquí es el formulario para crear";
+        return view('tipoDocumento.create');
     }
 
     /**
@@ -40,9 +47,13 @@ class TipoDocumentoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TipoDocumentoCreateRequest $request)
     {
-        //
+        TipoDocumento::create([
+       'nombre' => $request['nombre'],
+            ]);
+
+        return redirect('tipoDocumento')->with('message','Tipo de documento registrado correctamente');
     }
 
     /**
@@ -64,7 +75,8 @@ class TipoDocumentoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipoDocumento = TipoDocumento::find($id);
+        return view('tipoDocumento.edit',['tipoDocumento'=>$tipoDocumento]);
     }
 
     /**
@@ -74,9 +86,14 @@ class TipoDocumentoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TipoDocumentoUpdateRequest $request, $id)
     {
-        //
+        $tipoDocumento = TipoDocumento::find($id);
+        $tipoDocumento->fill($request->all());
+        $tipoDocumento->save();
+
+        Session::flash('message','Tipo de documento modificado correctamente');
+        return Redirect::to('tipoDocumento');
     }
 
     /**
@@ -87,6 +104,9 @@ class TipoDocumentoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tipoDocumento = TipoDocumento::find($id);
+        $tipoDocumento->delete();
+        Session::flash('message','Tipo de documento eliminado correctamente');
+        return Redirect::to('tipoDocumento');
     }
 }
