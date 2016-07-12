@@ -4,19 +4,19 @@
 
 @section('content')
 
-{!!Form::open(['route'=>'servicio.store', 'method'=>'POST'])!!}
+{!!Form::open(['route'=>'tipoDocumento.store', 'method'=>'POST'])!!}
 
 	<div class="container" >
 
 		<div class="banner-data col-md-8">
 
 			<div class=" text-center ">
-			<h1>Registro de Servicio</h1>
+			<h1>Registro de Tipos de documento</h1>
 		    </div>
 
 		    <br>
 
-		    @include('servicio.forms.servicio')
+		    @include('tipoDocumento.forms.documento')
 
 			<div class="form-group ">
 			{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}

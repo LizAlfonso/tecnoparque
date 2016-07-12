@@ -7,6 +7,8 @@
 
     <li><a href="{{ url('usuario') }}">Usuarios</a></li>
     <li><a href="{{ url('servicio') }}">Servicios</a></li>
+    <li><a href="{{ url('tipoDocumento') }}">Tipo documento</a></li>
+    <li><a href="{{ url('tipoPersona') }}">Tipo persona</a></li>
     
  @else
     <li><a href="{{ url('asistencia') }}">Asistencias</a></li>
