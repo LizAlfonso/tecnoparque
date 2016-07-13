@@ -10,6 +10,7 @@ use Tecnoparque\Http\Requests;
 use Tecnoparque\Http\Requests\UserCreateRequest;
 use Tecnoparque\Http\Requests\UserUpdateRequest;
 use Tecnoparque\User; //nombre de modelo para evitar poner \Tecnoparque\ en cada método
+use Tecnoparque\Rol;
 
 class UsuarioController extends Controller
 {
@@ -80,8 +81,9 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
+        $nombreRol = Rol::lists('nombre','idRol');
         $user = User::find($id);
-        return view('usuario.edit',['user'=>$user]);
+        return view('usuario.edit',['user'=>$user],compact('nombreRol'));
     }
 
     /**
@@ -91,8 +93,15 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $this->validate($request,[
+        'name' => 'required',
+        'email' => 'required|email|min:8|unique:users,email,'.$id,
+        'idRol' => 'required',
+        'password' => 'min:4|confirmed',
+        ]);
+
         $user = User::find($id);
         $user->fill($request->all());
         $user->save();

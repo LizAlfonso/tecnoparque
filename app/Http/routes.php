@@ -32,7 +32,6 @@ Route::resource('usuario', 'UsuarioController');
 Route::resource('servicio', 'ServicioController');
 Route::resource('evento', 'EventoController');
 Route::resource('tipoDocumento', 'TipoDocumentoController');
-
 Route::resource('tipoPersona', 'TipoPersonaController');
 
 Route::resource('persona', 'PersonaController');
