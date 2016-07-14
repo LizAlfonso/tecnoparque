@@ -15,4 +15,10 @@ class TipoPersona extends Model
     protected $fillable = ['nombre'];
 	protected $dates = ['deleted_at']; //para deshabilitar el registro
 
+	//Un tipoPersona tiene muchas personas
+     public function personas()
+    {
+        return $this->hasMany('Tecnoparque\Persona','idPersona','idTipoPersona');
+    }
+
 }

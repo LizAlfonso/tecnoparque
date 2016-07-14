@@ -8,7 +8,6 @@ use Session;
 use Redirect;
 use Tecnoparque\Http\Requests;
 use Tecnoparque\Http\Requests\UserCreateRequest;
-use Tecnoparque\Http\Requests\UserUpdateRequest;
 use Tecnoparque\User; //nombre de modelo para evitar poner \Tecnoparque\ en cada método
 use Tecnoparque\Rol;
 
