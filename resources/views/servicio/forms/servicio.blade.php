@@ -1,6 +1,6 @@
 <div class="form-group list-group">
 	{!!Form::label('nombre','Nombre *')!!}
-	{!!Form::text('nombre',null,['class'=> 'form-control','placeholder'=>'Ingresa el nombre del servicio'])!!}
+	{!!Form::text('nombre',null,['class'=> 'form-control','placeholder'=>'Ingrese el nombre del servicio'])!!}
 
 	@if ($errors->has('nombre'))
         <span class="list-group-item list-group-item-danger">

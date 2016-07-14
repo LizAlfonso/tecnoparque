@@ -18,7 +18,7 @@ class CreateTipoPersonasTable extends Migration
             $table->increments('idTipoPersona');
 
             //normal values
-            $table->string('nombre',25);
+            $table->string('nombre',25)->unique();
 
             //Others
             $table->timestamps();

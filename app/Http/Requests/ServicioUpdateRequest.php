@@ -24,7 +24,7 @@ class ServicioUpdateRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required',
+            'nombre' => 'required|unique:servicios',
         ];
     }
 }

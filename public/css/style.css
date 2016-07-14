@@ -1426,6 +1426,12 @@ a.leran-more:hover{
 	column-count: 2;
 }
 
+.threeColumns
+{
+	-webkit-column-count: 3;
+	column-count: 3;
+}
+
 /*
  * Card component
  */

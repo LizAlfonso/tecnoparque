@@ -18,7 +18,7 @@ class CreateTipoDocumentosTable extends Migration
             $table->increments('idTipoDocumento');
 
             //normal values
-            $table->string('nombre',25);
+            $table->string('nombre',25)->unique();
 
             //others
             $table->timestamps();

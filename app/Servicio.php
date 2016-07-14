@@ -14,7 +14,7 @@ class Servicio extends Model
 	protected $fillable = ['nombre']; 
 	protected $dates = ['deleted_at'];  //para deshabilitar el registro
 
-    // //Un servicio tiene muchos eventos
+    //Un servicio tiene muchos eventos
      public function eventos()
     {
         return $this->hasMany('Tecnoparque\Evento','idEvento','idServicio');

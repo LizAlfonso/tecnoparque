@@ -34,7 +34,7 @@ return [
     'different'            => 'Los campos :attribute y :other han de ser diferentes.',
     'digits'               => 'El campo :attribute debe ser un número de :digits dígitos.',
     'digits_between'       => 'El campo :attribute debe contener entre :min y :max dígitos.',
-    'email'                => 'El campo :attribute no corresponde con una dirección de e-mail válida.',
+    'email'                => 'El campo ":attribute" no corresponde con una dirección de e-mail válida.',
     'filled'               => 'El campo :attribute es obligatorio.',
     'exists'               => 'El campo :attribute no existe.',
     'image'                => 'El campo :attribute debe ser una imagen.',
@@ -52,7 +52,7 @@ return [
     'min'                  => [
         'numeric' => 'El campo :attribute debe tener al menos :min.',
         'file'    => 'El archivo :attribute debe pesar al menos :min kilobytes.',
-        'string'  => 'El campo :attribute debe contener al menos :min caracteres.',
+        'string'  => 'El campo ":attribute" debe contener al menos :min caracteres.',
         'array'   => 'El campo :attribute no debe contener más de :min elementos.',
     ],
     'not_in'               => 'El campo :attribute seleccionado es invalido.',
@@ -73,7 +73,7 @@ return [
     ],
     'string'               => 'El campo :attribute debe contener solo caracteres.',
     'timezone'             => 'El campo :attribute debe contener una zona válida.',
-    'unique'               => 'El campo :attribute ya está en uso.',
+    'unique'               => 'El campo ":attribute" ya está en uso.',
     'url'                  => 'El formato de :attribute no corresponde con el de una URL válida.',
 
     /*
@@ -110,9 +110,13 @@ return [
     'email'                  => 'correo electrónico',
     'password'               => 'contraseña',
     'password_confirmation'  => 'confirmar contraseña',
-    'idRol' => 'rol',
-    'idServicio' => 'servicio',
-
+    'idRol'                  => 'rol',
+    'idServicio'             => 'servicio',
+    'lugar'                  => 'dentro o fuera',
+    'numeroIdentificacion'   => 'número de identificación',
+    'idTipoDocumento'        => 'tipo de documento',
+    'idTipoPersona'          => 'tipo de persona',
+    'correo'                 => 'correo electrónico',
     ],
 
 ];

@@ -21,10 +21,10 @@ class CreateEventosTable extends Migration
             $table->string('nombre',50);          
             $table->date('fecha');        
             $table->string('hora',10);      
-            $table->string('lugar',25)->nullable();
+            $table->string('lugar',6);
+            $table->string('lugarEspecifico',35)->nullable();  
             $table->tinyInteger('cupos')->nullable();
             $table->string('descripcion',100)->nullable();      
-            $table->boolean('externo');    
 
             //foreign key
             $table->integer('idServicio')->unsigned();
