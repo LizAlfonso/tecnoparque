@@ -1,3 +1,4 @@
+
 html, body{
   	font-family: 'Montserrat', sans-serif;
     font-size: 100%;
@@ -185,16 +186,17 @@ nav a#pull {
 
 }
 
-.banner-data{
-	padding: 3em 12em;
-	width: 60%;
+.banner-data{    
+	padding: 2.2em 20em;
 	left: 20%;
 }
 
 .banner-data2{
-	padding: 7.6em 16em;
-	width: 60%;
-	left: 20%;
+	padding: 2.2em 5em;
+}
+
+.banner-data3{
+	padding: 2.2em 0em;
 }
 
 .banner-info h1{
@@ -220,10 +222,6 @@ nav a#pull {
 	font-family: 'Open Sans', sans-serif;
 	margin: 1em auto;
 	width: 50%;
-}
-
-.banner-list{
-	padding: 3em 10em;
 }
 
 /*---- services ----*/

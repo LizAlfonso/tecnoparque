@@ -7,11 +7,12 @@
 
 <div class="container">
 
-	<div class="banner-list">
+	<div class="banner-data">
 
 		<h1><center>Lista de Servicios</center></h1>
-
-		  <div class="col-md-10">
+          <br>
+          
+		  <div class="col-md-9">
 		  </div>
 		  <div>
 

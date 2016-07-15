@@ -9,9 +9,10 @@
 
 <div class="container">
 
-	<div class="banner-list">
+	<div class="banner-data2">
 
 		<h1><center>Lista de Usuarios</center></h1>
+		<br>
 
 		  <div class="col-md-10">
 		  </div>

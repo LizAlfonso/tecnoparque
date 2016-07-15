@@ -1,4 +1,5 @@
 @extends('layouts.headerFooter')
+@include ('layouts.menuHeader')
 
 @section('content')
 
@@ -6,7 +7,7 @@
 
 	<div class="container" >
 
-		<div class="banner-data2 col-md-8">
+		<div class="banner-data">
 
 			<div class=" text-center ">
 			<h1>Modificar Servicio</h1>

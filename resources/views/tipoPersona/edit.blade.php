@@ -7,7 +7,7 @@
 
 	<div class="container" >
 
-		<div class="banner-data2 col-md-8">
+		<div class="banner-data">
 
 			<div class=" text-center ">
 			<h1>Modificar Tipos de persona</h1>

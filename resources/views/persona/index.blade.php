@@ -8,8 +8,10 @@
 
 <div class="container">
 
-<br>
+    <div class="banner-data3">
+
 		<h1><center>Lista de Personas</center></h1>
+        <br>
 
 		  <div class="col-md-10">
 		  </div>
@@ -57,7 +59,7 @@
 				</tbody>
 
 			</table>
-
+    </div>
 </div>
 
 @stop

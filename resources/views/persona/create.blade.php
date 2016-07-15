@@ -8,7 +8,7 @@
 
 	<div class="container" >
 
-		<div class="banner-data col-md-8">
+		<div class="banner-data">
 
 			<div class=" text-center ">
 			<h1>Registro de Persona</h1>

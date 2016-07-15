@@ -7,12 +7,12 @@
 
 <div class="container">
 
-	<div class="banner-list">
+	<div class="banner-data">
 
 		<h1><center>Lista de Tipos de persona</center></h1>
 		<br>
 
-		  <div class="col-md-10">
+		  <div class="col-md-9">
 		  </div>
 		  <div>
 

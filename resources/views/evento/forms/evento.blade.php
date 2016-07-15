@@ -24,7 +24,7 @@
 
     <div class="form-group list-group">
     {!!Form::label('fecha','Fecha *')!!}
-    {!!Form::text('fecha',null,['id'=>'idDP','class'=>'form-control','placeholder'=>'dd/mm/aaaa'])!!}
+    {!!Form::text('fecha',null,['id'=>'idDP','class'=>'form-control','placeholder'=>'aaaa/mm/dd'])!!}
 
     @if ($errors->has('fecha'))
          <span class="list-group-item list-group-item-danger">
