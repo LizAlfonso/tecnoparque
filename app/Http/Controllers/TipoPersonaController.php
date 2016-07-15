@@ -53,7 +53,7 @@ class TipoPersonaController extends Controller
        'nombre' => $request['nombre'],
             ]);
 
-        return redirect('tipoPersona')->with('message','Tipo de documento registrado correctamente');
+        return redirect('tipoPersona')->with('message','Tipo de persona registrado correctamente');
     }
 
     /**

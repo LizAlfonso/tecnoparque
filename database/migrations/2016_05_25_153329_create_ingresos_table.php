@@ -15,7 +15,7 @@ class CreateIngresosTable extends Migration
         Schema::create('ingresos', function (Blueprint $table) {
 
             //primary key
-            $table->increments('idIngresos');
+            $table->increments('idIngreso');
 
             //normal values
             $table->date('fecha');
@@ -26,7 +26,6 @@ class CreateIngresosTable extends Migration
             $table->integer('idPersona')->unsigned();
             $table->foreign('idPersona')->references('idPersona')->on('personas');
             
-
             //others
             $table->timestamps();
             

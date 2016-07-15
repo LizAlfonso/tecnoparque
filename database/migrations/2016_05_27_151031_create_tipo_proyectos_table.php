@@ -18,7 +18,7 @@ class CreateTipoProyectosTable extends Migration
             $table->increments('idTipoProyecto');
 
             //normal values
-            $table->string('nombre',45);
+            $table->string('nombre',45)->unique();
 
             //Others
             $table->timestamps();

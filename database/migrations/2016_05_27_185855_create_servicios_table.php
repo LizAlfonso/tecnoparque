@@ -18,7 +18,7 @@ class CreateServiciosTable extends Migration
             $table->increments('idServicio');
 
             //normal values
-            $table->string('nombre',30);                       
+            $table->string('nombre',30)->unique();                       
             
             //Others
             $table->timestamps();

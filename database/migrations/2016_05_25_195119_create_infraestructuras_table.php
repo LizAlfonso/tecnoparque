@@ -18,10 +18,10 @@ class CreateInfraestructurasTable extends Migration
             $table->increments('idInfraestructura');
 
             //normal values
-            $table->date('fechaRegistro');
+            $table->date('fechaRegistro')->nullable();
             $table->string('horaIngreso',8);
             $table->string('horaSalida',8);
-            $table->string('duracionAsesoria',8);
+            $table->string('duracionAsesoria',8)->nullable();
 
             //foreign key
             $table->integer('idRecurso')->unsigned();

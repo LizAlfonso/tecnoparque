@@ -18,9 +18,9 @@ class CreateProyectosTable extends Migration
             $table->increments('idProyecto');
 
             //normal values
-            $table->string('titulo',60);  
-            $table->date('fechaInicio');   
-            $table->string('descripcion',200);  
+            $table->string('titulo',60)->unique();  
+            $table->date('fechaInicio')->nullable();   
+            $table->string('descripcion',200)->nullable();  
 
             //foreign key
             $table->integer('idAreaConocimiento')->unsigned();

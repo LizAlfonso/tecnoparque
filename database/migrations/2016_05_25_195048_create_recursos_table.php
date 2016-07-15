@@ -18,7 +18,7 @@ class CreateRecursosTable extends Migration
             $table->increments('idRecurso');
 
             //normal values
-             $table->string('nombre',70);
+             $table->string('nombre',70)->unique();
 
             //others
             $table->timestamps();

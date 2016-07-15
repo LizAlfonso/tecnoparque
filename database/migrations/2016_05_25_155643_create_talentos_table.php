@@ -21,10 +21,10 @@ class CreateTalentosTable extends Migration
             $table->date('fechaNacimiento');
             $table->char('estrato',1);
             $table->string('direccion',30);
-            $table->boolean('graduado');
-            $table->char('anhoTerminacion',4);
-            $table->string('tituloObtenido',40);
-            $table->string('institucion',50);
+            $table->boolean('graduado')->nullable();
+            $table->char('anhoTerminacion',4)->nullable();
+            $table->string('tituloObtenido',40)->nullable();
+            $table->string('institucion',50)->nullable();
             $table->boolean('asistenteLaboratorio');
 
             //foreign key

@@ -18,8 +18,8 @@ class CreateFechaEntrenamientosTable extends Migration
             $table->increments('idFechaEntrenamiento');
 
             //normal values
-            $table->date('fecha');
-            $table->boolean('asistencia');
+            $table->date('fecha')->nullable();
+            $table->boolean('asistencia')->nullable();
 
             //others
             $table->timestamps();

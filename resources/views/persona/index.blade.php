@@ -1,7 +1,8 @@
 @extends('layouts.headerFooter')
+@include ('layouts.menuHeader')
 
 @section('content')
-@include ('layouts.menuHeader')
+
 @include ('layouts.scripts')
 @include ('layouts.scriptDataTable')
 
@@ -12,6 +13,7 @@
 
 		  <div class="col-md-10">
 		  </div>
+		  
 		  <div>
 
 		  {!!link_to_route('persona.create', $title = 'Nuevo registro',null,$attributes = ['class'=>'btn btn-primary'])!!}

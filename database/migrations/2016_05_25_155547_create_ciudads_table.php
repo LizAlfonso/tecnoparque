@@ -18,7 +18,7 @@ class CreateCiudadsTable extends Migration
             $table->increments('idCiudad');
 
             //normal values
-            $table->string('nombre',45);
+            $table->string('nombre',45)->unique();
 
             //others
             $table->timestamps();

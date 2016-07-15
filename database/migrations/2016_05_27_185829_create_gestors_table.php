@@ -24,9 +24,6 @@ class CreateGestorsTable extends Migration
             $table->integer('idLineaTecnologica')->unsigned();
             $table->foreign('idLineaTecnologica')->references('idLineaTecnologica')->on('linea_tecnologicas');
 
-            $table->integer('idTipoGestor')->unsigned();
-            $table->foreign('idTipoGestor')->references('idTipoGestor')->on('tipo_gestors');
-
             //others
             $table->timestamps();
             $table->softDeletes();

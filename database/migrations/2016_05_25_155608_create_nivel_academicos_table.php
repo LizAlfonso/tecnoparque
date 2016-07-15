@@ -18,7 +18,7 @@ class CreateNivelAcademicosTable extends Migration
             $table->increments('idNivelAcademico');
 
             //normal values
-             $table->string('nombre',35);
+             $table->string('nombre',35)->unique();
 
             //others
             $table->timestamps();

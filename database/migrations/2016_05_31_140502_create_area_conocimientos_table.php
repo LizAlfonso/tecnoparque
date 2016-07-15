@@ -18,7 +18,7 @@ class CreateAreaConocimientosTable extends Migration
             $table->increments('idAreaConocimiento');
 
             //normal values
-             $table->string('nombre',50);              
+             $table->string('nombre',50)->unique();              
 
             //foreign key
             $table->integer('idLineaTecnologica')->unsigned();

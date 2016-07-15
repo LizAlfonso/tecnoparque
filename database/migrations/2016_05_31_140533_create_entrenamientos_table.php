@@ -18,14 +18,14 @@ class CreateEntrenamientosTable extends Migration
             $table->increments('idEntrenamiento');
 
             //normal values
-            $table->tinyInteger('numeroEntrenamiento');  
-            $table->boolean('confirmacion');  
-            $table->boolean('documentosCompletos');  
-            $table->date('fechaComite');   
-            $table->time('horaComite');  
-            $table->boolean('asistencia');  
-            $table->boolean('admitido'); 
-            $table->string('comentarios',100); 
+            $table->tinyInteger('numeroEntrenamiento')->nullable();  
+            $table->boolean('confirmacion')->nullable();  
+            $table->boolean('documentosCompletos')->nullable();  
+            $table->date('fechaComite')->nullable();   
+            $table->time('horaComite')->nullable();  
+            $table->boolean('asistencia')->nullable();  
+            $table->boolean('admitido')->nullable(); 
+            $table->string('comentarios',100)->nullable(); 
 
             //foreign key
             $table->integer('idFechaEntrenamiento')->unsigned();
