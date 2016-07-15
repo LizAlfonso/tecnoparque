@@ -79,7 +79,9 @@
 @yield('scripts')  
 @yield('scriptDataTable2')
 @yield('scriptDataTable4') 
-@yield('scriptDataTable')
+@yield('scriptDataTable7')
+@yield('scriptDataTable8')
+@yield('scriptDataTable11')
 
 </div>
 <div class="push"></div>

@@ -1,6 +1,6 @@
     <div class="form-group list-group">
         {!!Form::label('numeroIdentificacion','Número de identificación *')!!}
-        {!!Form::text('numeroIdentificacion',null,['class'=> 'form-control','placeholder'=>'Ingrese el número de identificación'])!!}
+        {!!Form::number('numeroIdentificacion',null,['class'=> 'form-control','placeholder'=>'Ingrese el número de identificación'])!!}
 
         @if ($errors->has('numeroIdentificacion'))
             <span class="list-group-item list-group-item-danger">
@@ -56,14 +56,16 @@
 
     <div class="form-group ">
         {!!Form::label('genero','Género')!!}
- 
-    <div class="controls form-group">
-       <select class="form-control" placeholder ="Seleccione">
-         <option value="" selected>Seleccione</option>
-         <option value="0">Femenino</option>
-         <option value="1">Masculino</option>       
-       </select>         
-     </div>
+     
+        <div class="controls">
+           <select name="lugar" class="form-control" placeholder ="Seleccione">
+             <option value="" selected>Seleccione</option>
+             <option value="0">Femenino</option>
+             <option value="1">Masculino</option>       
+           </select>         
+         </div>
+
+    </div>
 
     <div class="form-group ">
         {!!Form::label('correo','Correo electrónico *')!!}

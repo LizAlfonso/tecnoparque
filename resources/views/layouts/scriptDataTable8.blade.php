@@ -1,4 +1,4 @@
-@section('scriptDataTable')
+@section('scriptDataTable8')
 
 <script type="text/javascript">
 
@@ -12,7 +12,7 @@
           "aoColumnDefs":
           [
             {
-              'bSortable': false, 'aTargets': [3]
+              'bSortable': false, 'aTargets': [7]
             }
 
           ],

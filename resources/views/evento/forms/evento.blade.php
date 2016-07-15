@@ -50,7 +50,7 @@
      <div class="form-group ">
      {!!Form::label('lugar','¿El evento se realizará dentro o fuera de Tecnoparque? * ')!!}
 
-     <div class="controls form-group">
+     <div class="controls">
        <select id="lugar" name="lugar" class="form-control" placeholder ="Seleccione">
          <option value="" selected>Seleccione</option>
          <option value="dentro">Dentro</option>
