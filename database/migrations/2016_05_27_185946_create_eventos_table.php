@@ -30,6 +30,9 @@ class CreateEventosTable extends Migration
             $table->integer('idServicio')->unsigned();
             $table->foreign('idServicio')->references('idServicio')->on('servicios');
 
+            $table->integer('idLugar')->unsigned();
+            $table->foreign('idLugar')->references('idLugar')->on('lugars');
+
             //Others
             $table->timestamps();
 
