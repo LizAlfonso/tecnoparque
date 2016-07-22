@@ -1,6 +1,5 @@
 @extends('layouts.headerFooter')
-
-@include('layouts.menuHeader')
+@include ('layouts.menuHeader') 
 
 @section('content')
 

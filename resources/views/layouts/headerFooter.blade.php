@@ -36,7 +36,7 @@
                     <!-- Authentication Links -->
                     @if(Auth::guest())
 
-                       <li><a href="{{ url('log') }}"><span class='glyphicon glyphicon-user'></span>Ingresar</a></li>
+                       <li><a href="{{ url('log') }}"><span class='glyphicon glyphicon-user'></span> Ingresar</a></li>
 
                     @else
 

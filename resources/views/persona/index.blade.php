@@ -40,7 +40,13 @@
 						<td>{{$persona->tipoPersonas->nombre}}</td>
 						<td>{{$persona->nombres}}</td>
 						<td>{{$persona->apellidos}}</td>
-						<td>{{$persona->genero}}</td>
+						<td>
+						 @if($persona->genero== 1)
+						 Femenino
+						 @elseif($persona->genero==2)
+						 Masculino
+						 @endif						
+						</td>
 						<td>{{$persona->correo}}</td>
 						<td>{{$persona->telefono}}</td>
 						<td>{{$persona->celular}}</td>

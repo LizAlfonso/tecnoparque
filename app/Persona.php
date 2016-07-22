@@ -25,4 +25,11 @@ class Persona extends Model
     {
         return $this->belongsTo('Tecnoparque\TipoPersona','idTipoPersona');
     }
+
+    //Una persona pertenece a muchos eventos
+    public function eventos()
+    {
+        return $this->belongsToMany('Tecnoparque\Evento','det_evento_personas','idPersona','idEvento')->withPivot('responsable');
+    }
+
 }

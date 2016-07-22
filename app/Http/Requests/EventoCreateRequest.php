@@ -4,7 +4,7 @@ namespace Tecnoparque\Http\Requests;
 
 use Tecnoparque\Http\Requests\Request;
 
-class LugarUpdateRequest extends Request
+class EventoCreateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,12 @@ class LugarUpdateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:lugars',
+            'idServicio' =>'required',
+            'nombre' => 'required',
+            'fecha' => 'required',
+            'hora' => 'required',
+            'lugar' => 'required',
+            'cupos' => 'integer|max:100',
         ];
     }
 }

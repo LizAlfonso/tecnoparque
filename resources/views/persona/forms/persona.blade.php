@@ -56,14 +56,7 @@
 
     <div class="form-group ">
         {!!Form::label('genero','Género')!!}
-     
-        <div class="controls">
-           <select name="lugar" class="form-control" placeholder ="Seleccione">
-             <option value="" selected>Seleccione</option>
-             <option value="0">Femenino</option>
-             <option value="1">Masculino</option>       
-           </select>         
-         </div>
+        {!! Form::select('genero', ['1' => 'Femenino', '2' => 'Masculino'], null, ['class' => 'form-control','placeholder'=>'Seleccione' ]) !!}
 
     </div>
 

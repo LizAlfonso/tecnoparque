@@ -3,8 +3,14 @@
 namespace Tecnoparque\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Tecnoparque\Http\Controllers\Controller;
 use Tecnoparque\Http\Requests;
+use Tecnoparque\Persona;
+use Tecnoparque\TipoDocumento;
+use Tecnoparque\TipoPersona;
+use Tecnoparque\Http\Requests\PersonaCreateRequest;
+use Session;
+use Redirect;
 
 class PersonaController extends Controller
 {
@@ -21,7 +27,8 @@ class PersonaController extends Controller
     
     public function index()
     {
-         return "Este es el index";
+        $personas = Persona::All();
+        return view('persona.index',compact('personas'));
     }
 
     /**
@@ -31,7 +38,10 @@ class PersonaController extends Controller
      */
     public function create()
     {
-        return "Aquí es el formulario para crear";
+        $tipoDocumentos = TipoDocumento::lists('nombre','idTipoDocumento');
+        $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
+        return view('persona.create',compact('tipoDocumentos'),compact('tipoPersonas'));
+
     }
 
     /**
@@ -40,9 +50,11 @@ class PersonaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonaCreateRequest $request)
     {
-        //
+        Persona::create($request->all());
+
+        return redirect('persona')->with('message','Persona registrada correctamente');
     }
 
     /**
@@ -64,7 +76,10 @@ class PersonaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipoDocumentos = TipoDocumento::lists('nombre','idTipoDocumento');
+        $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
+        $persona = Persona::find($id);
+        return view('persona.edit',['persona'=>$persona],compact('tipoDocumentos','tipoPersonas'));
     }
 
     /**
@@ -76,7 +91,21 @@ class PersonaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $this->validate($request,[
+        //  'numeroIdentificacion' => 'required|unique:personas',
+        //  'idTipoDocumento' => 'required',
+        //  'idTipoPersona' => 'required',
+        //  'nombres'=> 'required',
+        //  'apellidos'=> 'required',
+        //  'correo'=> 'required|email|unique:personas,correo,'.$persona->idPersona,
+        // ]);
+
+        $persona = Persona::find($id);      
+        $persona->fill($request->all());
+        $persona->save();
+
+        Session::flash('message','Persona modificada correctamente');
+        return Redirect::to('persona');
     }
 
     /**
@@ -87,6 +116,9 @@ class PersonaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $persona = Persona::find($id);
+        $persona->delete();
+        Session::flash('message','Persona eliminada correctamente');
+        return Redirect::to('persona');
     }
 }
