@@ -3,7 +3,7 @@
 @section('content')
 @include ('layouts.menuHeader') 
 @include ('layouts.scripts')
-@include ('layouts.scriptDataTable2')
+@include ('dataTables.scriptDataTable2')
 
 <div class="container">
 

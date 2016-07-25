@@ -9,6 +9,7 @@ use Tecnoparque\Persona;
 use Tecnoparque\TipoDocumento;
 use Tecnoparque\TipoPersona;
 use Tecnoparque\Http\Requests\PersonaCreateRequest;
+use Tecnoparque\Http\Requests\PersonaUpdateRequest;
 use Session;
 use Redirect;
 
@@ -89,17 +90,8 @@ class PersonaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PersonaUpdateRequest $request, $id)
     {
-        // $this->validate($request,[
-        //  'numeroIdentificacion' => 'required|unique:personas',
-        //  'idTipoDocumento' => 'required',
-        //  'idTipoPersona' => 'required',
-        //  'nombres'=> 'required',
-        //  'apellidos'=> 'required',
-        //  'correo'=> 'required|email|unique:personas,correo,'.$persona->idPersona,
-        // ]);
-
         $persona = Persona::find($id);      
         $persona->fill($request->all());
         $persona->save();

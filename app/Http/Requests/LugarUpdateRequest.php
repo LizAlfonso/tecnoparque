@@ -4,7 +4,7 @@ namespace Tecnoparque\Http\Requests;
 
 use Tecnoparque\Http\Requests\Request;
 
-class TipoPersonaUpdateRequest extends Request
+class LugarUpdateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

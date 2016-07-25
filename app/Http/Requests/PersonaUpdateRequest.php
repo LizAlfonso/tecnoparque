@@ -4,7 +4,7 @@ namespace Tecnoparque\Http\Requests;
 
 use Tecnoparque\Http\Requests\Request;
 
-class TipoPersonaUpdateRequest extends Request
+class PersonaUpdateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,12 @@ class TipoPersonaUpdateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required',
+            'numeroIdentificacion' => 'required',
+            'idTipoDocumento' => 'required',
+            'idTipoPersona' => 'required',
+            'nombres'=> 'required',
+            'apellidos'=> 'required',
+            'correo'=> 'required|email',
         ];
     }
 }

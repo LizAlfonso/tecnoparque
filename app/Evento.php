@@ -21,15 +21,16 @@ class Evento extends Model
         return $this->belongsTo('Tecnoparque\Servicio','idServicio');
     }
 
-    //Un evento pertenece a muchas personas
-    public function personas()
-    {
-    	return $this->belongsToMany('Tecnoparque\Persona','det_evento_personas','idEvento','idPersona')->withPivot('responsable');
-    }
-
-    //Un evento pertenece a un lugar
+     //Un evento pertenece a un lugar
     public function lugars()
     {
         return $this->belongsTo('Tecnoparque\Lugar','idLugar');
     }
+
+    //Un evento pertenece a muchas personas
+    public function personas()
+    {
+        return $this->belongsToMany('Tecnoparque\Persona', 'det_evento_personas', 'idEvento', 'idPersona')->withPivot('responsable');
+    }
+
 }

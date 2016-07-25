@@ -18,7 +18,7 @@ class CreateLugarsTable extends Migration
             $table->increments('idLugar');
 
             //normal values
-            $table->string('nombre',30)->unique();  
+            $table->string('nombre',45)->unique();  
 
             //others
             $table->timestamps();

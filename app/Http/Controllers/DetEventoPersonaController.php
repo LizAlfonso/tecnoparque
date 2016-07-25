@@ -3,8 +3,10 @@
 namespace Tecnoparque\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Tecnoparque\Http\Requests;
+use Tecnoparque\DetEventoPersona;
+use Tecnoparque\Evento;
+use Tecnoparque\Persona;
 
 class DetEventoPersonaController extends Controller
 {
@@ -19,9 +21,12 @@ class DetEventoPersonaController extends Controller
         $this->middleware('auth');
     }
     
-    public function index()
+    public function index($id)
     {
-        return "Este es el index";
+        $evento = Evento::find($id);
+        $personas = Persona::All();
+       // $asistencias = DetEventoPersona::All();
+        return view('asistencia.index',compact('evento','personas'));
     }
 
     /**
@@ -31,7 +36,7 @@ class DetEventoPersonaController extends Controller
      */
     public function create()
     {
-        return "Aquí es el formulario para crear";
+        return view('asistencia.create');
     }
 
     /**

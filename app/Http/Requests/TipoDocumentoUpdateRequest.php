@@ -24,7 +24,7 @@ class TipoDocumentoUpdateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:tipo_documentos',
+            'nombre'=> 'required',
         ];
     }
 }

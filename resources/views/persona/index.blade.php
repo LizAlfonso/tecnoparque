@@ -4,7 +4,7 @@
 @section('content')
 
 @include ('layouts.scripts')
-@include ('layouts.scriptDataTable11')
+@include ('dataTables.scriptDataTable11')
 
 <div class="container">
 
