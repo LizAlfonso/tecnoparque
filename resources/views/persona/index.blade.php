@@ -6,7 +6,7 @@
 @include ('layouts.scripts')
 @include ('dataTables.scriptDataTable11')
 
-<div class="container">
+<div class="container2">
 
     <div class="banner-data3">
 

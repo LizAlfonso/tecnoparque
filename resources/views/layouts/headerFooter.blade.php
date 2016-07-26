@@ -65,7 +65,7 @@
 
 <!-- Contenido de cada vista --> 
 
-<div class="contenedor">
+<div class="container">
 
 @yield("content")   
 

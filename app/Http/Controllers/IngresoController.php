@@ -5,6 +5,7 @@ namespace Tecnoparque\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Tecnoparque\Http\Requests;
+use Tecnoparque\Ingreso;
 
 class IngresoController extends Controller
 {
@@ -21,7 +22,8 @@ class IngresoController extends Controller
     
     public function index()
     {
-        return "Este es el index";
+        $ingresos = Ingreso::All();
+        return view('ingreso.index',compact('ingresos'));
     }
 
     /**
@@ -31,7 +33,9 @@ class IngresoController extends Controller
      */
     public function create()
     {
-        return "Aquí es el formulario para crear";
+        // $personas = Servicio::lists('numeroIdentificacion','idPersona');
+        // return view('ingreso.create',compact('personas'));
+        return view('ingreso.create');
     }
 
     /**
