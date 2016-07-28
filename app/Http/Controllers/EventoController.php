@@ -25,9 +25,9 @@ class EventoController extends Controller
         public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('infoc',['only' => 'edit']); //destroy no tiene dirección
-        $this->middleware('practicante',['only' => 'create']);
-        $this->middleware('dinamizador',['only' => 'index']); 
+        // $this->middleware('infoc',['only' => 'edit']); //destroy no tiene dirección
+        // $this->middleware('practicante',['only' => 'create']);
+        // $this->middleware('dinamizador',['only' => 'index']); 
     }
     
     public function index()
