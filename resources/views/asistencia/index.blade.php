@@ -29,8 +29,7 @@
 								<th>Correo electrónico</th>
 								<th>Teléfono</th>
 								<th>Celular</th>
-								<th>Empresa</th>
-								<th>Responsable del Evento</th>
+								<th>Empresa</th>								
 								<th>Operación</th>
 							</tr>
 						</thead>
@@ -53,8 +52,7 @@
 									<td>{{$persona->correo}}</td>
 									<td>{{$persona->telefono}}</td>
 									<td>{{$persona->celular}}</td>
-									<td>{{$persona->empresa}}</td>
-									<td></td>
+									<td>{{$persona->empresa}}</td>									
 									<td> 														
 										<button type="button" class="btn btn-warning" data-dismiss="modal">Agregar</button>
 									</td>
@@ -117,25 +115,23 @@
 					<td>{{$asistente->empresa}}</td>
 					<td>
 						@if($asistente->pivot->responsable== 0)
-						No
+						{!!Form::checkbox('responsable', 'value')!!}
 						@else
-						Sí
+						{!!Form::checkbox('responsable', 'value', true)!!}
 						@endif
 					</td>
 					<td>
-						{!!link_to_route('asistencia.edit', $title = 'Modificar', $parameters = $asistente->idDetEventoPersona, $attributes = ['class'=>'btn btn-success'])!!}					
-						{!!Form::open(['route'=> ['asistencia.destroy',$asistente->idPersona],'method'=>'DELETE'])!!}
-		           	    {!!Form::button('Eliminar',['class'=>'btn btn-danger'])!!}
-	                	{!!Form::close()!!}                         
+						{!!link_to_route('asistencia.edit', $title = 'Modificar', $parameters = $asistente->idDetEventoPersona, $attributes = ['class'=>'btn btn-success'])!!}						
+		           	    {!!Form::button('Quitar',['class'=>'btn btn-danger'])!!}
 	            	</td>
             	</tr>
 			@endforeach
 		</tbody>
 	</table>
-	<button id="ggg" type="button" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+	<button id="ggg" type="button" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
+	<br>
 
 </div>
-
 @stop
 
 @section('pageScripts')
@@ -143,7 +139,38 @@
 
 	$(document).ready(function(){ 
 
+		var dataAsistentes = [];
+
+		$("#dataTable tr").each(function(){
+		    dataAsistentes.push($(this).find("td:first").text()); //put elements into array
+		});
+
+		// console.log("data aca " + dataAsistentes);
+
 		var tablePersona = $('#dataTablePersona').DataTable(
+        {
+          	// responsive:true,   //para el +
+          	scrollY:        "300px",
+	        scrollX:        true,
+	        scrollCollapse: true,
+	        paging:         false,
+	        // fixedColumns:   {
+	        //     leftColumns: 0,
+	        //     rightColumns: 1
+	        // },
+			"aoColumnDefs":
+			[
+				{
+				'bSortable': false, 'aTargets': [10]
+				}
+			],
+			"oLanguage":
+			{
+				"sUrl": "../resources/lang/Espanhol.json"
+			}
+		});   	
+
+		var table = $('#dataTable').DataTable(
         {
           	// responsive:true,   //para el +
           	scrollY:        "300px",
@@ -164,57 +191,45 @@
 			{
 				"sUrl": "../resources/lang/Espanhol.json"
 			}
-		});   	
-		// $('#btn').click(function(e){
-			
-		// 	// var table = $('#dataTablePersona').DataTable();
- 
-		// 	tablePersona.rows().recalcHeight().draw();
-
-		// });
-
-		
-
-		var table = $('#dataTable').DataTable(
-        {
-          	// responsive:true,   //para el +
-          	scrollY:        "300px",
-	        scrollX:        true,
-	        scrollCollapse: true,
-	        paging:         false,
-	        fixedColumns:   {
-	            leftColumns: 0,
-	            rightColumns: 1
-	        },
-			"aoColumnDefs":
-			[
-				{
-				'bSortable': false, 'aTargets': [11]
-				}
-			],
-			"oLanguage":
-			{
-				"sUrl": "../resources/lang/Espanhol.json"
-			}
 		});   
 
-	    $('.btn-warning').on( 'click', function () {
-        	// console.log( tablePersona.row( this ).data() );
+		$('#dataTablePersona tbody').on( 'click', '.btn-warning', function () {		
 
-        	var $item = $(this).closest("tr");         
+		    var data = tablePersona.row( $(this).parents('tr') ).data();
+		    var idPersonas = data[0];		    
 
-        	console.log("adas " + $item[0]);
+		    for (var i = 0; i < dataAsistentes.length; i++) {
+		    	console.log("personas: " + idPersonas + " dataAsistentes: " + dataAsistentes[i]);
+		    	if (idPersonas == dataAsistentes[i]) {
+		    		swal({
+						title: "",
+						text: "La persona escogida ya esta en este evento",
+						type: "error",
+						confirmButtonText: "Aceptar",
+						allowOutsideClick: true
+					})
+		    		return false;
+		    	}
+		    }
 
-    		// $("#dataTable").find('tbody').append($item[0]);   
-    		table.row.add( [
-            $item[0],
-            '2',     
-        ] ).draw( false );   
-	    });
+		    table.row.add( [
+		        data[0],
+		        data[1],
+		        data[2],
+		        data[3],
+		        data[4],
+		        data[5],
+		        data[6],
+		        data[7],
+		        data[8],
+		        data[9],		        
+				'{!!Form::checkbox('name', 'value')!!}',							
+		        '<td>' + 
+		        	'<button class="btn btn-danger" type="button">Eliminar</button>' + 
+	        	'</td>'
+		    ] ).draw( false );		  
 
-		// $('#dataTablePersona tbody').on( 'click', 'tr', function () {
-  //   		console.log( table.row( this ).data() );
-		// });
+		} );
 
 	});	
 </script>
