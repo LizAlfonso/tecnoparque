@@ -4,9 +4,12 @@ namespace Tecnoparque\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Tecnoparque\Http\Requests;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use Tecnoparque\DetEventoPersona;
 use Tecnoparque\Evento;
 use Tecnoparque\Persona;
+use DB;
 
 class DetEventoPersonaController extends Controller
 {
@@ -46,8 +49,30 @@ class DetEventoPersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {     
+
+        if ($request->ajax()) {
+            $arrayAsistencia = $request->all(); 
+        }  
+
+        $idEvento = $arrayAsistencia["data"][0]["idEvento"];
+
+        $array = [];
+
+        $evento = Evento::find($idEvento);
+      
+        if ($arrayAsistencia["data"][0]["idPersona"] == null) {
+            $array = [];
+        } else {
+            for ($i=0; $i < count($arrayAsistencia["data"]); $i++) {                 
+                $array[$arrayAsistencia["data"][$i]["idPersona"]] = ['responsable' => $arrayAsistencia["data"][$i]["responsable"]];
+            }
+        }
+                
+        $emptyArray = [];
+
+        return $evento->personas()->sync($array); 
+
     }
 
     /**
