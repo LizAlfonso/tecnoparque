@@ -79,7 +79,7 @@
 	<div class="row">
 		{!!Form::button('Agregar asistente', ['id'=>'btn', 'class'=>'btn btn-primary', 'data-toggle'=>'modal', 'data-target'=>'#myModal'])!!}
 	</div>
-	
+	<br>
 	<div class="row">
 		<table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
 			<thead>
@@ -153,7 +153,7 @@
           	scrollY:        "300px",
 	        scrollX:        true,
 	        scrollCollapse: true,
-	        paging:         false,
+	        // paging:         false,
 	        // fixedColumns:   {
 	        //     leftColumns: 0,
 	        //     rightColumns: 1
@@ -166,7 +166,7 @@
 			],
 			"oLanguage":
 			{
-				"sUrl": "../resources/lang/Espanhol.json"
+				"sUrl": "../../resources/lang/Espanhol.json"
 			}
 		});   	
 
@@ -176,7 +176,7 @@
           	scrollY:        "300px",
 	        scrollX:        true,
 	        scrollCollapse: true,
-	        paging:         false,
+	        
 	        // fixedColumns:   {
 	        //     leftColumns: 0,
 	        //     rightColumns: 1
@@ -195,7 +195,7 @@
 			],
 			"oLanguage":
 			{
-				"sUrl": "../resources/lang/Espanhol.json"
+				"sUrl": "../../resources/lang/Espanhol.json"
 			}
 		});   		
 
@@ -262,31 +262,7 @@
 			var data = [];
 			var aux = 0;
 			var responsable = 0;
-			var idPersona;
-
-			// data.push({
-		 //      	idEvento: '{{$evento->idEvento}}',
-		 //      	idPersona: '3',
-		 //      	responsable: '0'
-		 //    });
-
-		 //    data.push({
-		 //      	idEvento: '{{$evento->idEvento}}',
-		 //      	idPersona: '1',
-		 //      	responsable: '1'
-		 //    });
-
-			// data[0]["idEvento"] = '1';
-			// data[0]["idPersona"] = '3';
-			// data[0]["responsable"] = '0';
-
-			// table.find('tr').each(function (rowIndex, r) {
-		        
-		 //        $(this).find('td').each(function (colIndex, c) {
-		 //            data.push(c.textContent);
-		 //        });
-		 //        data.push(cols);
-		 //    });
+			var idPersona;		
 
 		 	$('#dataTable tbody tr').each(function(){
 		 		
@@ -323,10 +299,7 @@
                 data: {data: data},
                 dataType: 'json', 
                 success: function(data) {
-	                // successmessage = 'Data was succesfully captured';
-	                // $("label#successmessage").text(successmessage);
-	                // var loc = window.location;
-    				// window.location = "../evento";    	
+	                  
     				swal(
 						'Evento modificado correctamente',
 						'',
@@ -334,16 +307,13 @@
 					)
 	            },  
 	            error: function(data) {
+
             		swal(
 						'Ha ocurrido un erro',
 						'',
 						'error'
 					)
-	                // successmessage = 'Error';
-	                // $("label#successmessage").text(successmessage);
-	                // $("body").html(data);
-	                // var loc = window.location;
-    				// window.location = "../evento";
+	               
 	            },          
             })
 
