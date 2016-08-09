@@ -20,6 +20,7 @@ class CreateIngresosTable extends Migration
             //normal values
             $table->date('fecha');
             $table->string('horaIngreso',8)->nullable();
+            $table->string('descripcion',45)->nullable();
             $table->string('horaSalida',8)->nullable();
  
             //foreign key

@@ -12,6 +12,7 @@ use Tecnoparque\Http\Requests\PersonaCreateRequest;
 use Tecnoparque\Http\Requests\PersonaUpdateRequest;
 use Session;
 use Redirect;
+use Auth;
 
 class PersonaController extends Controller
 {
@@ -24,12 +25,21 @@ class PersonaController extends Controller
         public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('gestor'); 
     }
     
     public function index()
     {
         $personas = Persona::All();
-        return view('persona.index',compact('personas'));
+
+        if(Auth::user()->rols->nombre == "Infocenter")
+            {
+                return view('persona.index',compact('personas'));
+            }
+            else
+             {
+                return view('\persona\index2',compact('personas'));
+             }
     }
 
     /**

@@ -21,7 +21,15 @@ body a{
 /*----start-container----*/
 .container{
 	width:60%;
+	margin-left:0em;
 }
+
+.container2{
+
+	margin-left:5em;
+	margin-right:5em;
+}
+
 /*-----start-header----*/
 .bg{
 	background:url(../images/edificio.jpg) no-repeat fixed ;

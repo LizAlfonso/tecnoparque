@@ -45,7 +45,7 @@ return [
     'max'                  => [
         'numeric' => 'El campo :attribute debe ser ":max" como máximo.',
         'file'    => 'El archivo :attribute debe pesar :max kilobytes como máximo.',
-        'string'  => 'El campo :attribute debe contener :max caracteres como máximo.',
+        'string'  => 'El campo ":attribute" debe contener :max caracteres como máximo.',
         'array'   => 'El campo :attribute debe contener :max elementos como máximo.',
     ],
     'mimes'                => 'El campo :attribute debe ser un archivo de tipo :values.',
@@ -117,6 +117,7 @@ return [
     'idTipoDocumento'        => 'tipo de documento',
     'idTipoPersona'          => 'tipo de persona',
     'correo'                 => 'correo electrónico',
+    'telefono'               => 'teléfono',
     ],
 
 ];

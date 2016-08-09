@@ -53,5 +53,6 @@ class Kernel extends HttpKernel
         'infoc' => 'Tecnoparque\Http\Middleware\Infocenter', //editar evento
         'practicante' => 'Tecnoparque\Http\Middleware\Practicante', //crear evento
         'dinamizador' => 'Tecnoparque\Http\Middleware\dinamizador', // ver lista eventos
+        'gestor' => 'Tecnoparque\Http\Middleware\gestor', // ver lista de personas
     ];
 }

@@ -24,7 +24,7 @@ class CreateTalentosTable extends Migration
             $table->boolean('graduado')->nullable();
             $table->char('anhoTerminacion',4)->nullable();
             $table->string('tituloObtenido',40)->nullable();
-            $table->string('institucion',50)->nullable();
+            $table->string('institucion',100)->nullable();
             $table->boolean('asistenteLaboratorio');
 
             //foreign key

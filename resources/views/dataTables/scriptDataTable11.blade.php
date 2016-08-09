@@ -7,8 +7,6 @@
         
         $('#dataTable').dataTable(
         {
-          responsive:true,   //para el +
-
           "aoColumnDefs":
           [
             {

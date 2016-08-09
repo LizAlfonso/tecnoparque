@@ -25,11 +25,12 @@ class EventoCreateRequest extends Request
     {
         return [
             'idServicio' =>'required',
-            'nombre' => 'required',
+            'nombre' => 'required|max:50',
             'fecha' => 'required',
             'hora' => 'required',
             'lugar' => 'required',
             'cupos' => 'integer|max:100',
+            'descripcion'=>'max:100',
         ];
     }
 }
