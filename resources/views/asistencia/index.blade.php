@@ -181,6 +181,12 @@
 	        //     leftColumns: 0,
 	        //     rightColumns: 1
 	        // },
+	        "columnDefs":
+	        {
+                "targets": [ 1 ],
+                "visible": false,
+                "searchable": false
+            },
 			"aoColumnDefs":
 			[
 				{
