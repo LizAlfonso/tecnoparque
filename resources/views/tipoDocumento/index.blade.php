@@ -7,7 +7,7 @@
 
 <div class="container">
 
-	<div class="banner-data">
+	<div class="banner-data4">
 
 		<h1><center>Lista de Tipos de documento</center></h1>
 		  <br>
