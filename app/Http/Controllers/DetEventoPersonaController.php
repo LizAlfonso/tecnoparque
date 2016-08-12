@@ -55,6 +55,8 @@ class DetEventoPersonaController extends Controller
             $arrayAsistencia = $request->all(); 
         }  
 
+        // var_dump($arrayAsistencia["data"]);
+
         $idEvento = $arrayAsistencia["data"][0]["idEvento"];
 
         $array = [];
@@ -68,8 +70,22 @@ class DetEventoPersonaController extends Controller
                 $array[$arrayAsistencia["data"][$i]["idPersona"]] = ['responsable' => $arrayAsistencia["data"][$i]["responsable"]];
             }
         }
+
+        var_dump("<br>");
+        var_dump($array);
                 
         $emptyArray = [];
+
+        // try {
+        //     $evento->personas()->sync($array); 
+        //     return true;
+        // }catch(\Exception $e){
+        //     return false;
+        // }
+
+        if (count($evento->personas()->sync($array))) {
+            // do something
+        }
 
         return $evento->personas()->sync($array); 
 

@@ -148,18 +148,17 @@
 	$(document).ready(function(){ 
 
 		var tablePersona = $('#dataTablePersona').DataTable(
-        {
-          	// responsive:true,   //para el +
+        {        
           	scrollY:        "300px",
 	        scrollX:        true,
-	        scrollCollapse: true,
-	        // paging:         false,
-	        // fixedColumns:   {
-	        //     leftColumns: 0,
-	        //     rightColumns: 1
-	        // },
+	        scrollCollapse: true,	      
 			"aoColumnDefs":
 			[
+				{
+	                "targets": [ 0 ],
+	                "visible": false,
+	                // "searchable": false
+	            },
 				{
 				'bSortable': false, 'aTargets': [10]
 				}
@@ -170,48 +169,59 @@
 			}
 		});   	
 
+		// tablePersona.column( 0 ).visible( false );
+		// tablePersona.columns.adjust().draw( false );
+
 		var table = $('#dataTable').DataTable(
-        {
-          	// responsive:true,   //para el +
+        {          	
           	scrollY:        "300px",
 	        scrollX:        true,
-	        scrollCollapse: true,
-	        
-	        // fixedColumns:   {
-	        //     leftColumns: 0,
-	        //     rightColumns: 1
-	        // },
-	        "columnDefs":
-	        {
-                "targets": [ 1 ],
-                "visible": false,
-                "searchable": false
-            },
+	        scrollCollapse: true,	           
 			"aoColumnDefs":
 			[
 				{
-				'bSortable': false, 'aTargets': [11]
+	                "targets": [ 0 ],
+	                "visible": false,
+	                // "searchable": false
+	            },
+				{
+					'bSortable': false, 'aTargets': [11]
 				}
 			],
 			"oLanguage":
 			{
 				"sUrl": "../../resources/lang/Espanhol.json"
-			}
-		});   		
+			},
+			// "fnDrawCallback": function() {			
+			// 	$("#dataTable tbody tr").click(function() {
+			// 	var position = dataTable.fnGetPosition(this); 
+			// 	var contactId = dataTable.fnGetData(position)[0]; 
+
+			// 	console.log("aaaaa " + contactId);
+				
+			// 	});
+			// }
+		});   	
+
+		var dataTableObject = $('#dataTable').dataTable();
+
+		// table.column( 0 ).visible( false );		
 
 		$('#dataTablePersona tbody').on( 'click', '.btn-warning', function () {		
 			var dataAsistentes = [];
 
 			$("#dataTable tr").each(function(){
-			    dataAsistentes.push($(this).find("td:first").text()); //put elements into array
+			    dataAsistentes.push($(this).find("td:first").text()); 
 			});
+
+
 
 		    var data = tablePersona.row( $(this).parents('tr') ).data();
 		    var idPersonas = data[0];		    
 	    	// console.log("personas: " + data);
 
 		    for (var i = 0; i < dataAsistentes.length; i++) {
-		    	// console.log("personas: " + idPersonas + " dataAsistentes: " + dataAsistentes[i]);
+		    	console.log("personas: " + idPersonas + " dataAsistentes: " + dataAsistentes[i]);
 		    	if (idPersonas == dataAsistentes[i]) {
 		    		swal({
 						title: "",
@@ -223,7 +233,10 @@
 		    		return false;
 		    	}
 		    }
+
 		    var row = $(this).parents('tr');
+
+		    console.log("ads " + data[0]);
 		    
 		    table.row.add( [
 		        data[0],
@@ -259,24 +272,53 @@
 
 			var idEvento = '{{$evento->idEvento}}';			
 			var token = $("#token").val();
-			var data = [];
-			var aux = 0;
+			var data = [];	
 			var responsable = 0;
-			var idPersona;		
+			var idPersona;					
 
-		 	$('#dataTable tbody tr').each(function(){
+		 	// $('#dataTable tbody tr').each(function(){
 		 		
-		 		console.log($(this).children('td:nth-last-child(2)').html());
+		 	// 	console.log($(this).children('td:nth-last-child(2)').html());
+		 				 		
+		 	// 	if ($(this).children('td:nth-last-child(2)').find('input[type="checkbox"]').prop('checked')) {
+		 	// 		console.log("chgeceged");
+		 	// 		responsable = 1;
+		 	// 	} else {
+		 	// 		responsable = 0;
+		 	// 	}		 						
+
+		 	// 	idPersona = $(this).children('td:first').data();
+		 	// 	console.log("ggg " + idPersona);
+
+		 	// 	if ($(this).children('td:first').html() == "No data available in table") {
+		 	// 		idPersona = null;
+		 	// 	} 
+
+	 		// 	data.push({
+			 // 		idEvento: idEvento,
+			 //      	idPersona: idPersona,
+			 //      	responsable: responsable
+				// });		 		
+
+		 	// 	aux++;
+
+		 	// })			
+
+		 	$('#dataTable tbody tr').each(function(){	
 		 				 		
 		 		if ($(this).children('td:nth-last-child(2)').find('input[type="checkbox"]').prop('checked')) {
-		 			console.log("chgeceged");
 		 			responsable = 1;
 		 		} else {
 		 			responsable = 0;
 		 		}		 						
 
-		 		idPersona = $(this).children('td:first').html();
-		 		if ($(this).children('td:first').html() == "No data available in table") {
+		 		// idPersona = $(this).children('td:first').html();
+
+		 		var position = dataTableObject.fnGetPosition($(this)[0]);		 
+
+		 		var idPersona = dataTableObject.fnGetData(position)[0];		 
+
+		 		if (idPersona == null) {
 		 			idPersona = null;
 		 		} 
 
@@ -284,11 +326,9 @@
 			 		idEvento: idEvento,
 			      	idPersona: idPersona,
 			      	responsable: responsable
-				});		 		
+				});		 				 
 
-		 		aux++;
-
-		 	})			
+		 	})	
 
 			console.log(data);
 
@@ -299,22 +339,22 @@
                 data: {data: data},
                 dataType: 'json', 
                 success: function(data) {
-	                  
+            		
     				swal(
 						'Evento modificado correctamente',
 						'',
 						'success'
 					)
 	            },  
-	            error: function(data) {
+	    //         error: function(data) {
 
-            		swal(
-						'Ha ocurrido un erro',
-						'',
-						'error'
-					)
+     //        		swal(
+					// 	'Ha ocurrido un error',
+					// 	'',
+					// 	'error'
+					// )
 	               
-	            },          
+	    //         },          
             })
 
 
