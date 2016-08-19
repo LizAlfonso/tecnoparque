@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Tecnoparque\Http\Requests;
 use Tecnoparque\Ingreso;
+use Tecnoparque\TipoDocumento;
+use Tecnoparque\tipoPersona;
 
 class IngresoController extends Controller
 {
@@ -33,9 +35,12 @@ class IngresoController extends Controller
      */
     public function create()
     {
-        // $personas = Servicio::lists('numeroIdentificacion','idPersona');
-        // return view('ingreso.create',compact('personas'));
         return view('ingreso.create');
+    }
+  
+        public function buscar()
+    {
+        return "buscando";
     }
 
     /**
@@ -68,7 +73,13 @@ class IngresoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ingreso = Ingreso::find($id);
+
+        $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
+        $persona = $ingreso->personas;
+        // $tipo =  $ingreso->personas->tipoDocumentos::lists('nombres', 'id_')
+        // $tipo = DB::table('personas')->where('name', 'John')->value('idTipoDocumento');       
+        return view('ingreso.edit', compact('tipoPersonas', 'ingreso', 'persona'));
     }
 
     /**
@@ -78,9 +89,14 @@ class IngresoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(IngresoUpdateRequest $request, $id)
     {
-        //
+        $persona = Persona::find($id);      
+        $persona->fill($request->all());
+        $persona->save();
+
+        Session::flash('message','Persona modificada correctamente');
+        return Redirect::to('persona');
     }
 
     /**
