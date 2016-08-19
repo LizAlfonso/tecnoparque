@@ -24,12 +24,15 @@ class PersonaUpdateRequest extends Request
     public function rules()
     {
         return [
-            'numeroIdentificacion' => 'required',
+            'numeroIdentificacion' => 'required|max:15',
             'idTipoDocumento' => 'required',
             'idTipoPersona' => 'required',
-            'nombres'=> 'required',
-            'apellidos'=> 'required',
-            'correo'=> 'required|email',
+            'nombres'=> 'required|max:50',
+            'apellidos'=> 'required|max:50',
+            'correo'=> 'required|email|max:254',
+            'telefono'=> 'min:7|max:20',
+            'celular'=> 'min:10|max:10',
+            'empresa'=> 'max:30',
         ];
     }
 }

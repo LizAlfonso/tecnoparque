@@ -17,6 +17,9 @@ class CreateDetPersonaProyectosTable extends Migration
             //primary key
             $table->increments('idDetPersonaProyecto');
 
+            //normal values
+            $table->boolean('lider')->nullable();
+
             //foreign key
 
             $table->integer('idPersona')->unsigned();

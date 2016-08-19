@@ -23,6 +23,10 @@ class CreateClasificacionsTable extends Migration
             $table->tinyInteger('categoria');  
             $table->string('objetivoGeneral',100);    
             $table->string('alcance',250);  
+
+            //foreign key
+            $table->integer('idPersona')->unsigned();
+            $table->foreign('idPersona')->references('idPersona')->on('personas');
             
             //Others
             $table->timestamps();

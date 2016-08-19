@@ -8,6 +8,11 @@
 
 	<div class="container" >
 
+		<div>
+		<br><br>
+		 	{!!link_to_route('persona.index', $title = '', null, $attributes = 	['class'=>'btn btn-warning glyphicon glyphicon-arrow-left'])!!}	
+		</div>
+
 		<div class="banner-data">
 
 			<div class=" text-center ">

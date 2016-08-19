@@ -23,16 +23,16 @@ class CreateProyectosTable extends Migration
             $table->string('descripcion',200)->nullable();  
 
             //foreign key
-            $table->integer('idAreaConocimiento')->unsigned();
+            $table->integer('idAreaConocimiento')->unsigned()->nullable();
             $table->foreign('idAreaConocimiento')->references('idAreaConocimiento')->on('area_conocimientos');
 
-            $table->integer('idTipoProyecto')->unsigned();
+            $table->integer('idTipoProyecto')->unsigned()->nullable();
             $table->foreign('idTipoProyecto')->references('idTipoProyecto')->on('tipo_proyectos');
 
-            $table->integer('idEstadoProyecto')->unsigned();
+            $table->integer('idEstadoProyecto')->unsigned()->nullable();
             $table->foreign('idEstadoProyecto')->references('idEstadoProyecto')->on('estado_proyectos');
 
-            $table->integer('idClasificacion')->unsigned();
+            $table->integer('idClasificacion')->unsigned()->nullable();
             $table->foreign('idClasificacion')->references('idClasificacion')->on('clasificacions');
             
             //Others

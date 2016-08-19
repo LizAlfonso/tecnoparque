@@ -24,7 +24,7 @@ class ServicioCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:servicios',
+            'nombre'=> 'required|unique:servicios|max:30',
         ];
     }
 }

@@ -24,7 +24,7 @@ class LugarCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:lugars',
+            'nombre'=> 'required|unique:lugars|max:60',
         ];
     }
 }

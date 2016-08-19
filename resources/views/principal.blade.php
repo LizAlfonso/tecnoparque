@@ -1,9 +1,8 @@
-@extends('layouts.headerFooter') 
+@extends('layouts.headerFooter')
+@include ('layouts.menuHeader') 
 
 @section('content')
 
-@include ('layouts.menuHeader')
-
-<img src="images/nodo.jpg" width="1582" class="img-responsive" >
+	<img src="images/nodo.jpg" width="1582" class="img-responsive" >
 
 @stop

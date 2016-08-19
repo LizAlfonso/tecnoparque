@@ -74,17 +74,35 @@
 
     <div class="form-group list-group">
         {!!Form::label('telefono','Teléfono')!!}
-        {!!Form::number('telefono',null,['class'=> 'form-control','placeholder'=>'Ingrese el número telefónico'])!!}
+        {!!Form::text('telefono',null,['class'=> 'form-control','placeholder'=>'Ingrese el número telefónico'])!!}
+
+        @if ($errors->has('telefono'))
+            <span class="list-group-item list-group-item-danger">
+                <strong>{{ $errors->first('telefono') }}</strong>
+            </span>
+        @endif
     </div>
 
     <div class="form-group list-group">
         {!!Form::label('celular','Celular')!!}
         {!!Form::number('celular',null,['class'=> 'form-control','placeholder'=>'Ingrese el número de celular'])!!}
+
+        @if ($errors->has('celular'))
+            <span class="list-group-item list-group-item-danger">
+                <strong>{{ $errors->first('celular') }}</strong>
+            </span>
+        @endif
     </div>
 
     <div class="form-group list-group">
         {!!Form::label('empresa','Empresa')!!}
         {!!Form::text('empresa',null,['class'=> 'form-control','placeholder'=>'Ingrese el nombre de la empresa a la que pertenece'])!!}
+
+        @if ($errors->has('empresa'))
+            <span class="list-group-item list-group-item-danger">
+                <strong>{{ $errors->first('empresa') }}</strong>
+            </span>
+        @endif
     </div>
 
 

@@ -4,7 +4,7 @@ namespace Tecnoparque\Http\Requests;
 
 use Tecnoparque\Http\Requests\Request;
 
-class ServicioUpdateRequest extends Request
+class IngresoUpdateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,12 @@ class ServicioUpdateRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required|unique:servicios|max:30'',
+            'numeroIdentificacion' => 'required',
+            'tipoDocumento' => 'required',
+            'tipoPersona' => 'required',
+            'nombres'=> 'required',
+            'apellidos'=> 'required',
+            'correo'=> 'required|email',
         ];
     }
 }

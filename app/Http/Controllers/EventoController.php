@@ -38,7 +38,6 @@ class EventoController extends Controller
             {
                 return view('evento.index',compact('eventos'));
              }
-
              else
              {
                 return view('\evento\index2',compact('eventos'));

@@ -7,7 +7,7 @@
 
 <div class="container">
 
-	<div class="banner-data">
+	<div class="banner-data4">
 
 		<h1><center>Lista de Servicios</center></h1>
           <br>

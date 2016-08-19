@@ -22,10 +22,10 @@ class CreateDetEventoPersonasTable extends Migration
 
             //foreign key
             $table->integer('idEvento')->unsigned();
-            $table->foreign('idEvento')->references('idEvento')->on('eventos');
+            $table->foreign('idEvento')->references('idEvento')->on('eventos')->onDelete('cascade');
 
             $table->integer('idPersona')->unsigned();
-            $table->foreign('idPersona')->references('idPersona')->on('personas');
+            $table->foreign('idPersona')->references('idPersona')->on('personas')->onDelete('cascade');
 
             //others
             $table->timestamps();
