@@ -45,10 +45,34 @@ class DetEventoPersonaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
-    {
-        //
+    {     
+
+        if ($request->ajax()) {
+            $arrayAsistencia = $request->all(); 
+        }  
+
+        $idEvento = $arrayAsistencia["data"][0]["idEvento"];
+
+        $array = [];
+
+        $evento = Evento::find($idEvento);
+      
+        if ($arrayAsistencia["data"][0]["idPersona"] == null) {
+            $array = [];
+        } else {
+            for ($i=0; $i < count($arrayAsistencia["data"]); $i++) {                 
+                $array[$arrayAsistencia["data"][$i]["idPersona"]] = ['responsable' => $arrayAsistencia["data"][$i]["responsable"]];
+            }
+        }
+                
+        $emptyArray = [];
+
+        return $evento->personas()->sync($array); 
+
     }
+
 
     /**
      * Display the specified resource.
