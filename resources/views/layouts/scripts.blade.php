@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 
-$('.btn-danger:not(.quitar)').click(function()
+$('.btn-danger').click(function()
 	{
 		var form1= $(this).closest("form");
 
