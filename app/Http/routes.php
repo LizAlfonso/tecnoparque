@@ -11,20 +11,11 @@
 |
 */
 
-// Route::get('/', function () {    
-//     return view('index');
-// });
-
 Route::get('/', 'FrontController@index');
 Route::get('principal', 'FrontController@principal');
 Route::get('log', 'FrontController@log');
 
 Route::get('asistencia/{idDetEventoPersona}', ['as' => 'asistencia.index', 'uses' => 'DetEventoPersonaController@index']);
-
-// Route::get('header',function(){
-// 	return view('prueba');
-// });
-
 
 //controladores RESTful
 
@@ -36,12 +27,18 @@ Route::resource('evento', 'EventoController');
 Route::resource('tipoDocumento', 'TipoDocumentoController');
 Route::resource('tipoPersona', 'TipoPersonaController');
 Route::resource('lugar','LugarController');
-
 Route::resource('persona', 'PersonaController');
-
 Route::resource('asistencia', 'DetEventoPersonaController', ['except' => ['index']]);
 
 Route::resource('ingreso', 'IngresoController');
+
+Route::resource('lineaTecnologica', 'LineaTecnologicaController');
+
+// Route::resource('mail','MailController');
+Route::get('password/email','Auth\PasswordController@getEmail');
+Route::post('password/email','Auth\PasswordController@postEmail');
+Route::get('password/reset/{token}','Auth\PasswordController@getReset');
+Route::post('password/reset','Auth\PasswordController@postReset');
 
 Route::resource('ciudad', 'CiudadController');
 Route::resource('nivelAcademico', 'NivelAcademicoController');
@@ -53,7 +50,6 @@ Route::resource('tipoProyecto', 'TipoProyectoController');
 Route::resource('estadoProyecto', 'EstadoProyectoController');
 Route::resource('fechaEntrenamiento', 'FechaEntrenamientoController');
 Route::resource('tipoGestor', 'TipoGestorController');
-Route::resource('lineaTecnologica', 'LineaTecnologicaController');
 Route::resource('gestor', 'GestorController');
 Route::resource('areaConocimiento', 'AreaConocimientoController');
 Route::resource('clasificacion', 'ClasificacionController');
