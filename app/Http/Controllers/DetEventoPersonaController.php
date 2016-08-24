@@ -7,6 +7,7 @@ use Tecnoparque\Http\Requests;
 use Tecnoparque\DetEventoPersona;
 use Tecnoparque\Evento;
 use Tecnoparque\Persona;
+use Auth;
 
 class DetEventoPersonaController extends Controller
 {
@@ -19,6 +20,7 @@ class DetEventoPersonaController extends Controller
         public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('dinamizador',['only' => 'index']); 
     }
     
     public function index($id)
@@ -26,7 +28,16 @@ class DetEventoPersonaController extends Controller
         $evento = Evento::find($id);
         $personas = Persona::All();
        // $asistencias = DetEventoPersona::All();
-        return view('asistencia.index',compact('evento','personas'));
+
+        if(Auth::user()->rols->nombre == "Infocenter")
+            {
+                return view('asistencia.index',compact('evento','personas'));
+            }
+            else
+            {
+                return view('\asistencia\index2',compact('evento','personas'));
+            }
+        
     }
 
     /**

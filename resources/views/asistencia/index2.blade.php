@@ -19,10 +19,16 @@
 			<br>
 		  	<div class="col-md-9">
 		  	</div>
-	  	<div>
+	  		<div>
+
+	  		@if( Auth::user()->rols->nombre != "Dinamizador")  
+
 			{!!Form::button('Agregar asistente', ['id'=>'btn', 'class'=>'btn btn-primary', 'data-toggle'=>'modal', 'data-target'=>'#myModal'])!!} 
 
 			{!!link_to("#", $title = 'Guardar cambios', $attributes = ['id'=>'guardar', 'class'=>'btn btn-success'], $secure = null)!!}
+
+			@endif
+
 			</div>
           	<br>
 
@@ -43,7 +49,6 @@
 						<th>Celular</th>
 						<th>Empresa</th>
 						<th>Responsable del Evento</th>
-						<th>Operación</th>
 					</tr>
 				</thead>
 
@@ -73,9 +78,7 @@
 								@else{!!Form::checkbox('responsable', 'value', true)!!}
 								@endif
 							</td>
-							<td>									
-				           	    {!!Form::button('Quitar',['class'=>'btn btn-danger quitar'])!!}
-			            	</td>
+
 	            		</tr>
 
 						@endforeach
@@ -192,7 +195,7 @@
 	                // "searchable": false
 	            },
 				{
-					'bSortable': false, 'aTargets': [11,12],
+					'bSortable': false, 'aTargets': [11],
 				}
 			],
 			"oLanguage":
