@@ -79,8 +79,8 @@
 @yield('scriptDataTable4') 
 @yield('scriptDataTable7')
 @yield('scriptDataTable8')
+@yield('scriptDataTable10')
 @yield('scriptDataTable11')
-@yield('scriptDataTable11b')
 @yield('scriptDataTable12')
 @yield('scriptDataTable13')
 

@@ -24,12 +24,7 @@ class IngresoUpdateRequest extends Request
     public function rules()
     {
         return [
-            'numeroIdentificacion' => 'required',
-            'tipoDocumento' => 'required',
-            'tipoPersona' => 'required',
-            'nombres'=> 'required',
-            'apellidos'=> 'required',
-            'correo'=> 'required|email',
+            'fecha' => 'required',
         ];
     }
 }
