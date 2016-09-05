@@ -11,7 +11,6 @@
 	 	{!!link_to_route('evento.index', $title = '', null, $attributes = 	['class'=>'btn btn-warning glyphicon glyphicon-arrow-left'])!!}	
 	</div>
 
-<<<<<<< HEAD
 	<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="myModal">
@@ -141,8 +140,6 @@
     </div>	
 	<br>
 
-
-=======
     <div class="banner-data3">
 
     	<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
@@ -215,7 +212,7 @@
 			</table>
 		</div>
 	</div>
->>>>>>> refs/remotes/origin/Lizä
+
 </div>
 @stop
 
@@ -437,10 +434,8 @@
 
 		})
 
-<<<<<<< HEAD
 	});	
 </script>
-=======
 	<!-- Modal -->
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="myModal">
@@ -505,7 +500,6 @@
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
->>>>>>> refs/remotes/origin/Lizä
 @stop
 
 @section('pageScripts')

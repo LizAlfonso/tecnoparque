@@ -4,3 +4,6 @@
 Homestead.yaml
 Homestead.json
 .env
+resources/views/layouts/headerFooter.blade.php
+resources/views/layouts/headerFooter.blade.php
+app/Http/Controllers/DetEventoPersonaController.php

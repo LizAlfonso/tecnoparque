@@ -56,11 +56,9 @@ class DetEventoPersonaController extends Controller
             $arrayAsistencia = $request->all(); 
         }  
 
-<<<<<<< HEAD
+
         // var_dump($arrayAsistencia["data"]);
 
-=======
->>>>>>> refs/remotes/origin/Lizä
         $idEvento = $arrayAsistencia["data"][0]["idEvento"];
 
         $array = [];
@@ -74,7 +72,7 @@ class DetEventoPersonaController extends Controller
                 $array[$arrayAsistencia["data"][$i]["idPersona"]] = ['responsable' => $arrayAsistencia["data"][$i]["responsable"]];
             }
         }
-<<<<<<< HEAD
+
 
         var_dump("<br>");
         var_dump($array);
@@ -92,11 +90,11 @@ class DetEventoPersonaController extends Controller
             // do something
         }
 
-=======
+
                 
         $emptyArray = [];
 
->>>>>>> refs/remotes/origin/Lizä
+
         return $evento->personas()->sync($array); 
 
     }
