@@ -39,6 +39,7 @@ body a{
 .logo{
 	float: left;
 	margin-top: 0.6em;
+	margin-left: -50px;
 }
 .logo a{
 	color: #303030;

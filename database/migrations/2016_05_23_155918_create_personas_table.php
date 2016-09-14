@@ -34,6 +34,9 @@ class CreatePersonasTable extends Migration
 
             $table->integer('idTipoDocumento')->unsigned();
             $table->foreign('idTipoDocumento')->references('idTipoDocumento')->on('tipo_documentos');
+
+            $table->integer('idCentroFormacion')->unsigned()->nullable();
+            $table->foreign('idCentroFormacion')->references('idCentroFormacion')->on('centro_formacions');
             
             //Others
             $table->timestamps();

@@ -8,7 +8,7 @@
 
     {!!Form::open(['route'=>'login.store','method'=>'POST'])!!}
 
-        <div class="container">
+        <div class="container2">
 
             <div class="col-md-5 col-md-offset-3" "> 
                  <br>
@@ -44,7 +44,7 @@
 
 
                                 <div>
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Olvidaste tu contraseña?</a>
+                                <a class="btn btn-link" href="{{ url('password/email') }}">Olvidaste tu contraseña?</a>
                                 </div>
 
                                 {!!Form::submit('Iniciar sesión',['class'=>'btn btn-primary btn-block btn-signin'])!!}

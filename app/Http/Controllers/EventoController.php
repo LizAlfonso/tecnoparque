@@ -12,7 +12,6 @@ use Tecnoparque\Http\Requests\EventoUpdateRequest;
 use Session;
 use Redirect;
 use Auth;
-use Tecnoparque\Lugar;
 
 class EventoController extends Controller
 {
@@ -52,8 +51,7 @@ class EventoController extends Controller
     public function create()
     {
         $servicios = Servicio::lists('nombre','idServicio');
-        $lugares = Lugar::lists('nombre','idLugar');
-        return view('evento.create',compact('servicios','lugares'));
+        return view('evento.create',compact('servicios'));
     }
 
     /**
@@ -89,9 +87,8 @@ class EventoController extends Controller
     public function edit($id)
     {
         $servicios = Servicio::lists('nombre','idServicio');
-        $lugares = Lugar::lists('nombre','idLugar');
         $evento = Evento::find($id);
-        return view('evento.edit',['evento'=>$evento],compact('servicios','lugares'));
+        return view('evento.edit',['evento'=>$evento],compact('servicios'));
     }
 
     /**

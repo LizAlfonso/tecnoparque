@@ -9,14 +9,14 @@
 
 	<div class="banner-data4">
 
-		<h1><center>Lista de Lugares</center></h1>
-          <br>
-          
+		<h1><center>Lista de Centros de formación</center></h1>
+		  <br>
+		  
 		  <div class="col-md-9">
 		  </div>
 		  <div>
 
-		  {!!link_to_route('lugar.create', $title = 'Nuevo registro',null,$attributes = ['class'=>'btn btn-primary'])!!}
+		  {!!link_to_route('centroFormacion.create', $title = 'Nuevo registro',null,$attributes = ['class'=>'btn btn-primary'])!!}
           
           </div>
           <br>
@@ -25,19 +25,19 @@
 
 				<thead>
 
-				<tr><th>Nombre del lugar</th><th>Operación</th></tr>
+				<tr><th>Nombre del centro</th><th>Operación</th></tr>
 
 				</thead>
 
 				 <tbody>
 
-					@foreach($lugares as $lugar)
+					@foreach($centro_formacions as $centroFormacion)
 					 
-						<tr><td>{{$lugar->nombre}}</td>
+						<tr><td>{{$centroFormacion->nombre}}</td>
 						<td> <div class="twoColumns">
-						{!!link_to_route('lugar.edit', $title = 'Modificar', $parameters = $lugar->idLugar, $attributes = ['class'=>'btn btn-success'])!!}
+						{!!link_to_route('centroFormacion.edit', $title = 'Modificar', $parameters = $centroFormacion->idCentroFormacion, $attributes = ['class'=>'btn btn-success'])!!}
 
-						{!!Form::open(['route'=> ['lugar.destroy',$lugar->idLugar],'method'=>'DELETE'])!!}
+						{!!Form::open(['route'=> ['centroFormacion.destroy',$centroFormacion->idCentroFormacion],'method'=>'DELETE'])!!}
 			            {!!Form::button('Eliminar',['class'=>'btn btn-danger'])!!}
                         {!!Form::close()!!} 
                         </div></td></tr>

@@ -4,7 +4,13 @@
 @section('content')
 
 @include ('layouts.scripts')
-@include ('dataTables.scriptDataTable11')
+
+	@if( Auth::user()->rols->nombre == "Dinamizador") 
+		@include ('dataTables.scriptDataTable10')
+	  @else
+	    @include ('dataTables.scriptDataTable11')
+	@endif
+
 
 <div class="container2">
 
@@ -31,7 +37,13 @@
 
 				<thead>
 
-				<tr><th>Número de identificación</th><th>Tipo de documento</th><th>Tipo de persona</th><th>Nombres</th><th>Apellidos</th><th>Género</th><th>Correo electrónico</th><th>Teléfono</th><th>Celular</th><th>Empresa</th><th>Operación</th></tr>
+				<tr><th>Número de identificación</th><th>Tipo de documento</th><th>Tipo de persona</th><th>Nombres</th><th>Apellidos</th><th>Género</th><th>Correo electrónico</th><th>Teléfono</th><th>Celular</th><th>Empresa</th>
+				
+				@if( Auth::user()->rols->nombre != "Dinamizador") 
+				<th>Operación</th>
+				@endif
+
+				</tr>
 
 				</thead>
 
@@ -56,10 +68,14 @@
 						<td>{{$persona->celular}}</td>
 						<td>{{$persona->empresa}}</td>
 						
+						@if( Auth::user()->rols->nombre != "Dinamizador") 
 						<td> <div>
 						{!!link_to_route('persona.edit', $title = 'Modificar', $parameters = $persona->idPersona, $attributes = ['class'=>'btn btn-success'])!!}
                         
-                        </div></td></tr>
+                        </div></td>
+                        @endif
+
+                        </tr>
 					  
 					@endforeach
 

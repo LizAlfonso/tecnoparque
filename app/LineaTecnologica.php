@@ -13,4 +13,11 @@ class LineaTecnologica extends Model
     protected $primaryKey = "idLineaTecnologica";  //se agrega si el nombre de pk no es id
     protected $fillable = ['nombre'];
     protected $dates = ['deleted_at']; //para deshabilitar el registro
+
+    //Una lineaTecnologica tiene muchos gestores
+     public function gestors()
+    {
+        return $this->hasMany('Tecnoparque\Gestor','idGestor','idLineaTecnologica');
+    }
+
 }

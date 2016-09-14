@@ -13,7 +13,7 @@ class IngresoCreateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class IngresoCreateRequest extends Request
     public function rules()
     {
         return [
-            //
+            'numeroIdentificacion' => 'required|unique:persona|max:15',
+            'idTipoDocumento' => 'required',
+            'idTipoPersona' => 'required',
+            'nombres'=> 'required|max:50',
+            'apellidos'=> 'required|max:50'
+            'correo'=> 'required|email|unique:personas|max:254',
+            'fecha'=> 'required',
         ];
     }
 }

@@ -22,16 +22,13 @@ class CreateEventosTable extends Migration
             $table->date('fecha');        
             $table->string('hora',10);      
             $table->string('lugar',6);
-            $table->string('lugarEspecifico',6)->nullable();  
+            $table->string('lugarEspecifico',60)->nullable();  
             $table->tinyInteger('cupos')->nullable();
             $table->string('descripcion',100)->nullable();      
 
             //foreign key
             $table->integer('idServicio')->unsigned();
             $table->foreign('idServicio')->references('idServicio')->on('servicios');
-
-            $table->integer('idLugar')->unsigned()->nullable();
-            $table->foreign('idLugar')->references('idLugar')->on('lugars');
 
             //Others
             $table->timestamps();

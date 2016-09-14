@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLugarsTable extends Migration
+class CreateCentroFormacionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class CreateLugarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lugars', function (Blueprint $table) {
-           
+        Schema::create('centro_formacions', function (Blueprint $table) {
+            
             //primary key
-            $table->increments('idLugar');
+            $table->increments('idCentroFormacion');
 
             //normal values
             $table->string('nombre',60)->unique();  
@@ -33,6 +33,6 @@ class CreateLugarsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('lugars');
+        Schema::drop('centro_formacions');
     }
 }

@@ -20,7 +20,7 @@
 
 		    <br>
 
-            @include('tipodocumento.forms.documento')
+            @include('tipoDocumento.forms.documento')
 
 			<div class="form-group ">
 			{!!Form::submit('Modificar',['class'=>'btn btn-success'])!!}
@@ -33,6 +33,5 @@
 		</div>
 
 	</div>
-
 
 @stop

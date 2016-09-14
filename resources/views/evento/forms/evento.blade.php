@@ -35,7 +35,6 @@
 
 <div class="form-group list-group">
 	{!!Form::label('hora','Hora *')!!}
-
 	{!!Form::time('hora',null,['class'=>'form-control'])!!}
 
 	@if ($errors->has('hora'))
@@ -47,7 +46,6 @@
 
 <div class="form-group ">
 	{!!Form::label('lugar','¿El evento se realizará dentro o fuera de Tecnoparque? * ')!!}
-
 	{!! Form::select('lugar', ['Dentro' => 'Dentro', 'Fuera' => 'Fuera'], null, ['class' => 'form-control','placeholder'=>'Seleccione','id'=>'lugar']) !!}
 
 	@if ($errors->has('lugar'))
@@ -58,17 +56,16 @@
 
 </div>
 
-<div class="form-group " id="lugarEspecifico" name="lugarEspecifico" hidden="true">
-	{!!Form::label('lugarEspecifico','¿En cuál piso? ')!!}
-
+<!-- Modificar -->
+<div class="form-group " id="piso" name="piso" hidden="true">
+	{!!Form::label('lugarEspecifico','¿En cuál piso?')!!}
 	{!! Form::select('lugarEspecifico', ['Piso 6' => 'Piso 6', 'Piso 7' => 'Piso 7'], null, ['class' => 'form-control','placeholder'=>'Seleccione']) !!}
 
 </div>
 
-<div class="form-group " id="idLugar" name="idLugar" hidden="true">
-	{!!Form::label('idLugar','¿En qué lugar?')!!}
-
-	{!!Form::select('idLugar',$lugares,null,['placeholder'=>'Seleccione','class'=>'form-control'])!!}
+<div class="form-group " id="lugarO" name="lugarO" hidden="true">
+	{!!Form::label('lugarEspecifico','¿En qué lugar?')!!}
+	{!!Form::text('lugarEspecifico',null,['class'=> 'form-control','placeholder'=>'Ingrese el lugar del evento'])!!}
 
 </div>
 

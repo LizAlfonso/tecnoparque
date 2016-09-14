@@ -47,7 +47,7 @@ class DetEventoPersonaController extends Controller
      */
     public function create()
     {
-        return view('asistencia.create');
+
     }
 
     /**

@@ -26,11 +26,12 @@ Route::resource('servicio', 'ServicioController');
 Route::resource('evento', 'EventoController');
 Route::resource('tipoDocumento', 'TipoDocumentoController');
 Route::resource('tipoPersona', 'TipoPersonaController');
-Route::resource('lugar','LugarController');
+Route::resource('centroFormacion','CentroFormacionController');
 Route::resource('persona', 'PersonaController');
 Route::resource('asistencia', 'DetEventoPersonaController', ['except' => ['index']]);
 
 Route::resource('ingreso', 'IngresoController');
+Route::post('pruebaAjax','PruebaAjaxController@auto');
 
 Route::resource('lineaTecnologica', 'LineaTecnologicaController');
 

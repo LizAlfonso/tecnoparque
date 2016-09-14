@@ -41,9 +41,9 @@
 			var wrapper = $("#divLugar");
 			var selectLugar = $("#lugar");
 			if (selectLugar.val() == "Fuera") {				
-				$('#idLugar').show();
+				$('#lugarO').show();
 			} else if (selectLugar.val() == "Dentro") {
-				$('#lugarEspecifico').show();
+				$('#piso').show();
 			}
 			$(selectLugar).change(function(e){
 				if (selectLugar.val() == "Dentro") {
@@ -54,16 +54,16 @@
 						'</div>'
 					);
 					$('#divFuera').remove();
-					$('#idLugar').hide();
+					$('#lugarO').hide();
 				} else if (selectLugar.val() == "Fuera") {
 					$(wrapper).append(
 						'<div id="divFuera">' +
-							'{!!Form::label("idLugar","¿En qué lugar?")!!}' +
-							'{!!Form::select("idLugar",$lugares,null,["placeholder"=>"Seleccione","class"=>"form-control"])!!}' +
-						'</div>'
+						'{!!Form::label("lugarEspecifico","¿En qué lugar?")!!}'  +
+							'{!!Form::text("lugarEspecifico",null,["class"=> "form-control","placeholder"=>"Ingrese el lugar del evento"])!!}'  +
+					'</div>'
 					);
 					$('#divDentro').remove();
-					$('#lugarEspecifico').hide();
+					$('#piso').hide();
 				} else {
 					
 					$('#divDentro').remove();

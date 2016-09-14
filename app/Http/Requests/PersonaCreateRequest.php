@@ -33,6 +33,7 @@ class PersonaCreateRequest extends Request
             'telefono'=> 'min:7|max:20',
             'celular'=> 'min:10|max:10',
             'empresa'=> 'max:30',
+
         ];
     }
 }

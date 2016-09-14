@@ -46,9 +46,6 @@
 					@if($evento->lugarEspecifico)
 						: {{$evento->lugarEspecifico}}						
 					@endif
-					@if($evento->idLugar)
-						: {{$evento->lugars->nombre}}
-					@endif
 					</td>					
 					<td>{{$evento->cupos}}</td>
 					<td>{{$evento->descripcion}}</td>

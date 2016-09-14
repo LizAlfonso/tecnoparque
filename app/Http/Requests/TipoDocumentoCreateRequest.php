@@ -24,7 +24,7 @@ class TipoDocumentoCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:tipo_documentos|max:25'',
+            'nombre'=> 'required|unique:tipo_documentos|max:25',
         ];
     }
 }

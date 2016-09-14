@@ -24,7 +24,7 @@ class TipoPersonaCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:tipo_personas|max:25'',
+            'nombre'=> 'required|unique:tipo_personas|max:25',
         ];
     }
 }

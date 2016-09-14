@@ -8,6 +8,9 @@ use Tecnoparque\Http\Requests;
 use Tecnoparque\Persona;
 use Tecnoparque\TipoDocumento;
 use Tecnoparque\TipoPersona;
+use Tecnoparque\LineaTecnologica;
+use Tecnoparque\Gestor;
+use Tecnoparque\CentroFormacion;
 use Tecnoparque\Http\Requests\PersonaCreateRequest;
 use Tecnoparque\Http\Requests\PersonaUpdateRequest;
 use Session;
@@ -36,10 +39,10 @@ class PersonaController extends Controller
             {
                 return view('persona.index',compact('personas'));
             }
-            else
-             {
-                return view('\persona\index2',compact('personas'));
-             }
+        else
+         {
+            return view('\persona\index2',compact('personas'));
+         }
     }
 
     /**
@@ -51,7 +54,9 @@ class PersonaController extends Controller
     {
         $tipoDocumentos = TipoDocumento::lists('nombre','idTipoDocumento');
         $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
-        return view('persona.create',compact('tipoDocumentos'),compact('tipoPersonas'));
+        $lineas = LineaTecnologica::lists('nombre','idLineaTecnologica');
+        $centros = CentroFormacion::lists('nombre','idCentroFormacion');
+        return view('persona.create',compact('tipoDocumentos','tipoPersonas','lineas','centros'));
 
     }
 
@@ -63,7 +68,31 @@ class PersonaController extends Controller
      */
     public function store(PersonaCreateRequest $request)
     {
-        Persona::create($request->all());
+        Persona::create([
+        'numeroIdentificacion' => $request['numeroIdentificacion'],
+        'nombres' => $request ['nombres'],
+        'apellidos' => $request['apellidos'],
+        'genero' => $request['genero'],
+        'telefono' => $request['telefono'],
+        'celular' => $request['celular'],
+        'correo' => $request['correo'],
+        'empresa' => $request['empresa'],
+        'idTipoDocumento' => $request['idTipoDocumento'],
+        'idTipoPersona' => $request['idTipoPersona'],  
+        'idCentroFormacion' => $request['idCentroFormacion'],          
+        ]);
+
+        $tipoP = TipoPersona::find($request['idTipoPersona']); 
+
+        if($tipoP->nombre == 'Gestor')
+        {
+            $id = Persona::where('numeroIdentificacion',$request['numeroIdentificacion'])->first();
+
+            Gestor::create([
+                'idPersona'=> $id->idPersona,
+                'idLineaTecnologica' => $request['idLineaTecnologica'],
+                ]);
+        }
 
         return redirect('persona')->with('message','Persona registrada correctamente');
     }
@@ -90,7 +119,9 @@ class PersonaController extends Controller
         $tipoDocumentos = TipoDocumento::lists('nombre','idTipoDocumento');
         $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
         $persona = Persona::find($id);
-        return view('persona.edit',['persona'=>$persona],compact('tipoDocumentos','tipoPersonas'));
+        $lineas = LineaTecnologica::lists('nombre','idLineaTecnologica');
+        $centros = CentroFormacion::lists('nombre','idCentroFormacion');
+        return view('persona.edit',['persona'=>$persona],compact('tipoDocumentos','tipoPersonas','lineas','centros'));
     }
 
     /**

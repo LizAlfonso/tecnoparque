@@ -39,9 +39,10 @@ class IngresoController extends Controller
      */
     public function create()
     {
+        $ingresos = Ingreso::All();
         $tipoDocumentos = TipoDocumento::lists('nombre','idTipoDocumento');
         $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
-        return view('ingreso.create',compact('tipoDocumentos'),compact('tipoPersonas'));
+        return view('ingreso.create',compact('tipoDocumentos'),compact('tipoPersonas'),compact('ingresos'));
     }
 
     /**
@@ -63,7 +64,7 @@ class IngresoController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

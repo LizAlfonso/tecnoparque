@@ -11,7 +11,7 @@ class Persona extends Model
 
 	protected $table = "personas";
 	protected $primaryKey = "idPersona";  //se agrega si el nombre de pk no es id
-	protected $fillable = ['numeroIdentificacion','nombres','apellidos','genero','telefono','celular','correo','empresa','idTipoDocumento','idTipoPersona']; //estado bit...mirar si agregar o no
+	protected $fillable = ['numeroIdentificacion','nombres','apellidos','genero','telefono','celular','correo','empresa','idTipoDocumento','idTipoPersona','idCentroFormacion']; //estado bit...mirar si agregar o no
 	protected $dates = ['deleted_at'];  //para deshabilitar el registro
 
 	//Una persona tiene un tipoDocumento
@@ -36,6 +36,18 @@ class Persona extends Model
      public function ingresos()
     {
         return $this->hasMany('Tecnoparque\Ingreso','idIngreso','idPersona');
+    }
+
+    //Una persona puede ser un gestor
+    public function gestors()
+    {
+        return $this->hasOne('Tecnoparque\Gestor','idGestor','idPersona');
+    }
+
+    //Una persona tiene un centroFormacion
+    public function centroFormacions()
+    {
+        return $this->belongsTo('Tecnoparque\CentroFormacion','idCentroFormacion');
     }
 
 }

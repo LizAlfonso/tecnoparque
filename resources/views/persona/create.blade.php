@@ -22,6 +22,7 @@
 		    <br>
 
 		    @include('persona.forms.persona')
+		    @include('persona.forms.persona2')
 
 			<div class="form-group ">
 			{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
@@ -33,4 +34,47 @@
 
 {!!Form::close()!!}
 
+@stop
+
+@section('pageScripts')
+<script type="text/javascript">
+	$(document).ready(function(){ 
+
+		var wrapper = $("#divGAI");
+		var selectTipoPersona = $("#tipoP");
+
+		$(selectTipoPersona).change(function(e){
+
+				$('#divSENA').remove();
+
+			if (selectTipoPersona.find(":selected").text() == "Gestor") {
+				$(wrapper).append(
+					'<div id="divGestor">' +
+						'{!!Form::label("idLineaTecnologica","Línea tecnológica *")!!}' +
+						'{!! Form::select("idLineaTecnologica", $lineas,null,["placeholder"=>"Seleccione","class"=>"form-control"])!!}'  +
+					'</div>'
+				);
+
+			} else if (selectTipoPersona.find(":selected").text() == "Aprendiz SENA" || selectTipoPersona.find(":selected").text() == "Instructor SENA") {
+				$(wrapper).append(
+					'<div id="divSENA">' +
+						'{!!Form::label("idCentroFormacion","Centro de formación *")!!}' +
+						'{!!Form::select("idCentroFormacion",$centros,null,["placeholder"=>"Seleccione","class"=>"form-control"]) !!}' +
+					'</div>'
+				);
+
+				$('#divGestor').remove();
+
+			 } else {
+				$('#divGestor').remove();
+				$('#divSENA').remove();
+			}
+
+			// console.log($(selectTipoPersona).find(":selected").text());
+			//"id"=>"linea"
+
+		});
+
+	});
+</script>
 @stop
