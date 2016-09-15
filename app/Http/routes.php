@@ -24,7 +24,35 @@ Route::get('asistencia/{idDetEventoPersona}', ['as' => 'asistencia.index', 'uses
 // Route::get('header',function(){
 // 	return view('prueba');
 // });
+Route::post("reporteAsistenciaFuera", array(
+    "as"=>"reporteAsistenciaFuera",
+    "uses"=>"ReporteController@reporteAsistenciaFuera"
+));
 
+Route::post("reporteAsistenciaDentro", array(
+    "as"=>"reporteAsistenciaDentro",
+    "uses"=>"ReporteController@reporteAsistenciaDentro"
+));
+
+Route::post("reporteAsistenciaCompleta", array(
+    "as"=>"reporteAsistenciaCompleta",
+    "uses"=>"ReporteController@reporteAsistenciaCompleta"
+));
+
+Route::post("reporteGestores", array(
+    "as"=>"reporteGestores",
+    "uses"=>"ReporteController@reporteGestores"
+));
+
+Route::post("reporteGestoresCompleto", array(
+    "as"=>"reporteGestoresCompleto",
+    "uses"=>"ReporteController@reporteGestoresCompleto"
+));
+
+Route::post("reporteIngresos", array(
+    "as"=>"reporteIngresos",
+    "uses"=>"ReporteController@reporteIngresos"
+));
 
 //controladores RESTful
 
@@ -60,6 +88,7 @@ Route::resource('clasificacion', 'ClasificacionController');
 Route::resource('proyecto', 'ProyectoController');
 Route::resource('entrenamiento', 'EntrenamientoController');
 Route::resource('detPersonaProyecto', 'DetPersonaProyController');
+Route::resource('reporte', 'ReporteController');
 
 
 

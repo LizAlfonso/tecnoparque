@@ -56,6 +56,23 @@ class ReporteController extends Controller
         return view('reporte.reporteAsistenciaDentro', compact('query', 'fechaInicial', 'fechaFinal'));
     }
 
+    public function reporteAsistenciaCompleta(Request $request)
+    {
+        $this->validate($request, [
+            'fechaInicial' => 'required|date|before:fechaFinal',
+            'fechaFinal' => 'required|date|after:fechaInicial',
+        ]);
+
+        $fechaInicial = $request->input('fechaInicial');
+        $fechaFinal = $request->input('fechaFinal');                
+        $query = \DB::select('CALL reporteAsistenciaCompleta(?,?)',array($fechaInicial,$fechaFinal)); 
+        
+        // var_dump($query[0]->total);
+        // var_dump($query[0]->mediaTecnica);
+        // var_dump($query[0]->aprendizSena);
+        return view('reporte.reporteAsistenciaCompleta', compact('query', 'fechaInicial', 'fechaFinal'));
+    }
+
     public function reporteGestores(Request $request)
     {
         $this->validate($request, [
@@ -87,24 +104,7 @@ class ReporteController extends Controller
         $query = \DB::select('CALL reporteGestoresCompleto(?,?)',array($fechaInicial,$fechaFinal));        
         
         return view('reporte.reporteGestoresCompleto', compact('query', 'fechaInicial', 'fechaFinal'));
-    }
-
-    public function reporteAsistenciaCompleta(Request $request)
-    {
-        $this->validate($request, [
-            'fechaInicial' => 'required|date|before:fechaFinal',
-            'fechaFinal' => 'required|date|after:fechaInicial',
-        ]);
-
-        $fechaInicial = $request->input('fechaInicial');
-        $fechaFinal = $request->input('fechaFinal');                
-        $query = \DB::select('CALL reporteAsistenciaCompleta(?,?)',array($fechaInicial,$fechaFinal)); 
-        
-        // var_dump($query[0]->total);
-        // var_dump($query[0]->mediaTecnica);
-        // var_dump($query[0]->aprendizSena);
-        return view('reporte.reporteAsistenciaCompleta', compact('query', 'fechaInicial', 'fechaFinal'));
-    }
+    }    
 
     public function reporteIngresos(Request $request)
     {
