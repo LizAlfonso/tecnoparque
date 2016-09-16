@@ -53,7 +53,14 @@
 					 
 						<tr><td>{{$persona->numeroIdentificacion}}</td>
 						<td>{{$persona->tipoDocumentos->nombre}}</td>
-						<td>{{$persona->tipoPersonas->nombre}}</td>
+						<td>{{$persona->tipoPersonas->nombre}}
+						@if($persona->tipoPersonas->nombre == 'Gestor')
+						- nope					
+						@endif
+						@if($persona->tipoPersonas->nombre == 'Aprendiz SENA' || $persona->tipoPersonas->nombre == 'Instructor SENA')
+							- {{$persona->centroFormacions->nombre}}
+						@endif
+						</td>
 						<td>{{$persona->nombres}}</td>
 						<td>{{$persona->apellidos}}</td>
 						<td>

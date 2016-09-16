@@ -24,9 +24,10 @@
 			@include('persona.forms.persona')
 
 			  <!-- cuando ya está seleccionado Gestor, Aprendiz o Instructor -->
+			
 		    <div class="form-group " id="divGestorM" name="linea">
 		    {!!Form::label('idLineaTecnologica','Línea tecnológica *')!!}
-		    {!!Form::select('idLineaTecnologica',$lineas,null,['placeholder'=>'Seleccione','class'=>'form-control'])!!}
+		    {!!Form::select('idLineaTecnologica',$lineas,null,['placeholder'=>'Seleccione','id'=>'linea','class'=>'form-control'])!!}
 		    </div>
 
 		    <div class="form-group " id="divSENAM" name="linea" >
@@ -56,10 +57,10 @@
 		var selectTipoPersona = $("#tipoP");
 
 			if (selectTipoPersona.find(":selected").text() == "Gestor") {
-				$('#divGestorM').show();
+				// $("#linea").selected.text() = "mm";
+
 				$('#divSENAM').remove();
 			 } else if (selectTipoPersona.find(":selected").text() == "Aprendiz SENA" || selectTipoPersona.find(":selected").text() == "Instructor SENA") {
-				$('#divSENAM').show();
 				$('#divGestorM').remove();
 			 } else {
 				$('#divGestorM').remove();

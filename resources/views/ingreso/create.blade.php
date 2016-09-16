@@ -21,16 +21,64 @@
 
 		    <br>
 
-		    <div class="form-group list-group">
-			    <div class="input-group">
-					<input type="number" class="form-control" placeholder="Ingrese el número de identificación">
-					<span class="input-group-btn">
-						<button id="btnBuscar" class="btn btn-info" type="button">Buscar</button>
-					</span>
-			    </div>
-  			</div>
+	  <div class="form-group list-group">
+        {!!Form::label('numeroIdentificacion','Número de identificación *')!!}
+        {!!Form::number('numeroIdentificacion',null,['class'=> 'form-control','placeholder'=>'Ingrese el número de identificación'])!!}
 
-		    @include('ingreso.forms.ingreso')
+        @if ($errors->has('numeroIdentificacion'))
+            <span class="list-group-item list-group-item-danger">
+               <strong>{{ $errors->first('numeroIdentificacion') }}</strong>
+            </span>
+        @endif
+
+    </div>
+
+    <div class="form-group ">
+        {!!Form::label('idTipoPersona','Tipo de persona *')!!}
+        {!!Form::select('idTipoPersona',$tipoPersonas,null,['placeholder'=>'Seleccione','class'=>'form-control'])!!}
+
+       @if ($errors->has('idTipoPersona'))
+         <span class="list-group-item list-group-item-danger">
+           <strong>{{ $errors->first('idTipoPersona') }}</strong>
+         </span>
+       @endif
+    </div>
+
+    <div class="form-group list-group">
+        {!!Form::label('nombres','Nombres *')!!}
+        {!!Form::text('nombres',null,['class'=> 'form-control','placeholder'=>'Ingrese los nombres'])!!}
+
+        @if ($errors->has('nombres'))
+            <span class="list-group-item list-group-item-danger">
+               <strong>{{ $errors->first('nombres') }}</strong>
+            </span>
+        @endif
+    </div>
+
+    <div class="form-group list-group">
+        {!!Form::label('apellidos','Apellidos *')!!}
+        {!!Form::text('apellidos',null,['class'=> 'form-control','placeholder'=>'Ingrese los apellidos'])!!}
+
+        @if ($errors->has('apellidos'))
+            <span class="list-group-item list-group-item-danger">
+               <strong>{{ $errors->first('apellidos') }}</strong>
+            </span>
+        @endif
+    </div>
+
+    <div class="form-group ">
+        {!!Form::label('correo','Correo electrónico *')!!}
+        {!!Form::text('correo',null,['class'=> 'form-control','placeholder'=>'Ingrese el correo electrónico'])!!}
+
+        @if ($errors->has('correo'))
+            <span class="list-group-item list-group-item-danger">
+                <strong>{{ $errors->first('correo') }}</strong>
+            </span>
+        @endif
+
+    </div>
+
+    @include('ingreso.forms.ingreso')
 
 			<div class="form-group ">
 			{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
@@ -44,29 +92,33 @@
 
 @stop
 
+@section('pageScripts')
 <script type="text/javascript">
-	$("#tblVinculos").on('click', '.delete', function () {
-        var tr = $(this).closest('tr');
-        tr.remove();
 
-        var tbody = $("#tblVinculos tbody");
-        console.log("leg" + tbody.children().length);
-        if (tbody.children().length == 0) {
-            console.log("asd assss");
-            $("#divTablaVinculos").css('display', 'none');
+    $contar = 1;
 
-        }
+    var contarb = 1;
 
-        array.splice($(this).closest('tr').index(), 1);
+    $("#numeroIdentificacion").keyup(function(){
 
-        $.ajax({
-            type: "POST",
-            url: "@Url.Content("arrayBeneficiario")",
-            contentType: "application/json; charset=UTF-8",
-            traditional: true,
-            data: JSON.stringify({ array: array })
+        // $numeroIdentificacion = $("#numeroIdentificacion").val();
+        // console.log($numeroIdentificacion);
 
-        });
+        $('#nombres').val("bla");
+
+        if (contarb==1) {
+            $('#nombres').val(contarb);
+            contarb = contarb+1;
+            // contarb = contarb+1;
+         }
+         else
+         {
+            $('#nombres').val(contarb);
+            contarb = contarb+1;
+         }
+       
+       $('#apellidos').val("bla bla");
 
     });
 </script>
+@stop

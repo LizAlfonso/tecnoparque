@@ -34,14 +34,15 @@ class PersonaController extends Controller
     public function index()
     {
         $personas = Persona::All();
+        $gestores = Gestor::All();
 
         if(Auth::user()->rols->nombre == "Infocenter")
             {
-                return view('persona.index',compact('personas'));
+                return view('persona.index',compact('personas','gestores'));
             }
         else
          {
-            return view('\persona\index2',compact('personas'));
+            return view('\persona\index2',compact('personas','gestores'));
          }
     }
 
@@ -119,9 +120,12 @@ class PersonaController extends Controller
         $tipoDocumentos = TipoDocumento::lists('nombre','idTipoDocumento');
         $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
         $persona = Persona::find($id);
+        $gestor = Gestor::where('idPersona', '=', $id)->first();
         $lineas = LineaTecnologica::lists('nombre','idLineaTecnologica');
-        $centros = CentroFormacion::lists('nombre','idCentroFormacion');
-        return view('persona.edit',['persona'=>$persona],compact('tipoDocumentos','tipoPersonas','lineas','centros'));
+        $lineaGestor = $gestor->lineaTecnologicas->lists('nombre','idLineaTecnologica');
+        
+        $centros = CentroFormacion::lists('nombre','idCentroFormacion');        
+        return view('persona.edit',['persona'=>$persona],compact('tipoDocumentos','tipoPersonas','lineas','centros', 'gestor', 'persona'));
     }
 
     /**

@@ -17,6 +17,34 @@ Route::get('log', 'FrontController@log');
 
 Route::get('asistencia/{idDetEventoPersona}', ['as' => 'asistencia.index', 'uses' => 'DetEventoPersonaController@index']);
 
+//Reportes
+
+Route::post("reporteAsistenciaFuera", array(
+    "as"=>"reporteAsistenciaFuera",
+    "uses"=>"ReporteController@reporteAsistenciaFuera"
+));
+Route::post("reporteAsistenciaDentro", array(
+    "as"=>"reporteAsistenciaDentro",
+    "uses"=>"ReporteController@reporteAsistenciaDentro"
+));
+Route::post("reporteAsistenciaCompleta", array(
+    "as"=>"reporteAsistenciaCompleta",
+    "uses"=>"ReporteController@reporteAsistenciaCompleta"
+));
+Route::post("reporteGestores", array(
+    "as"=>"reporteGestores",
+    "uses"=>"ReporteController@reporteGestores"
+));
+Route::post("reporteGestoresCompleto", array(
+    "as"=>"reporteGestoresCompleto",
+    "uses"=>"ReporteController@reporteGestoresCompleto"
+));
+Route::post("reporteIngresos", array(
+    "as"=>"reporteIngresos",
+    "uses"=>"ReporteController@reporteIngresos"
+));
+
+
 //controladores RESTful
 
 Route::resource('login','LoginController'); 
@@ -34,6 +62,8 @@ Route::resource('ingreso', 'IngresoController');
 Route::post('pruebaAjax','PruebaAjaxController@auto');
 
 Route::resource('lineaTecnologica', 'LineaTecnologicaController');
+
+Route::resource('reporte', 'ReporteController');
 
 // Route::resource('mail','MailController');
 Route::get('password/email','Auth\PasswordController@getEmail');

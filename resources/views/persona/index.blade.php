@@ -39,8 +39,13 @@
 						<td>{{$persona->tipoDocumentos->nombre}}</td>
 						<td>{{$persona->tipoPersonas->nombre}}
 						@if($persona->tipoPersonas->nombre == 'Gestor')
-							- nope					
+						@foreach($gestores as $gestor)
+							@if($persona->idPersona == $gestor->idPersona)
+								- {{$gestor->lineaTecnologicas->nombre}}
+							@endif
+						@endforeach				
 						@endif
+
 						@if($persona->tipoPersonas->nombre == 'Aprendiz SENA' || $persona->tipoPersonas->nombre == 'Instructor SENA')
 							- {{$persona->centroFormacions->nombre}}
 						@endif

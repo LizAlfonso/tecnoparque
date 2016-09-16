@@ -8,7 +8,7 @@
     {!!Html::style('css/style.css')!!}
     {!!Html::style('http://fonts.googleapis.com/css?family=Montserrat:400,700')!!}
     {!!Html::style('css/sweetalert2.css')!!}
-    {!!Html::style('https://cdn.datatables.net/v/bs-3.3.6/jq-2.2.3/dt-1.10.12/fc-3.2.2/sc-1.4.2/datatables.min.css')!!} 
+    {!!Html::style('https://cdn.datatables.net/v/bs-3.3.6/jq-2.2.3/dt-1.10.12/b-1.2.2/b-flash-1.2.2/b-html5-1.2.2/b-print-1.2.2/sc-1.4.2/datatables.min.css')!!}
     {!!Html::style('css/bootstrap-datepicker.min.css')!!}
        
   </head>
@@ -68,7 +68,7 @@
 @yield("content")   
 
 {!!Html::script('js/jquery-3.0.0.min.js')!!}
-{!!Html::script('https://cdn.datatables.net/v/bs-3.3.6/jq-2.2.3/dt-1.10.12/fc-3.2.2/sc-1.4.2/datatables.min.js')!!}
+{!!Html::script('https://cdn.datatables.net/v/bs-3.3.6/jq-2.2.3/dt-1.10.12/b-1.2.2/b-flash-1.2.2/b-html5-1.2.2/b-print-1.2.2/sc-1.4.2/datatables.min.js')!!}
 {!!Html::script('js/sweetalert2.min.js')!!}
 {!!Html::script('js/bootstrap-datepicker.min.js')!!}
 {!!Html::script('js/bootstrap-datepicker.es.min.js')!!}
