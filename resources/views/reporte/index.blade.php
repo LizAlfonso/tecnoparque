@@ -35,7 +35,7 @@
 							{!!Form::text('fechaFinal',null,['class'=>'form-control fecha','placeholder'=>'aaaa/mm/dd'])!!}
 						</div>
 						<div class="form-group">
-							{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+							{!!Form::submit('Generar reporte',['class'=>'btn btn-primary'])!!}
 						</div> 
 			      	{!!Form::close()!!}
 				</div>
@@ -54,7 +54,7 @@
 							{!!Form::text('fechaFinal',null,['class'=>'form-control fecha','placeholder'=>'aaaa/mm/dd'])!!}
 						</div>
 						<div class="form-group">
-							{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+							{!!Form::submit('Generar reporte',['class'=>'btn btn-primary'])!!}
 						</div> 
 			      	{!!Form::close()!!}
 				</div>
@@ -73,7 +73,7 @@
 							{!!Form::text('fechaFinal',null,['class'=>'form-control fecha','placeholder'=>'aaaa/mm/dd'])!!}
 						</div>
 						<div class="form-group">
-							{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+							{!!Form::submit('Generar reporte',['class'=>'btn btn-primary'])!!}
 						</div> 
 			      	{!!Form::close()!!}
 				</div>
@@ -96,7 +96,7 @@
 							{!!Form::text('fechaFinal',null,['class'=>'form-control fecha','placeholder'=>'aaaa/mm/dd'])!!}
 						</div>
 						<div class="form-group">
-							{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+							{!!Form::submit('Generar reporte',['class'=>'btn btn-primary'])!!}
 						</div> 
 			      	{!!Form::close()!!}
 				</div>
@@ -115,7 +115,7 @@
 							{!!Form::text('fechaFinal',null,['class'=>'form-control fecha','placeholder'=>'aaaa/mm/dd'])!!}
 						</div>
 						<div class="form-group">
-							{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+							{!!Form::submit('Generar reporte',['class'=>'btn btn-primary'])!!}
 						</div> 
 			      	{!!Form::close()!!}
 				</div>
@@ -134,7 +134,7 @@
 							{!!Form::text('fechaFinal',null,['class'=>'form-control fecha','placeholder'=>'aaaa/mm/dd'])!!}
 						</div>
 						<div class="form-group">
-							{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+							{!!Form::submit('Generar reporte',['class'=>'btn btn-primary'])!!}
 						</div> 
 			      	{!!Form::close()!!}
 				</div>
