@@ -28,6 +28,15 @@ class IngresoController extends Controller
         return view('ingreso.index',compact('ingresos'));
     }
 
+    public function consultarNumeroIdentificacion(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json([
+                "mensaje" => $request->all()
+            ]);
+        }  
+    }
+
     /**
      * Show the form for creating a new resource.
      *

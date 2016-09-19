@@ -2,12 +2,14 @@
 @include ('layouts.menuHeader')
 @include ('layouts.scripts')
 
-@section('content')
+@section('content')			
+
+
 
 {!!Form::open(['route'=>'ingreso.store', 'method'=>'POST'])!!}
+	<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 
 	<div class="container" >
-
 		<div>
 		<br><br>
 		 	{!!link_to_route('ingreso.index', $title = '', null, $attributes = 	['class'=>'btn btn-warning glyphicon glyphicon-arrow-left'])!!}	
@@ -22,12 +24,8 @@
 		    <br>
 
 		    <div class="form-group list-group">
-			    <div class="input-group">
-					<input type="number" class="form-control" placeholder="Ingrese el número de identificación">
-					<span class="input-group-btn">
-						<button id="btnBuscar" class="btn btn-info" type="button">Buscar</button>
-					</span>
-			    </div>
+			    {!!Form::label('numeroIdentificacion','Número de identificación *')!!}
+        		{!!Form::number('numeroIdentificacion',null,['class'=> 'form-control','placeholder'=>'Ingrese el número de identificación'])!!}
   			</div>
 
 		    @include('ingreso.forms.ingreso')
@@ -44,29 +42,45 @@
 
 @stop
 
-<script type="text/javascript">
-	$("#tblVinculos").on('click', '.delete', function () {
-        var tr = $(this).closest('tr');
-        tr.remove();
+@section('pageScripts')
 
-        var tbody = $("#tblVinculos tbody");
-        console.log("leg" + tbody.children().length);
-        if (tbody.children().length == 0) {
-            console.log("asd assss");
-            $("#divTablaVinculos").css('display', 'none');
+	<script type="text/javascript">
 
-        }
+		$(document).ready(function(){ 
 
-        array.splice($(this).closest('tr').index(), 1);
+			var token = $("#token").val();
 
-        $.ajax({
-            type: "POST",
-            url: "@Url.Content("arrayBeneficiario")",
-            contentType: "application/json; charset=UTF-8",
-            traditional: true,
-            data: JSON.stringify({ array: array })
+			$("#numeroIdentificacion").keyup(function(){   
 
-        });
+				var numeroIdentificacion = $("#numeroIdentificacion").val();		
 
-    });
-</script>
+				$.ajax({
+	            	headers: {'X-CSRF-TOKEN': token},
+	                type: 'POST',
+	                url: "./consultarNumeroIdentificacion",
+	                data: {id: numeroIdentificacion},
+	                dataType: 'json'
+	     //            success: function(data) {
+		
+	    	// 			swal(
+						// 	'Evento modificado correctamente',
+						// 	'',
+						// 	'success'
+						// )
+		    //         },  
+		    //         error: function(data) {
+	     //        		swal(
+						// 	'Ha ocurrido un error',
+						// 	'',
+						// 	'error'
+						// )
+		               
+		    //         },          
+            	})
+		    });
+
+		})
+		
+	</script>
+
+@stop

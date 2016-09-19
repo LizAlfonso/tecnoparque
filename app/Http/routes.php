@@ -21,6 +21,8 @@ Route::get('log', 'FrontController@log');
 
 Route::get('asistencia/{idDetEventoPersona}', ['as' => 'asistencia.index', 'uses' => 'DetEventoPersonaController@index']);
 
+/** ajax ingreso **/
+Route::post('consultarNumeroIdentificacione', 'IngresoController@consultarNumeroIdentificacion');
 // Route::get('header',function(){
 // 	return view('prueba');
 // });

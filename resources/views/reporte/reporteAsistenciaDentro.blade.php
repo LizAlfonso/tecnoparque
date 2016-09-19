@@ -17,21 +17,43 @@
 		<table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
 			<thead>
 				<tr>
-					<th>Número de identificación</th>
-					<th>Tipo de documento</th>
-					<th>Tipo de persona</th>
-					<th>Nombres</th>
-					<th>Apellidos</th>
-					<th>Género</th>
-					<th>Correo electrónico</th>
-					<th>Teléfono</th>
-					<th>Celular</th>
-					<th>Empresa</th>
-					<th>Operación</th>
+					<th>Total</th>
+					<th>Aprendiz SENA</th>
+					<th>Gestor</th>
+					<th>Instructor</th>
+					<th>Media técnica</th>
+					<th>Talento</th>
+					<th>Universitario</th>
+					<th>Otro</th>					
 				</tr>
 			</thead>
 			<tbody>
-				
+				<tr>
+					<td>
+						{{$query[0]->total}}	
+					</td>
+					<td>
+						{{$query[0]->aprendizSena}}				
+					</td>
+					<td>
+						{{$query[0]->gestor}}					
+					</td>
+					<td>
+						{{$query[0]->instructor}}
+					</td>
+					<td>
+						{{$query[0]->mediaTecnica}}					
+					</td>
+					<td>
+						{{$query[0]->talento}}
+					</td>
+					<td>
+						{{$query[0]->universitario}}
+					</td>					
+					<td>
+						{{$query[0]->otro}}
+					</td>
+				</tr>
 			</tbody>
 		</table>
     </div>
