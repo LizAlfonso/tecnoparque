@@ -18,7 +18,7 @@ class CreateCentroFormacionsTable extends Migration
             $table->increments('idCentroFormacion');
 
             //normal values
-            $table->string('nombre',60)->unique();  
+            $table->string('nombre',75)->unique();  
 
             //others
             $table->timestamps();

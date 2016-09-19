@@ -24,7 +24,7 @@ class CentroFormacionUpdateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|max:60',
+            'nombre'=> 'required|max:75',
         ];
     }
 }

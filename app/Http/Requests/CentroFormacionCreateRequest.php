@@ -24,7 +24,7 @@ class CentroFormacionCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:centro_formacions|max:60',
+            'nombre'=> 'required|unique:centro_formacions|max:75',
         ];
     }
 }
