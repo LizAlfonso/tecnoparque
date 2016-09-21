@@ -38,7 +38,7 @@
 						<tr><td>{{$persona->numeroIdentificacion}}</td>
 						<td>{{$persona->tipoDocumentos->nombre}}</td>
 						<td>{{$persona->tipoPersonas->nombre}}
-						@if($persona->tipoPersonas->nombre == 'Gestor')
+						@if($persona->tipoPersonas->nombre == 'Gestor T1' || $persona->tipoPersonas->nombre == 'Gestor T2')
 						@foreach($gestores as $gestor)
 							@if($persona->idPersona == $gestor->idPersona)
 								- {{$gestor->lineaTecnologicas->nombre}}

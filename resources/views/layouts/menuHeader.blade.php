@@ -15,7 +15,6 @@
       <li><a href="{{ url('persona') }}">Personas</a></li> 
       <li><a href="{{ url('ingreso') }}">Ingresos</a></li>
       <li><a href="{{ url('evento') }}">Eventos</a></li>
-      <li><a href="{{ url('pruebaAjax') }}">Ajax</a></li>
       <li><a href="{{ url('reporte') }}">Reportes</a></li>
    @else
 

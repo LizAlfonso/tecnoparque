@@ -85,7 +85,7 @@ class PersonaController extends Controller
 
         $tipoP = TipoPersona::find($request['idTipoPersona']); 
 
-        if($tipoP->nombre == 'Gestor')
+        if($tipoP->nombre == 'Gestor T1' || $tipoP->nombre == 'Gestor T2')
         {
             $id = Persona::where('numeroIdentificacion',$request['numeroIdentificacion'])->first();
 
@@ -120,10 +120,10 @@ class PersonaController extends Controller
         $tipoDocumentos = TipoDocumento::lists('nombre','idTipoDocumento');
         $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
         $persona = Persona::find($id);
-        $gestor = Gestor::where('idPersona', '=', $id)->first();
+        // $gestor = Gestor::where('idPersona', '=', $id)->first();
         $lineas = LineaTecnologica::lists('nombre','idLineaTecnologica');
-        $lineaGestor = $gestor->lineaTecnologicas->lists('nombre','idLineaTecnologica');
-        
+        // $lineaGestor = $gestor->lineaTecnologicas->lists('nombre','idLineaTecnologica');
+        // $lineaGestor = $gestor->lineaTecnologicas->nombre;
         $centros = CentroFormacion::lists('nombre','idCentroFormacion');        
         return view('persona.edit',['persona'=>$persona],compact('tipoDocumentos','tipoPersonas','lineas','centros', 'gestor', 'persona'));
     }

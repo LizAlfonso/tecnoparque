@@ -46,8 +46,9 @@
 		$(selectTipoPersona).change(function(e){
 
 				$('#divSENA').remove();
+				$('#divGestor').remove();
 
-			if (selectTipoPersona.find(":selected").text() == "Gestor") {
+			if (selectTipoPersona.find(":selected").text() == "Gestor T1" || selectTipoPersona.find(":selected").text() == "Gestor T2") {
 				$(wrapper).append(
 					'<div id="divGestor">' +
 						'{!!Form::label("idLineaTecnologica","Línea tecnológica *")!!}' +
@@ -63,15 +64,12 @@
 					'</div>'
 				);
 
-				$('#divGestor').remove();
+				// $('#divGestor').remove();
 
 			 } else {
 				$('#divGestor').remove();
 				$('#divSENA').remove();
 			}
-
-			// console.log($(selectTipoPersona).find(":selected").text());
-			//"id"=>"linea"
 
 		});
 

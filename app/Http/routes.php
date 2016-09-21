@@ -59,10 +59,9 @@ Route::resource('persona', 'PersonaController');
 Route::resource('asistencia', 'DetEventoPersonaController', ['except' => ['index']]);
 
 Route::resource('ingreso', 'IngresoController');
-Route::post('pruebaAjax','PruebaAjaxController@auto');
+Route::post('consultarNumeroIdentificacion', 'IngresoController@consultarNumeroIdentificacion');
 
 Route::resource('lineaTecnologica', 'LineaTecnologicaController');
-
 Route::resource('reporte', 'ReporteController');
 
 // Route::resource('mail','MailController');
@@ -80,8 +79,6 @@ Route::resource('detInfraestructuraPersona', 'DetInfraestructuraPersonaControlle
 Route::resource('tipoProyecto', 'TipoProyectoController');
 Route::resource('estadoProyecto', 'EstadoProyectoController');
 Route::resource('fechaEntrenamiento', 'FechaEntrenamientoController');
-Route::resource('tipoGestor', 'TipoGestorController');
-Route::resource('gestor', 'GestorController');
 Route::resource('areaConocimiento', 'AreaConocimientoController');
 Route::resource('clasificacion', 'ClasificacionController');
 Route::resource('proyecto', 'ProyectoController');

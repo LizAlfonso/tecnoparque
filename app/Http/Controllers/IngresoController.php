@@ -8,6 +8,8 @@ use Tecnoparque\Http\Requests;
 use Tecnoparque\Ingreso;
 use Tecnoparque\TipoDocumento;
 use Tecnoparque\tipoPersona;
+use Tecnoparque\Persona; 
+use Tecnoparque\CentroFormacion;
 use Tecnoparque\Http\Requests\IngresoCreateRequest;
 use Tecnoparque\Http\Requests\IngresoUpdateRequest;
 use Session;
@@ -32,6 +34,41 @@ class IngresoController extends Controller
         return view('ingreso.index',compact('ingresos'));
     }
 
+    public function consultarNumeroIdentificacion(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $numeroIdentificacion = $request["id"];
+
+            // var_dump($numeroIdentificacion);
+
+            // $query = Persona::select(\DB::raw('CONCAT(nombres, " ", apellidos) AS nombres, numeroIdentificacion', 'tipo_personas.nombre', 'personas.correo'))
+            //     ->join('tipo_personas', 'personas.idTipoPersona', '=', 'tipo_personas.idTipoPersona')
+            //     ->where('numeroIdentificacion', '=', $numeroIdentificacion)
+            //     ->get();
+
+            // $query = Persona::select('correo', \DB::raw('CONCAT(nombres, " ", apellidos) AS nombres'))
+            //     ->table('tipo_personas')->select('nombre')
+            //     ->join('tipo_personas', 'personas.idTipoPersona', '=', 'tipo_personas.idTipoPersona')
+            //     ->where('numeroIdentificacion', '=', $numeroIdentificacion)
+            //     ->get();
+
+            $query = \DB::table('personas')
+                ->join('tipo_personas', 'personas.idTipoPersona', '=', 'tipo_personas.idTipoPersona')
+                ->select(\DB::raw('CONCAT(personas.nombres, " ", personas.apellidos) AS nombres'), 'personas.correo', 'tipo_personas.nombre')
+                ->where('numeroIdentificacion', '=', $numeroIdentificacion)
+                ->get();        
+
+            // var_dump($query[0]->correo);
+            // var_dump($query[0]->nombres);
+            // var_dump($query[0]->nombre);
+
+            return response()->json([
+                "mensaje" => $query
+            ]);
+        }  
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -42,7 +79,8 @@ class IngresoController extends Controller
         $ingresos = Ingreso::All();
         $tipoDocumentos = TipoDocumento::lists('nombre','idTipoDocumento');
         $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
-        return view('ingreso.create',compact('tipoDocumentos'),compact('tipoPersonas'),compact('ingresos'));
+        $centros = CentroFormacion::lists('nombre','idCentroFormacion');
+         return view('ingreso.create',compact('tipoDocumentos','tipoPersonas','ingresos','centros'));
     }
 
     /**
@@ -51,9 +89,40 @@ class IngresoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IngresoCreateRequest $request)
     {
-        //
+
+        if(empty($request['apellidos']))
+        {
+            // return "ya existe";            
+        }
+        else
+        {
+            Persona::create([
+            'numeroIdentificacion' => $request['numeroIdentificacion'],
+            'nombres' => $request ['nombres'],
+            'apellidos' => $request['apellidos'],
+            'correo' => $request['correo'],
+            'idTipoDocumento' => $request['idTipoDocumento'],
+            'idTipoPersona' => $request['idTipoPersona'],  
+            'idCentroFormacion' => $request['idCentroFormacion'],          
+            ]);
+
+        }
+
+        $id = Persona::where('numeroIdentificacion',$request['numeroIdentificacion'])->first(); 
+
+        // return $id;
+
+        Ingreso::create([
+            'fecha' => $request['fecha'],
+            'horaIngreso' => $request['horaIngreso'],
+            'descripcion' => $request['descripcion'],  
+            'horaSalida' => $request['horaSalida'],  
+            'idPersona'=> $id->idPersona,
+            ]);      
+
+        return redirect('ingreso')->with('message','Ingreso registrado correctamente');
     }
 
     /**

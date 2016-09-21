@@ -29,7 +29,7 @@ class PersonaCreateRequest extends Request
             'idTipoPersona' => 'required',
             'nombres'=> 'required|max:50',
             'apellidos'=> 'required|max:50',
-            'correo'=> 'required|email|unique:personas|max:254',
+            'correo'=> 'required|email|max:254',
             'telefono'=> 'min:7|max:20',
             'celular'=> 'min:10|max:10',
             'empresa'=> 'max:30',

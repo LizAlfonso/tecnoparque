@@ -6,6 +6,8 @@
 
 {!!Form::open(['route'=>'ingreso.store', 'method'=>'POST'])!!}
 
+<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+
 	<div class="container" >
 
 		<div>
@@ -21,64 +23,121 @@
 
 		    <br>
 
-	  <div class="form-group list-group">
-        {!!Form::label('numeroIdentificacion','Número de identificación *')!!}
-        {!!Form::number('numeroIdentificacion',null,['class'=> 'form-control','placeholder'=>'Ingrese el número de identificación'])!!}
+	       <div class="form-group list-group">
+                {!!Form::label('numeroIdentificacion','Número de identificación *')!!}
 
-        @if ($errors->has('numeroIdentificacion'))
-            <span class="list-group-item list-group-item-danger">
-               <strong>{{ $errors->first('numeroIdentificacion') }}</strong>
-            </span>
-        @endif
+                <div class="input-group">   
 
-    </div>
+                    {!!Form::number('numeroIdentificacion',null,['class'=> 'form-control','placeholder'=>'Ingrese el número de identificación'])!!}
 
-    <div class="form-group ">
-        {!!Form::label('idTipoPersona','Tipo de persona *')!!}
-        {!!Form::select('idTipoPersona',$tipoPersonas,null,['placeholder'=>'Seleccione','class'=>'form-control'])!!}
+                    @if ($errors->has('numeroIdentificacion'))
+                        <span class="list-group-item list-group-item-danger">
+                          <strong>{{ $errors->first('numeroIdentificacion') }}</strong>
+                        </span>
+                    @endif
 
-       @if ($errors->has('idTipoPersona'))
-         <span class="list-group-item list-group-item-danger">
-           <strong>{{ $errors->first('idTipoPersona') }}</strong>
-         </span>
-       @endif
-    </div>
+                    <span class="input-group-btn">
+                        <button id="btnNumeroIdentificacion" class="btn btn-info" type="button">Verificar</button>
+                    </span>
 
-    <div class="form-group list-group">
-        {!!Form::label('nombres','Nombres *')!!}
-        {!!Form::text('nombres',null,['class'=> 'form-control','placeholder'=>'Ingrese los nombres'])!!}
+                </div>
 
-        @if ($errors->has('nombres'))
-            <span class="list-group-item list-group-item-danger">
-               <strong>{{ $errors->first('nombres') }}</strong>
-            </span>
-        @endif
-    </div>
+            </div>
 
-    <div class="form-group list-group">
-        {!!Form::label('apellidos','Apellidos *')!!}
-        {!!Form::text('apellidos',null,['class'=> 'form-control','placeholder'=>'Ingrese los apellidos'])!!}
+    <div id="divPersona" class="form-group list-group">
 
-        @if ($errors->has('apellidos'))
-            <span class="list-group-item list-group-item-danger">
-               <strong>{{ $errors->first('apellidos') }}</strong>
-            </span>
-        @endif
-    </div>
-
-    <div class="form-group ">
-        {!!Form::label('correo','Correo electrónico *')!!}
-        {!!Form::text('correo',null,['class'=> 'form-control','placeholder'=>'Ingrese el correo electrónico'])!!}
-
-        @if ($errors->has('correo'))
-            <span class="list-group-item list-group-item-danger">
-                <strong>{{ $errors->first('correo') }}</strong>
-            </span>
-        @endif
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Persona registrada</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group list-group"> 
+                    <label>Nombre</label>   
+                        <input id="nombrePersona" disabled class='form-control'>
+                </div>
+                <div class="form-group list-group">
+                    <label>Tipo Persona</label> 
+                        <input id="tipoPersona" disabled class='form-control'>
+                </div>
+                <div class="form-group list-group">
+                    <label>Correo</label>   
+                        <input id="correo" disabled class='form-control'>  
+                </div>
+            </div>
+        </div>
 
     </div>
 
-    @include('ingreso.forms.ingreso')
+   <div id="divRegistrarPersona" class="form-group list-group">
+            
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Registrar nueva persona</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group list-group"> 
+                            {!!Form::label('nombres','Nombres *')!!}
+                            {!!Form::text('nombres',null,['class'=> 'form-control','placeholder'=>'Ingrese los nombres'])!!}
+
+                            @if ($errors->has('nombres'))
+                                <span class="list-group-item list-group-item-danger">
+                                   <strong>{{ $errors->first('nombres') }}</strong>
+                                </span>
+                            @endif                          
+                        </div>
+                        <div class="form-group list-group">
+                            {!!Form::label('apellidos','Apellidos *')!!}
+                            {!!Form::text('apellidos',null,['class'=> 'form-control','placeholder'=>'Ingrese los apellidos'])!!}
+
+                            @if ($errors->has('apellidos'))
+                                <span class="list-group-item list-group-item-danger">
+                                   <strong>{{ $errors->first('apellidos') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group ">
+                            {!!Form::label('idTipoDocumento','Tipo de documento *')!!}
+                            {!!Form::select('idTipoDocumento',$tipoDocumentos,null,['placeholder'=>'Seleccione','class'=>'form-control'])!!}
+
+                           @if ($errors->has('idTipoDocumento'))
+                             <span class="list-group-item list-group-item-danger">
+                               <strong>{{ $errors->first('idTipoDocumento') }}</strong>
+                             </span>
+                           @endif
+                        </div>
+
+                        <div class="form-group ">
+                            {!!Form::label('idTipoPersona','Tipo de persona *')!!}
+                            {!!Form::select('idTipoPersona',$tipoPersonas,null,['placeholder'=>'Seleccione','id'=>'tipoP','class'=>'form-control'])!!}
+
+                           @if ($errors->has('idTipoPersona'))
+                             <span class="list-group-item list-group-item-danger">
+                               <strong>{{ $errors->first('idTipoPersona') }}</strong>
+                             </span>
+                           @endif
+                        </div>
+
+                        <div id="divAprendiz" class="form-group">
+    
+                        </div>
+
+                        <div class="form-group ">
+                            {!!Form::label('correo','Correo electrónico *')!!}
+                            {!!Form::text('correo',null,['class'=> 'form-control','placeholder'=>'Ingrese el correo electrónico'])!!}
+
+                            @if ($errors->has('correo'))
+                                <span class="list-group-item list-group-item-danger">
+                                    <strong>{{ $errors->first('correo') }}</strong>
+                                </span>
+                            @endif
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            @include('ingreso.forms.ingreso') 
 
 			<div class="form-group ">
 			{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
@@ -93,32 +152,71 @@
 @stop
 
 @section('pageScripts')
-<script type="text/javascript">
 
-    $contar = 1;
+    <script type="text/javascript">
 
-    var contarb = 1;
+        $(document).ready(function(){ 
 
-    $("#numeroIdentificacion").keyup(function(){
+            $divPersona = $("#divPersona");
+            $divRegistrarPersona = $("#divRegistrarPersona");
+            $divPersona.hide();
+            $divRegistrarPersona.hide();
 
-        // $numeroIdentificacion = $("#numeroIdentificacion").val();
-        // console.log($numeroIdentificacion);
+            var token = $("#token").val();
 
-        $('#nombres').val("bla");
+            $("#btnNumeroIdentificacion").click(function(){   
 
-        if (contarb==1) {
-            $('#nombres').val(contarb);
-            contarb = contarb+1;
-            // contarb = contarb+1;
-         }
-         else
-         {
-            $('#nombres').val(contarb);
-            contarb = contarb+1;
-         }
-       
-       $('#apellidos').val("bla bla");
+                var numeroIdentificacion = $("#numeroIdentificacion").val();        
 
-    });
-</script>
+                $.ajax({
+                    headers: {'X-CSRF-TOKEN': token},
+                    type: 'POST',
+                    url: "../consultarNumeroIdentificacion",
+                    data: {id: numeroIdentificacion},
+                    dataType: 'json',
+                    success: function(data) {
+                       
+                        if (!$.isEmptyObject(data["mensaje"])) {
+                            $divPersona.show();
+                            $divRegistrarPersona.hide();
+                            $nombres = data["mensaje"][0].nombres;
+                            $tipoPersona = data["mensaje"][0].nombre;
+                            $correo = data["mensaje"][0].correo;
+                            // console.log($tipoPersona);
+
+                            $("#nombrePersona").val($nombres);
+                            $("#tipoPersona").val($tipoPersona);
+                            $("#correo").val($correo);
+                        } else {
+                            $divPersona.hide();
+                            $divRegistrarPersona.show();
+
+                            var wrapper = $("#divAprendiz");              //*
+                            var selectTipoPersona = $("#tipoP");    //*
+
+                            $(selectTipoPersona).change(function(e){
+                                // console.log("cambió persona");
+                                $('#divSENA').remove();
+
+                                if (selectTipoPersona.find(":selected").text() == "Aprendiz SENA" || selectTipoPersona.find(":selected").text() == "Instructor SENA") {
+                                    $(wrapper).append(
+                                        '<div id="divSENA">' +
+                                            '{!!Form::label("idCentroFormacion","Centro de formación *")!!}' +
+                                            '{!!Form::select("idCentroFormacion",$centros,null,["placeholder"=>"Seleccione","class"=>"form-control"]) !!}' +
+                                        '</div>'
+                                    );
+                                  
+                                 }
+
+                            });
+                        }
+                        
+                    }       
+                })
+            });
+
+        })
+        
+    </script>
+
 @stop
