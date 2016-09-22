@@ -6,7 +6,7 @@
 
 {!!Form::model($ingreso,['route'=> ['ingreso.update',$ingreso->idIngreso],'method'=>'PUT'])!!}
 
-	<div class="container" >
+	<div class="container">
 
 		<div>
 		<br><br>
@@ -21,11 +21,9 @@
 
 		    <br>
 
-			@include('ingreso.forms.ingreso')
-
 		    <div class="form-group list-group">
-			   {!!Form::label('numeroIdentificacion','Número de identificación *')!!}
-			   {!!Form::number('numeroIdentificacion',"$persona->numeroIdentificacion",['class'=> 'form-control','placeholder'=>'Ingrese el número de identificación'])!!}
+			   {!!Form::label('numeroIdentificacion','Número de identificación')!!}
+			   {!!Form::number('numeroIdentificacion',$persona->numeroIdentificacion,['class'=> 'form-control','placeholder'=>'','disabled'=>'disabled'])!!}
 
 			    @if ($errors->has('numeroIdentificacion'))
 			        <span class="list-group-item list-group-item-danger">
@@ -35,20 +33,19 @@
 			</div>
 
 			<div class="form-group ">
-		        {!!Form::label('idTipoDocumento','Tipo de documento *')!!}
-		        {!!Form::select('idTipoDocumento',$tipoDocumentos,null,['placeholder'=>'Seleccione','class'=>'form-control'])!!}
+		        {!!Form::label('idTipoPersona','Tipo de persona')!!}
+		        {!!Form::text('idTipoPersona',$persona->tipoPersonas->nombre,['class'=> 'form-control','placeholder'=>'','disabled'=>'disabled'])!!}
 
-		        @if ($errors->has('idTipoDocumento'))
+		        @if ($errors->has('idTipoPersona'))
 			         <span class="list-group-item list-group-item-danger">
-			           <strong>{{ $errors->first('idTipoDocumento') }}</strong>
+			           <strong>{{ $errors->first('idTipoPersona') }}</strong>
 			         </span>
 			    @endif
 		    </div>
-		        <!-- $persona->tipoPersonas->nombre -->
 
 		    <div class="form-group list-group">
 		        {!!Form::label('nombres','Nombres *')!!}
-		        {!!Form::text('nombres',$persona->nombres,['class'=> 'form-control','placeholder'=>'Ingrese los nombres'])!!}
+		        {!!Form::text('nombres',$persona->nombres,['class'=> 'form-control','placeholder'=>'','disabled'=>'disabled'])!!}
 
 		        @if ($errors->has('nombres'))
 		            <span class="list-group-item list-group-item-danger">
@@ -59,7 +56,7 @@
 
 		    <div class="form-group list-group">
 		        {!!Form::label('apellidos','Apellidos *')!!}
-		        {!!Form::text('apellidos',$persona->apellidos,['class'=> 'form-control','placeholder'=>'Ingrese los apellidos'])!!}
+		        {!!Form::text('apellidos',$persona->apellidos,['class'=> 'form-control','placeholder'=>'','disabled'=>'disabled'])!!}
 
 		        @if ($errors->has('apellidos'))
 		            <span class="list-group-item list-group-item-danger">
@@ -70,7 +67,7 @@
 
 	        <div class="form-group ">
 		        {!!Form::label('correo','Correo electrónico *')!!}
-		        {!!Form::text('correo',$persona->correo,['class'=> 'form-control','placeholder'=>'Ingrese el correo electrónico'])!!}
+		        {!!Form::text('correo',$persona->correo,['class'=> 'form-control','placeholder'=>'','disabled'=>'disabled'])!!}
 
 		        @if ($errors->has('correo'))
 		            <span class="list-group-item list-group-item-danger">
@@ -79,40 +76,11 @@
 		        @endif
 		    </div>
 
-		    <div class="form-group list-group">
-			    {!!Form::label('telefono','Teléfono')!!}
-			    {!!Form::number('telefono',"$persona->telefono",['class'=> 'form-control','placeholder'=>'Ingrese el número de identificación'])!!}
-
-			    @if ($errors->has('telefono'))
-			        <span class="list-group-item list-group-item-danger">
-			           <strong>{{ $errors->first('telefono') }}</strong>
-			        </span>
-			    @endif
-			</div>
-
-			<div class="form-group list-group">
-			    {!!Form::label('celular','Celular')!!}
-			    {!!Form::number('celular',"$persona->celular",['class'=> 'form-control','placeholder'=>'Ingrese el número de identificación'])!!}
-
-			    @if ($errors->has('celular'))
-			        <span class="list-group-item list-group-item-danger">
-			           <strong>{{ $errors->first('celular') }}</strong>
-			        </span>
-			    @endif
-			</div>
+		    @include('ingreso.forms.ingreso')
 
 			<div class="form-group ">
 			{!!Form::submit('Modificar',['class'=>'btn btn-success'])!!}
 			</div> 
-
-@section('script')
-			<script type="text/javascript">
-				$(document).ready(function(){ 
-					$("#tipoDocumento").val($persona->tipoDocumentos->nombre);
-				}
-			</script>	
-
-@stop		
 
 {!!Form::close()!!}
 

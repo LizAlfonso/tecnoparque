@@ -20,7 +20,7 @@ body a{
 
 /*----start-container----*/
 .container{
-	width:60%;
+	width:80% !important;
 	margin-left:0em;
 }
 
@@ -195,7 +195,7 @@ nav a#pull {
 }
 
 .banner-data{    
-	padding: 2.2em 20em;
+	padding: 0em 20em;
 	left: 20%;
 }
 
@@ -205,6 +205,11 @@ nav a#pull {
 
 .banner-data3{
 	padding: 2.2em 0em;
+}
+
+.banner-data4{    
+	padding: 2.2em 20em;
+	left: 20%;
 }
 
 .banner-info h1{

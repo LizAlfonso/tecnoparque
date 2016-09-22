@@ -18,7 +18,7 @@ class CreateLineaTecnologicasTable extends Migration
             $table->increments('idLineaTecnologica');
 
             //normal values
-            $table->string('nombre',30)->unique();
+            $table->string('nombre',40)->unique();
 
             //others
             $table->timestamps();

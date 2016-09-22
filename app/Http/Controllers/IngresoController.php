@@ -8,6 +8,10 @@ use Tecnoparque\Http\Requests;
 use Tecnoparque\Ingreso;
 use Tecnoparque\TipoDocumento;
 use Tecnoparque\tipoPersona;
+use Tecnoparque\Http\Requests\IngresoCreateRequest;
+use Tecnoparque\Http\Requests\IngresoUpdateRequest;
+use Session;
+use Redirect;
 
 class IngresoController extends Controller
 {
@@ -44,12 +48,9 @@ class IngresoController extends Controller
      */
     public function create()
     {
-        return view('ingreso.create');
-    }
-  
-        public function buscar()
-    {
-        return "buscando";
+        $tipoDocumentos = TipoDocumento::lists('nombre','idTipoDocumento');
+        $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
+        return view('ingreso.create',compact('tipoDocumentos'),compact('tipoPersonas'));
     }
 
     /**
@@ -83,12 +84,8 @@ class IngresoController extends Controller
     public function edit($id)
     {
         $ingreso = Ingreso::find($id);
-
-        $tipoPersonas = TipoPersona::lists('nombre','idTipoPersona');
-        $persona = $ingreso->personas;
-        // $tipo =  $ingreso->personas->tipoDocumentos::lists('nombres', 'id_')
-        // $tipo = DB::table('personas')->where('name', 'John')->value('idTipoDocumento');       
-        return view('ingreso.edit', compact('tipoPersonas', 'ingreso', 'persona'));
+        $persona = $ingreso->personas;    
+        return view('ingreso.edit',['persona'=>$persona], compact('tipoPersonas', 'ingreso', 'persona'));
     }
 
     /**
@@ -100,12 +97,12 @@ class IngresoController extends Controller
      */
     public function update(IngresoUpdateRequest $request, $id)
     {
-        $persona = Persona::find($id);      
-        $persona->fill($request->all());
-        $persona->save();
+        $ingreso = Ingreso::find($id);
+        $ingreso->fill($request->all());
+        $ingreso->save();
 
-        Session::flash('message','Persona modificada correctamente');
-        return Redirect::to('persona');
+        Session::flash('message','Ingreso modificado correctamente');
+        return Redirect::to('ingreso');
     }
 
     /**
@@ -116,6 +113,9 @@ class IngresoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ingreso = Ingreso::find($id);
+        $ingreso->delete();
+        Session::flash('message','Ingreso eliminado correctamente');
+        return Redirect::to('ingreso');
     }
 }

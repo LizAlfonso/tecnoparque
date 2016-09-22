@@ -520,7 +520,7 @@
 	                // "searchable": false
 	            },
 				{
-				'bSortable': false, 'aTargets': [10]
+				'bSortable': false, 'aTargets': [10,11]
 				}
 			],
 			"oLanguage":
@@ -538,34 +538,29 @@
 			"aoColumnDefs":
 			[
 				{
-	                "targets": [ 0 ],
+	                "targets": [0],
 	                "visible": false,
 	                // "searchable": false
 	            },
 				{
-					'bSortable': false, 'aTargets': [11]
+					'bSortable': false, 'aTargets': [11,12],
 				}
 			],
 			"oLanguage":
 			{
 				"sUrl": "../../resources/lang/Espanhol.json"
 			},
-			// "fnDrawCallback": function() {			
-			// 	$("#dataTable tbody tr").click(function() {
-			// 	var position = dataTable.fnGetPosition(this); 
-			// 	var contactId = dataTable.fnGetData(position)[0]; 
-			// 	console.log("aaaaa " + contactId);
-				
-			// 	});
-			// }
+
 		});   		
 
 		var dataTableObject = $('#dataTable').dataTable();
 
 		$('#dataTablePersona tbody').on( 'click', '.btn-warning', function () {		
 			var dataAsistentes = [];
-			$("#dataTable tr").each(function(){
-			    dataAsistentes.push($(this).find("td:first").text()); //put elements into array
+			$("#dataTable tbody tr").each(function(){
+				var position = dataTableObject.fnGetPosition($(this)[0]);		 
+		 		var idPersona = dataTableObject.fnGetData(position)[0];	
+			    dataAsistentes.push(idPersona); //put elements into array
 			});
 		    var data = tablePersona.row( $(this).parents('tr') ).data();
 		    var idPersonas = data[0];		    

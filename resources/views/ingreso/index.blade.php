@@ -3,7 +3,7 @@
 @section('content')
 @include ('layouts.menuHeader')
 @include ('layouts.scripts')
-@include ('dataTables.scriptDataTable13')
+@include ('dataTables.scriptDataTable10')
 
 <div class="container2">
     
@@ -24,7 +24,7 @@
 
 				<thead>
 
-				<tr><th>Fecha</th><th>Hora de ingreso</th><th>Número de identificación</th><th>Tipo de persona</th><th>Nombres</th><th>Apellidos</th><th>Correo electrónico</th><th>Teléfono</th><th>Celular</th><th>Descripción</th><th>Hora de salida</th><th>Operación</th></tr>
+				<tr><th>Fecha</th><th>Hora de ingreso</th><th>Número de identificación</th><th>Tipo de persona</th><th>Nombres</th><th>Apellidos</th><th>Correo electrónico</th><th>Descripción</th><th>Hora de salida</th><th>Operación</th></tr>
 
 				</thead>
 
@@ -39,8 +39,6 @@
 						<td>{{$ingreso->personas->nombres}}</td>
 						<td>{{$ingreso->personas->apellidos}}</td>
 						<td>{{$ingreso->personas->correo}}</td>
-						<td>{{$ingreso->personas->telefono}}</td>
-						<td>{{$ingreso->personas->celular}}</td>
 						<td>{{$ingreso->descripcion}}</td>											
 						<td>{{$ingreso->horaSalida}}</td>
 						

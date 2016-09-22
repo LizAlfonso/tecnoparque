@@ -4,7 +4,7 @@ namespace Tecnoparque\Http\Requests;
 
 use Tecnoparque\Http\Requests\Request;
 
-class IngresoUpdateRequest extends Request
+class LineaTecnologicaUpdateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class IngresoUpdateRequest extends Request
     public function rules()
     {
         return [
-            'fecha' => 'required',
+            'nombre'=> 'required|max:40',
         ];
     }
 }
