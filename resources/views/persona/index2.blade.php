@@ -54,9 +54,14 @@
 						<tr><td>{{$persona->numeroIdentificacion}}</td>
 						<td>{{$persona->tipoDocumentos->nombre}}</td>
 						<td>{{$persona->tipoPersonas->nombre}}
-						@if($persona->tipoPersonas->nombre == 'Gestor')
-						- nope					
+						@if($persona->tipoPersonas->nombre == 'Gestor T1' || $persona->tipoPersonas->nombre == 'Gestor T2')
+						@foreach($gestores as $gestor)
+							@if($persona->idPersona == $gestor->idPersona)
+								- {{$gestor->lineaTecnologicas->nombre}}
+							@endif
+						@endforeach				
 						@endif
+						
 						@if($persona->tipoPersonas->nombre == 'Aprendiz SENA' || $persona->tipoPersonas->nombre == 'Instructor SENA')
 							- {{$persona->centroFormacions->nombre}}
 						@endif
@@ -76,10 +81,10 @@
 						<td>{{$persona->empresa}}</td>
 						
 						@if( Auth::user()->rols->nombre != "Dinamizador") 
-						<td> <div>
-						{!!link_to_route('persona.edit', $title = 'Modificar', $parameters = $persona->idPersona, $attributes = ['class'=>'btn btn-success'])!!}
-                        
-                        </div></td>
+							<td> <div>
+							{!!link_to_route('persona.edit', $title = 'Modificar', $parameters = $persona->idPersona, $attributes = ['class'=>'btn btn-success'])!!}
+	                        
+	                        </div></td>
                         @endif
 
                         </tr>

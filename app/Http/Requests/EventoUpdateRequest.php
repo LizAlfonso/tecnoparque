@@ -25,7 +25,7 @@ class EventoUpdateRequest extends Request
     {
         return [
             'idServicio' =>'required',
-            'nombre' => 'required|max:50',
+            'nombre' => 'required|max:100',
             'fecha' => 'required',
             'hora' => 'required',
             'lugar' => 'required',

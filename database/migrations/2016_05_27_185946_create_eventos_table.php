@@ -18,7 +18,7 @@ class CreateEventosTable extends Migration
             $table->increments('idEvento');
 
             //normal values
-            $table->string('nombre',50);          
+            $table->string('nombre',100);          
             $table->date('fecha');        
             $table->string('hora',10);      
             $table->string('lugar',6);

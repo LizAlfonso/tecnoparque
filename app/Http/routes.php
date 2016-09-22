@@ -57,10 +57,8 @@ Route::resource('tipoPersona', 'TipoPersonaController');
 Route::resource('centroFormacion','CentroFormacionController');
 Route::resource('persona', 'PersonaController');
 Route::resource('asistencia', 'DetEventoPersonaController', ['except' => ['index']]);
-
 Route::resource('ingreso', 'IngresoController');
 Route::post('consultarNumeroIdentificacion', 'IngresoController@consultarNumeroIdentificacion');
-
 Route::resource('lineaTecnologica', 'LineaTecnologicaController');
 Route::resource('reporte', 'ReporteController');
 

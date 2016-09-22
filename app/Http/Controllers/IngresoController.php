@@ -14,6 +14,7 @@ use Tecnoparque\Http\Requests\IngresoCreateRequest;
 use Tecnoparque\Http\Requests\IngresoUpdateRequest;
 use Session;
 use Redirect;
+use Auth;
 
 class IngresoController extends Controller
 {
@@ -26,12 +27,24 @@ class IngresoController extends Controller
         public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('infoc',['only' => 'edit']); //destroy no tiene dirección
+        $this->middleware('practicante',['only' => 'create']);
+        $this->middleware('dinamizador');
     }
     
     public function index()
     {
         $ingresos = Ingreso::All();
-        return view('ingreso.index',compact('ingresos'));
+
+        if(Auth::user()->rols->nombre == "Infocenter")
+        {
+            return view('ingreso.index',compact('ingresos'));
+        }
+        else
+        {
+            return view('\ingreso\index2',compact('ingresos'));
+        }
+        
     }
 
     public function consultarNumeroIdentificacion(Request $request)
